@@ -25,7 +25,7 @@
             <div style="height:150px;"></div>
             <div class="media media-y margin-big-bottom">
             </div>
-            <form action="${path}/admin/login" method="post">
+            <form action="${path}/admin/dologin" method="post">
                 <div class="panel loginbox">
                     <div class="text-center margin-big padding-big-top">
                         <h1>欢迎使用宠物领养管理系统</h1>

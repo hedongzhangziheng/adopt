@@ -12,7 +12,7 @@ import java.util.List;
  * @create: 2019-08-20 14:23
  */
 @Data
-public class Admin {
+public class Admins {
     private Integer id;
     private String adminName;
     private String adminPwd;
