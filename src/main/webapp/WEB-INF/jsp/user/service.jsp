@@ -67,8 +67,8 @@
 <!-- //js -->
 
 <!-- start-smooth-scrolling 上去-->
-<script src="${path}/static/js/move-top.js"></script>
-<script src="${path}/static/js/easing.js"></script>
+<script src="${path}/static/js/user/move-top.js"></script>
+<script src="${path}/static/js/user/easing.js"></script>
 <script>
     jQuery(document).ready(function ($) {
         $(".scroll").click(function (event) {
