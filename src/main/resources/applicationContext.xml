@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!--添加ioc注解支持-->
+    <!--包扫描，该包下的所有类以及所有子包下的所有类都支持注解-->
+    <context:component-scan base-package="club.service"/>
+
+    <!--读取连接数据库的properties文件-->
+    <context:property-placeholder location="classpath:database.properties"/>
+
+    <!--配置数据源-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <!--数据库的驱动-->
+        <property name="driverClassName" value="${mysql.driver}"/>
+        <!--连接数据库的url-->
+        <property name="url" value="${mysql.url}"/>
+        <!--数据库的用户名-->
+        <property name="username" value="${mysql.username}"/>
+        <!--数据库的密码-->
+        <property name="password" value="${mysql.password}"/>
+        <!--数据库的最大连接数-->
+        <property name="maxPoolPreparedStatementPerConnectionSize" value="${maxTotal}"></property>
+        <!--连接池的初始化数量-->
+        <property name="initialSize" value="${initPoolSize}"></property>
+        <!--数据库的最大连接时间-->
+        <property name="loginTimeout" value="3000"></property>
+    </bean>
+
+    <!--mybatis的核心类-->
+    <bean id="sqlSessionFactoryBean" class="com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean">
+        <!--数据源-->
+        <property name="dataSource" ref="dataSource"/>
+        <!--起别名。在mapper文件中写类名是可以不写包名，直接写类名-->
+        <property name="typeAliasesPackage" value="club.pojo"/>
+        <!--dao层接口的映射文件路径-->
+        <property name="mapperLocations" value="classpath:mapper/*.xml"/>
+        <!--分页-->
+        <property name="plugins" ref="pageInterceptor"/>
+        <!--全局配置-->
+        <property name="globalConfig" ref="globalConfiguration"/>
+    </bean>
+
+    <!--全局配置-->
+    <bean id="globalConfiguration" class="com.baomidou.mybatisplus.entity.GlobalConfiguration">
+        <!--0代表主键自增-->
+        <property name="idType" value="0"/>
+        <!--表名加前缀，在实体类映射数据库中的表时会自动加上前缀-->
+        <!--<property name="tablePrefix" value=""/>-->
+        <!--驼峰转换时不加下划线-->
+        <property name="dbColumnUnderline" value="false"></property>
+    </bean>
+
+    <!--分页-->
+    <bean id="pageInterceptor" class="com.github.pagehelper.PageInterceptor">
+        <property name="properties">
+            <props>
+                <!-- 3.3.0版本可用 - 分页参数合理化，默认false禁用 -->
+                <!-- 启用合理化时，如果pageNum<1会查询第一页，如果pageNum>pages会查询最后一页 -->
+                <!-- 禁用合理化时，如果pageNum<1或pageNum>pages会返回空数据 -->
+                <prop key="reasonable">true</prop>
+                <!-- 设置为true时，如果pageSize=0或者RowBounds.limit = 0就会查询出全部的结果 -->
+                <!-- （相当于没有执行分页查询，但是返回结果仍然是Page类型）-->
+                <prop key="pageSizeZero">true</prop>
+                <!-- 该参数默认为false -->
+                <!-- 设置为true时，会将RowBounds第一个参数offset当成pageNum页码使用 -->
+                <!-- 和startPage中的pageNum效果一样-->
+                <prop key="offsetAsPageNum">true</prop>
+                <!-- 该参数默认为false -->
+                <!-- 设置为true时，使用RowBounds分页会进行count查询 -->
+                <prop key="rowBoundsWithCount">true</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!--接口的mapper映射-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryBean"/>
+        <property name="basePackage" value="club.dao"/>
+    </bean>
+
+    <!--事务管理-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--开启事务的注解支持-->
+    <!--上面这个bean的id如果写成这样，可以省略transaction-manager="transactionManager"-->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+</beans>
