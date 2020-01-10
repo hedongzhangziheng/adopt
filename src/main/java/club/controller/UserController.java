@@ -14,6 +14,9 @@ import javax.annotation.Resource;
 @RequestMapping("/user")
 public class UserController {
 
+    @Resource
+    private UserService userService;
+
     @RequestMapping("/about")
     public String about(){
         return "user/about";
@@ -53,9 +56,6 @@ public class UserController {
     public String teamBlog(){
         return "user/teamBlog";
     }
-
-    @Resource
-    private UserService userService;
 
     @RequestMapping("/update")
     @ResponseBody

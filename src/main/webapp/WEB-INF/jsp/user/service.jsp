@@ -102,7 +102,7 @@
     });
     function to_page(pn){
         $.ajax({
-            url:"${path}/pet/petState",
+            url:"${path}/pet/pets",
             data:"pn="+pn,
             type:"GET",
             success:function(result){
@@ -203,7 +203,7 @@
         console.log($(this));
         console.log(id);
         $.ajax({
-            url:"${path}/pet/findByPet?id="+id,
+            url:"${path}/pet/findPetById?id="+id,
             type:"GET",
             success:function (result) {
                 window.location.href="${path}/user/show";
