@@ -16,7 +16,7 @@
         <sitemesh:write property='title' /></title>
     <sitemesh:write property='head' />
     <link rel="stylesheet" href="${path}/static/bootstrap/css/bootstrap.min.css">
-    <script src="${path}/static/js/jquery-2.2.3.min.js"></script>
+    <script src="${path}/static/js/user/jquery-2.2.3.min.js"></script>
     <script src="${path}/static/bootstrap/js/bootstrap.min.js"></script>
     <!-- Owl-Carousel-CSS -->
     <link rel="stylesheet" href="${path}/static/css/user/style.css" type="text/css" media="all" />

@@ -1,16 +1,26 @@
 package club.controller;
 
+import club.pojo.Admins;
+import club.service.AdminService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
 
-    @RequestMapping("/admin")
+    @Resource
+    private AdminService adminService;
+
+   /* @RequestMapping("/admin")
     public String admin(){
         return "admin/admin";
-    }
+    }*/
 
     @RequestMapping("/adopt")
     public String adopt(){
@@ -42,10 +52,7 @@ public class AdminController {
         return "admin/disAgree";
     }
 
-    @RequestMapping("/login")
-    public String login(){
-        return "admin/login";
-    }
+
 
     @RequestMapping("/pet")
     public String pet(){
@@ -57,5 +64,20 @@ public class AdminController {
         return "admin/user";
     }
 
+    /*管理员登录*/
+    @RequestMapping("/login")
+    public String login(){
+        return "admin/login";
+    }
+    @RequestMapping("/dologin")
+    public String doLogin(HttpSession session, String adminName,String adminPwd){
+        Admins login = adminService.login(adminName, adminPwd);
+        if (login == null){
+            session.setAttribute("msg","用户名或密码错误！");
+            return "redirect:/admin/login";
+        }
+            session.setAttribute("admin",login);
+        return "admin/admin";
+    }
 
 }

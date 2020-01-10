@@ -2,4 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="club.dao.AdminMapper">
     <sql id="allFields">id, adminName, adminPwd, realName, telephone, Email, birthday, sex, pic, remark</sql>
+    <!--<select id="login" resultType="Admin">
+        select * from admin where adminName=#{adminName}
+    </select>-->
 </mapper>

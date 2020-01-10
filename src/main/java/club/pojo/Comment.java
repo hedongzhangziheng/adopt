@@ -20,7 +20,7 @@ public class Comment {
     private String content;
 
     private User user;
-    private Admin admin;
+    private Admins admin;
     private Pet pet;
     private List<Answer> answer;
 
