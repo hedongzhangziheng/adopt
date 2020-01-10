@@ -203,7 +203,7 @@
         console.log($(this));
         console.log(id);
         $.ajax({
-            url:"${path}/pet/findPetById?id="+id,
+            url:"${path}/pet/findById?id="+id,
             type:"GET",
             success:function (result) {
                 window.location.href="${path}/user/show";

@@ -6,19 +6,11 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9feefffc-e173-4a0f-9daf-8fb6ea7d8494" name="Default Changelist" comment="second commit">
+    <list default="true" id="9feefffc-e173-4a0f-9daf-8fb6ea7d8494" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/club/controller/AdoptAnimalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/controller/AdoptAnimalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/club/controller/AnswerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/controller/AnswerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/club/controller/ApplyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/controller/ApplyController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/club/controller/BlogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/controller/BlogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/club/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/controller/CommentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/club/controller/PetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/controller/PetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/club/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/about.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/about.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/service.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/service.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/css/user/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/css/user/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/images/home/arrows.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/images/home/arrows.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,7 +237,7 @@
       <workItem from="1578529979634" duration="25801000" />
       <workItem from="1578566945821" duration="2450000" />
       <workItem from="1578616398320" duration="2106000" />
-      <workItem from="1578619153224" duration="2317000" />
+      <workItem from="1578619153224" duration="2658000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1578544099596</created>
@@ -268,7 +260,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578563280024</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="third commit">
+      <created>1578621517117</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1578621517117</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,7 +276,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="second commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="second commit" />
+    <MESSAGE value="third commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="third commit" />
   </component>
   <component name="WindowStateProjectService">
     <state x="114" y="14" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578532993449">
@@ -292,10 +292,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="434" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1578562592095" />
-    <state x="222" y="0" key="CommitChangelistDialog2" timestamp="1578563277918">
+    <state x="222" y="0" key="CommitChangelistDialog2" timestamp="1578621514942">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="222" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1578563277918" />
+    <state x="222" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1578621514942" />
     <state x="463" y="108" key="FileChooserDialogImpl" timestamp="1578544877806">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -352,10 +352,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="186" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1578286944808" />
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1578550235488">
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1578621538702">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1578550235488" />
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1578621538702" />
     <state x="467" y="194" width="431" height="336" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1578381031048">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

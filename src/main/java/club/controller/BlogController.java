@@ -11,7 +11,7 @@ public class BlogController {
 
     @RequestMapping("/blogs")
     @ResponseBody
-    public Message blogs(){
+    public Message blogs(Integer pn){
         return Message.success();
     }
 

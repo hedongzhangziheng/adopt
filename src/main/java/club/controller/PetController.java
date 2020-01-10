@@ -16,7 +16,7 @@ public class PetController {
         return Message.success();
     }
 
-    @RequestMapping("/findPetById")
+    @RequestMapping("/findById")
     @ResponseBody
     public Message findPetById(Integer id){
         return Message.success();
