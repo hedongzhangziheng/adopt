@@ -3,11 +3,13 @@ package club.controller;
 import club.pojo.Pet;
 import club.service.PetService;
 import club.util.Message;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/pet")
@@ -19,12 +21,16 @@ public class PetController {
     @RequestMapping("/pets")
     @ResponseBody
     public Message pets(Integer pn){
-        return Message.success();
+        Integer pageSize = 3;
+        PageInfo<Pet> pets = petService.pets(pn, pageSize);
+        return Message.success().add("pageInfo", pets);
     }
 
     @RequestMapping("/findById")
     @ResponseBody
-    public Message findPetById(Integer id){
+    public Message findPetById(HttpSession session, Integer id){
+        Pet pet = petService.findById(id);
+        session.setAttribute("pet", pet);
         return Message.success();
     }
 
