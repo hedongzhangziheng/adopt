@@ -6,5 +6,4 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
 
 public interface AdminMapper extends BaseMapper<Admins> {
     //Admin login(String adminName);
-
 }

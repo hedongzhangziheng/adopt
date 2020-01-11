@@ -3,8 +3,10 @@ package club.controller;
 import club.pojo.Admins;
 import club.service.AdminService;
 import org.apache.ibatis.annotations.Param;
+import club.util.Message;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServlet;
@@ -79,5 +81,9 @@ public class AdminController {
             session.setAttribute("admin",login);
         return "admin/admin";
     }
-
+    @RequestMapping("/logout")
+    public String logout(HttpSession session){
+        session.invalidate();
+        return "admin/login";
+    }
 }

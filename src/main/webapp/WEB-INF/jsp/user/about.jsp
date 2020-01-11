@@ -157,7 +157,7 @@
 <!-- //js -->
 
 <!-- simple-lightbox -->
-<script src="${path}/static/js/simple-lightbox.min.js"></script>
+<script src="${path}/static/js/user/simple-lightbox.min.js"></script>
 <script>
     $(function () {
         var gallery = $('.agileinfo-gallery-row a').simpleLightbox({
