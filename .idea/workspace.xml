@@ -8,9 +8,31 @@
   <component name="ChangeListManager">
     <list default="true" id="9feefffc-e173-4a0f-9daf-8fb6ea7d8494" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/club/controller/BlogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/controller/BlogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/adopt.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/adopt.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/club/controller/AdoptAnimalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/controller/AdoptAnimalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/club/controller/AnswerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/controller/AnswerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/club/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/controller/CommentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/club/controller/PetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/controller/PetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/service.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/service.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/club/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/club/pojo/AdoptAnimal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/pojo/AdoptAnimal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/club/pojo/Answer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/pojo/Answer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/club/pojo/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/pojo/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/club/pojo/Pet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/pojo/Pet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/club/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/pojo/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/club/service/AdoptAnimalService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/service/AdoptAnimalService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/club/service/AnswerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/service/AnswerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/club/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/service/CommentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/club/service/PetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/service/PetService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/club/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/club/service/impl/AdoptAnimalServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/service/impl/AdoptAnimalServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/club/service/impl/AnswerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/service/impl/AnswerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/club/service/impl/CommentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/service/impl/CommentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/club/service/impl/PetServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/service/impl/PetServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/club/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/apply.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/apply.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/user.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/user.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/show.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/show.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +259,9 @@
       <workItem from="1578529979634" duration="25801000" />
       <workItem from="1578566945821" duration="2450000" />
       <workItem from="1578616398320" duration="2106000" />
-      <workItem from="1578619153224" duration="2658000" />
+      <workItem from="1578619153224" duration="24028000" />
+      <workItem from="1578720289716" duration="637000" />
+      <workItem from="1578738037379" duration="653000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1578544099596</created>
@@ -267,7 +291,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578621517117</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="third commit">
+      <created>1578621828853</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1578621828853</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -284,18 +315,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="114" y="14" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1578532993449" />
-    <state x="488" y="72" key="#com.intellij.ide.util.MemberChooser" timestamp="1578559259979">
+    <state x="488" y="72" key="#com.intellij.ide.util.MemberChooser" timestamp="1578651678800">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="72" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1578559259979" />
+    <state x="488" y="72" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1578651678800" />
     <state x="434" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1578562592095">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="434" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1578562592095" />
-    <state x="222" y="0" key="CommitChangelistDialog2" timestamp="1578621514942">
+    <state x="222" y="0" key="CommitChangelistDialog2" timestamp="1578621826365">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="222" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1578621514942" />
+    <state x="222" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1578621826365" />
     <state x="463" y="108" key="FileChooserDialogImpl" timestamp="1578544877806">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -352,13 +383,17 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="186" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1578286944808" />
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1578621538702">
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1578621833351">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1578621538702" />
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1578621833351" />
     <state x="467" y="194" width="431" height="336" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1578381031048">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="467" y="194" width="431" height="336" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1366.728@0.0.1366.728" timestamp="1578381031048" />
+    <state x="346" y="49" key="search.everywhere.popup" timestamp="1578639056268">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1578639056268" />
   </component>
 </project>

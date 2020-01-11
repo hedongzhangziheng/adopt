@@ -437,7 +437,7 @@
         reset_form("#editApply form");
         var id = $(this).attr("edit-id");
         $.ajax({
-            url:"${path}/static/apply/findById?id="+id,
+            url:"${path}/apply/findById?id="+id,
             type:"GET",
             success:function(result){
                 //填充用户信息
@@ -482,7 +482,7 @@
     $(document).on("click",".delete_btn",function(){
         //1、弹出是否确认删除对话框
         var name = $(this).parents("tr").find("td:eq(2)").text();
-        var Id = $(this).attr("del-id");
+        var id = $(this).attr("del-id");
         if(confirm("确认删除【"+name+"】吗？")){
             //确认，发送ajax请求删除即可
             $.ajax({

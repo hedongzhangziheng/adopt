@@ -23,10 +23,10 @@
     <link rel="stylesheet" href="${path}/static/bootstrap/css/bootstrap.min.css">
     <link href="${path}/static/css/user/jquery.slideBox.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="${path}/static/css/user/show.css">
-    <script src="${path}/static/js/jquery-2.2.3.min.js"></script>
+    <script src="${path}/static/js/user/jquery-2.2.3.min.js"></script>
     <script src="${path}/static/bootstrap/js/bootstrap.js"></script>
-    <script src="${path}/static/js/jquery.slideBox.min.js" type="text/javascript"></script>
-    <script src="${path}/static/js/jquery.comment.js"></script>
+    <script src="${path}/static/js/user/jquery.slideBox.min.js" type="text/javascript"></script>
+    <script src="${path}/static/js/user/jquery.comment.js"></script>
 </head>
 <body>
 <div class="myDiv" >
@@ -102,15 +102,15 @@
                                 姓名： </label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="new_Name"
-                                       placeholder="userName" name="userName" value="${user.userName}">
+                                       placeholder="userName" name="userName" value="${user.userName}" readonly>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="new_petName" class="col-sm-2 control-label">
-                                姓名： </label>
+                                宠物姓名： </label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="new_petName"
-                                       placeholder="petName" name="petName" value="${pet.petName}">
+                                       placeholder="petName" name="petName" value="${pet.petName}" readonly>
                             </div>
                         </div>
                         <div class="form-group">
@@ -118,7 +118,7 @@
                                 性别： </label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="new_Sex"
-                                       placeholder="sex" name="sex" value="${user.sex}">
+                                       placeholder="sex" name="sex" value="${user.sex}" readonly>
                             </div>
                         </div>
                         <div class="form-group">
@@ -126,7 +126,7 @@
                                 联系方式： </label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="new_tel"
-                                       placeholder="telephone" name="telephone" value="${user.telephone}">
+                                       placeholder="telephone" name="telephone" value="${user.telephone}" readonly>
                             </div>
                         </div>
                         <div class="form-group">
@@ -134,7 +134,7 @@
                                 邮件： </label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="new_Email"
-                                       placeholder="Email" name="new_Email" value="${user.email}">
+                                       placeholder="Email" name="new_Email" value="${user.email}" readonly>
                             </div>
                         </div>
                         <div class="form-group">
@@ -142,7 +142,7 @@
                                 地址： </label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="new_Adress"
-                                       placeholder="地址" name="address" value="${user.address}">
+                                       placeholder="地址" name="address" value="${user.address}" readonly>
                             </div>
                         </div>
                     </form>
@@ -226,7 +226,7 @@
     function to_page(){
         //session里面的数据
         $.ajax({
-            url:"${path}/comment/petComments?pet_id="+"${pet.id}",
+            url:"${path}/comment/petComments?petId="+"${pet.id}",
             type:"GET",
             success:function(result){
                 submit(result);
@@ -283,7 +283,7 @@
         //session里面的数据
         var answer=null;
         $.ajax({
-            url:"${path}/answer/findByCommentId?comment_id="+id,
+            url:"${path}/answer/findByCommentId?commentId="+id,
             type:"GET",
             async:false,
             success:function(result){
@@ -369,7 +369,7 @@
             type:"POST",
             processData: false,  // 告诉jQuery不要去处理发送的数据
             contentType: false, // 告诉jQuery不要去设置Content-Type请求头
-            date:adopt,
+            date:adopt,//控制层并没有用到这里的数据，可以省略掉
             success:function (result) {
                 alert("提交申请成功");
                 $("#adopt_btn").click();
@@ -407,10 +407,10 @@
         var id=$("#edit_id").val();
         var content=$("#edit_content").val()
         $.ajax({
-            url:"${path}/static/answer/create",
+            url:"${path}/answer/create",
             type:"POST",
             dataType:"json",
-            data:{'ids':id,'content':content},
+            data:{'commentId':id,'content':content},
             success:function (result) {
                 alert("回复成功！");
                 $("#comment_btn").click();
@@ -448,7 +448,7 @@
             url:"${path}/answer/creates",
             type:"POST",
             dataType:"json",
-            data:{'id':id,'content':content,'comment_id':comment_id},
+            data:{'replayId':id,'content':content,'commentId':comment_id},
             success:function (result) {
                 alert("回复成功！");
                 to_page();
@@ -460,7 +460,6 @@
             }
         })
     })
-
 </script>
 </body>
 </html>

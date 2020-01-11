@@ -1,14 +1,20 @@
 package club.controller;
 
 import club.pojo.Pet;
+import club.service.PetService;
 import club.util.Message;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
+
 @Controller
 @RequestMapping("/pet")
 public class PetController {
+
+    @Resource
+    private PetService petService;
 
     @RequestMapping("/pets")
     @ResponseBody
@@ -25,6 +31,11 @@ public class PetController {
     @RequestMapping("/create")
     @ResponseBody
     public Message create(Pet pet){
-        return Message.success();
+        Integer integer = petService.create(pet);
+        if(integer > 0){
+            return Message.success();
+        }else {
+            return Message.fail();
+        }
     }
 }
