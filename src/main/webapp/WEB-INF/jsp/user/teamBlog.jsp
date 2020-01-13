@@ -146,8 +146,8 @@
         var ul = $("<ul></ul>").addClass("pagination");
 
         //构建元素
-        var firstPageLi = $("<li></li>").append($("<a></a>").append("首页").attr("href","#"));
-        var prePageLi = $("<li></li>").append($("<a></a>").append("&laquo;"));
+        var firstPageLi = $("<li></li>").append($("<a style='cursor: pointer'></a>").append("首页").attr("href","#"));
+        var prePageLi = $("<li></li>").append($("<a style='cursor: pointer'></a>").append("&laquo;"));
         if(result.extend.pageInfo.hasPreviousPage == false){
             firstPageLi.addClass("disabled");
             prePageLi.addClass("disabled");
@@ -161,8 +161,8 @@
             });
         }
 
-        var nextPageLi = $("<li></li>").append($("<a></a>").append("&raquo;"));
-        var lastPageLi = $("<li></li>").append($("<a></a>").append("末页").attr("href","#"));
+        var nextPageLi = $("<li></li>").append($("<a style='cursor: pointer'></a>").append("&raquo;"));
+        var lastPageLi = $("<li></li>").append($("<a style='cursor: pointer'></a>").append("末页").attr("href","#"));
         if(result.extend.pageInfo.hasNextPage == false){
             nextPageLi.addClass("disabled");
             lastPageLi.addClass("disabled");
