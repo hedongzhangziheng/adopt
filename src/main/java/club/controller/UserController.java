@@ -50,6 +50,7 @@ public class UserController {
         return Message.success();
     }
 
+
     @RequestMapping("/about")
     public String about(){
         return "user/about";

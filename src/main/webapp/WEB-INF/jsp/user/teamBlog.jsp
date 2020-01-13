@@ -116,7 +116,7 @@
         var blogs=result.extend.pageInfo.list;
         $.each(blogs,function(index,blog){
 
-            var yearTd=$("<div></div>").addClass("blog-left-agileits").append($("<p></p>")).append(blogTime);
+            var yearTd=$("<div></div>").addClass("blog-left-agileits").append($("<p></p>")).append(blog.actionTime);
 
             var blogTd=$("<div></div>").addClass("blog-right-agileits-w3layouts");
 

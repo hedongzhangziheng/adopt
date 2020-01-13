@@ -19,10 +19,10 @@ public class BlogServiceImpl implements BlogService {
     private BlogMapper blogMapper;
 
     @Override
-    public PageInfo<Blog> queryByPage() {
-        PageHelper.startPage(1,3);
+    public PageInfo<Blog> queryByPage(Integer pageNum, Integer pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
         List<Blog> blogs = blogMapper.selectList(null);
-        PageInfo<Blog> blogPageInfo = new PageInfo<>(blogs,2);
+        PageInfo<Blog> blogPageInfo = new PageInfo<>(blogs,3);
         return blogPageInfo;
     }
 }

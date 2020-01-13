@@ -5,5 +5,5 @@ import com.github.pagehelper.PageInfo;
 
 public interface BlogService {
 
-    PageInfo<Blog> queryByPage();
+    PageInfo<Blog> queryByPage(Integer pageNum, Integer pageSize);
 }

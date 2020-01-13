@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 import java.util.Date;
 
 @Controller
-@RequestMapping("apply")
+@RequestMapping("/apply")
 public class ApplyController {
 
     @Resource

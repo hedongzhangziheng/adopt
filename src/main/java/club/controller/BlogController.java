@@ -11,17 +11,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 
 @Controller
-@RequestMapping("/blog")
+@RequestMapping("blog")
 public class BlogController {
-
     @Resource
     private BlogService blogService;
+
     @RequestMapping("/blogs")
     @ResponseBody
-    public Message queryAll(){
-        PageInfo<Blog> blogPageInfo = blogService.queryByPage();
-        System.out.println(blogPageInfo);
-        return Message.success().add("pageInfo",blogPageInfo);
+    public Message pageInfo(Integer pn){
+        Integer pageSize = 3;
+        PageInfo<Blog> page = blogService.queryByPage(pn, pageSize);
+        return Message.success().add("pageInfo",page);
     }
-
 }
