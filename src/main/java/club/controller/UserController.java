@@ -91,6 +91,13 @@ public class UserController {
         return "user/teamBlog";
     }
 
+    @RequestMapping("/findById")
+    @ResponseBody
+    public Message findById(Integer id){
+        User user = userService.findById(id);
+        return Message.success();
+    }
+
     @RequestMapping("/update")
     @ResponseBody
     public Message update(User user){

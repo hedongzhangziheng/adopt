@@ -25,6 +25,7 @@ public class Pet {
     private String pic;
     private Integer state;
     private String remark;
+
     @TableField(exist = false)
     private List<AdoptAnimal> adoptAnimalList=new ArrayList<>();
     @TableField(exist = false)
