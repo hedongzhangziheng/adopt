@@ -4,7 +4,9 @@ import club.dao.AnswerMapper;
 import club.dao.CommentMapper;
 import club.pojo.Answer;
 import club.pojo.Comment;
+import club.pojo.User;
 import club.service.AnswerService;
+import club.service.UserService;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,11 +25,19 @@ public class AnswerServiceImpl implements AnswerService {
     @Resource
     private CommentMapper commentMapper;
 
+    @Resource
+    private UserService userService;
+
     @Override
     public List<Answer> answersAboutOneComment(Integer commentId) {
         EntityWrapper wrapper = new EntityWrapper();
-        if (commentId != null) wrapper.eq("comment_id", commentId);
-        return answerMapper.selectList(wrapper);
+        if (commentId != null) wrapper.eq("commentId", commentId);
+        List<Answer> list = answerMapper.selectList(wrapper);
+        for (Answer answer : list){
+            User user = userService.findById(answer.getUserId());
+            answer.setUser(user);
+        }
+        return list;
     }
 
     @Override

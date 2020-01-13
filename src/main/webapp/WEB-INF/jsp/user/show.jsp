@@ -43,14 +43,14 @@
                 </ul>
             </div>
             <div class="name">
-                <img src="/static/images/adopt/p1.jpg">
+                <img src="/static/images/adopt/p1.jpg" height="50px" width="50px">
                 <span>我叫 ${pet.petName}</span>
             </div>
         </center>
         <div class="animal">
             <div class="group">
                 <div class="animalX1">
-                    <img src="/static/images/adopt/P2.jpg"><span>编号</span><br>
+                    <img src="/static/images/adopt/p2.jpg"><span>编号</span><br>
                     <p>${pet.id}</p>
                 </div>
                 <div class="animalX2">
@@ -72,9 +72,15 @@
             </div>
         </div>
         <div class="animal_me">
-            <div class="animal_me1"><img src="/static/images/adopt/p6.jpg"></div>
+            <div class="animal_me1">
+                <img src="/static/images/adopt/p6.jpg">
+                <img src="/static/images/adopt/p7.jpg">
+                <img src="/static/images/adopt/p8.jpg">
+                <img src="/static/images/adopt/p9.jpg">
+                <img src="/static/images/adopt/p10.jpg">
+            </div>
             <div class="animal_me2"><p>大家好，我是${pet.petName}。${pet.remark}。你能带我回家吗？</p></div>
-            <div class="animal_me3"><img src="/static/images/adopt/p7.jpg"></div>
+            <div class="animal_me3"><img src="/static/images/adopt/p11.jpg"></div>
         </div>
         <div class="my_btn">
             <button class="btn btn-primary btn-lg" id="pet_adopt_modal_btn">想要领养</button>
@@ -91,7 +97,7 @@
                         &times;
                     </button>
                     <h4 class="modal-title" id="myModalLabel">
-                        请填写个人信息
+                        请确认个人信息
                     </h4>
                 </div>
                 <div class="modal-body">

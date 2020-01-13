@@ -177,21 +177,19 @@ h2{
     left: 60px;
 }
 .animal_me1{
-    width: 258px;
-    height: 100px;
+    width: 260px;
+    height: 50px;
     margin: 0px;
 }
 .animal_me1>img{
     position: relative;
-    bottom: -30px;
-    right: 2px;
-    width: 260px;
-    height: 100px;
-    object-fit: cover;
+    width: 48px;
+    height: 50px;
+    object-fit: fill;
 }
 .animal_me2{
-    width: 258px;
-    height: 300px;
+    width: 260px;
+    height: 150px;
     margin: 0px;
     background-color: #D7EEFC;
 }
@@ -204,9 +202,9 @@ h2{
 }
 .animal_me3>img{
     position: relative;
-    right: 3px;
-    width: 264px;
-    object-fit: cover;
+    width: 260px;
+    height: 200px;
+    object-fit: fill;
 }
 .my_btn{
     position: relative;

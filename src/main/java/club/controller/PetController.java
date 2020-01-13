@@ -30,7 +30,9 @@ public class PetController {
     @ResponseBody
     public Message findPetById(HttpSession session, Integer id){
         Pet pet = petService.findById(id);
+        String pics = pet.getPic();
         session.setAttribute("pet", pet);
+        session.setAttribute("pics", pics);
         return Message.success();
     }
 

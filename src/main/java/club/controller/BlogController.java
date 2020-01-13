@@ -29,6 +29,7 @@ public class BlogController {
     @ResponseBody
     public Message findById(Integer id){
         Blog blog = blogService.findById(id);
+        System.out.println(blog);
         return Message.success().add("blog", blog);
     }
 }

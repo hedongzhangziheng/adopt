@@ -28,6 +28,6 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public Blog findById(Integer id) {
-        return null;
+        return blogMapper.selectById(id);
     }
 }
