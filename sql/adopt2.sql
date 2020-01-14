@@ -56,18 +56,18 @@ DROP TABLE IF EXISTS `answer`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `answer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) DEFAULT NULL,
-  `replay_id` int(11) DEFAULT NULL,
-  `comment_id` int(11) NOT NULL,
+  `userId` int(11) DEFAULT NULL,
+  `replayId` int(11) DEFAULT NULL,
+  `commentId` int(11) NOT NULL,
   `answerTime` date NOT NULL,
   `content` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk8` (`user_id`),
-  KEY `fk11` (`comment_id`),
-  KEY `fk10` (`replay_id`),
-  CONSTRAINT `fk10` FOREIGN KEY (`replay_id`) REFERENCES `answer` (`id`),
-  CONSTRAINT `fk11` FOREIGN KEY (`comment_id`) REFERENCES `comment` (`id`),
-  CONSTRAINT `fk8` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+  KEY `fk8` (`userId`),
+  KEY `fk11` (`commentId`),
+  KEY `fk10` (`replayId`),
+  CONSTRAINT `fk10` FOREIGN KEY (`replayId`) REFERENCES `answer` (`id`),
+  CONSTRAINT `fk11` FOREIGN KEY (`commentId`) REFERENCES `comment` (`id`),
+  CONSTRAINT `fk8` FOREIGN KEY (`userId`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -148,18 +148,18 @@ DROP TABLE IF EXISTS `comment`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `comment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) DEFAULT NULL,
-  `admin_id` int(11) DEFAULT NULL,
-  `pet_id` int(11) DEFAULT NULL,
+  `userId` int(11) DEFAULT NULL,
+  `adminsId` int(11) DEFAULT NULL,
+  `petId` int(11) DEFAULT NULL,
   `commentTime` date NOT NULL,
   `content` varchar(200) NOT NULL COMMENT '评论的内容',
   PRIMARY KEY (`id`),
-  KEY `fk1` (`user_id`),
-  KEY `fk2` (`pet_id`),
-  KEY `fk5` (`admin_id`),
-  CONSTRAINT `fk1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk2` FOREIGN KEY (`pet_id`) REFERENCES `pet` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk5` FOREIGN KEY (`admin_id`) REFERENCES `admin` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `fk1` (`userId`),
+  KEY `fk2` (`petId`),
+  KEY `fk5` (`adminsId`),
+  CONSTRAINT `fk1` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk2` FOREIGN KEY (`petId`) REFERENCES `pet` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk5` FOREIGN KEY (`adminsId`) REFERENCES `admins` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -204,34 +204,34 @@ INSERT INTO `pet` VALUES (1,'kitty','波斯猫','雄性','2018-09-10','cat1_1.jp
 UNLOCK TABLES;
 
 --
--- Table structure for table `t_adopt`
+-- Table structure for table `adoptAnimal`
 --
 
-DROP TABLE IF EXISTS `t_adopt`;
+DROP TABLE IF EXISTS `adoptAnimal`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `t_adopt` (
+CREATE TABLE `adoptAnimal` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL COMMENT '用户表id的外键',
-  `pet_id` int(11) NOT NULL COMMENT '宠物表id的外键',
+  `userId` int(11) NOT NULL COMMENT '用户表id的外键',
+  `petId` int(11) NOT NULL COMMENT '宠物表id的外键',
   `adoptTime` date NOT NULL,
   `state` int(11) DEFAULT '1' COMMENT '是否同意被领养 0 是不同意 1 还在审核 2 是同意',
   PRIMARY KEY (`id`),
-  KEY `fk3` (`user_id`),
-  KEY `fk4` (`pet_id`),
-  CONSTRAINT `fk3` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk4` FOREIGN KEY (`pet_id`) REFERENCES `pet` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `fk3` (`userId`),
+  KEY `fk4` (`petId`),
+  CONSTRAINT `fk3` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk4` FOREIGN KEY (`petId`) REFERENCES `pet` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `t_adopt`
+-- Dumping data for table `adoptAnimal`
 --
 
-LOCK TABLES `t_adopt` WRITE;
-/*!40000 ALTER TABLE `t_adopt` DISABLE KEYS */;
-INSERT INTO `t_adopt` VALUES (1,1,1,'2019-08-21',2),(2,5,2,'2019-08-20',0),(3,3,3,'2019-08-19',1),(4,4,4,'2019-08-18',0),(5,2,5,'2019-08-17',0),(6,6,6,'2019-08-16',1),(7,7,7,'2019-08-15',1),(8,2,8,'2019-08-14',0),(9,9,9,'2019-08-13',2),(10,9,1,'2019-08-09',0),(13,1,5,'2019-09-01',0),(14,30,5,'2019-09-09',0),(15,30,2,'2019-09-09',0),(16,30,2,'2019-09-09',0),(17,30,10,'2019-09-09',1);
-/*!40000 ALTER TABLE `t_adopt` ENABLE KEYS */;
+LOCK TABLES `adoptAnimal` WRITE;
+/*!40000 ALTER TABLE `adoptAnimal` DISABLE KEYS */;
+INSERT INTO `adoptAnimal` VALUES (1,1,1,'2019-08-21',2),(2,5,2,'2019-08-20',0),(3,3,3,'2019-08-19',1),(4,4,4,'2019-08-18',0),(5,2,5,'2019-08-17',0),(6,6,6,'2019-08-16',1),(7,7,7,'2019-08-15',1),(8,2,8,'2019-08-14',0),(9,9,9,'2019-08-13',2),(10,9,1,'2019-08-09',0),(13,1,5,'2019-09-01',0),(14,30,5,'2019-09-09',0),(15,30,2,'2019-09-09',0),(16,30,2,'2019-09-09',0),(17,30,10,'2019-09-09',1);
+/*!40000 ALTER TABLE `adoptAnimal` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -272,7 +272,7 @@ CREATE TABLE `user` (
   `telephone` varchar(20) DEFAULT NULL COMMENT '电话',
   `Email` varchar(30) DEFAULT NULL COMMENT 'Email',
   `address` varchar(50) DEFAULT NULL COMMENT '地址',
-  `pic` varchar(100) DEFAULT 't9.jpg',
+  `pic` varchar(100) DEFAULT 't0.jpg',
   `state` int(11) DEFAULT '0' COMMENT '有无领养宠物的经历 0 是没有 1 是由',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
@@ -285,7 +285,7 @@ CREATE TABLE `user` (
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` VALUES (1,'张三丰','zsf123','男',100,'13809182091','2425549281@qq.com','湖北武当山','t1.jpg',1),(2,'宋远桥','syq123','男',50,'13908457344','2425549281@qq.com','湖北武当山','t2.jpg',0),(3,'俞莲舟','ylz123','男',45,'13903827601','2425549281@qq.com','湖北武当山','t3.jpg',1),(4,'俞岱岩','ydy123','男',43,'13903822001','2425549281@qq.com','湖北武当山','t4.jpg',1),(5,'赵敏','zm123','女',23,'13903810621','2425549281@qq.com','蒙古科尔沁','t5.jpg',1),(6,'张松溪','zsx123','男',40,'13903819146','2425549281@qq.com','湖北武当山','t6.jpg',0),(7,'张翠山','zcs123','男',38,'13903819301','2425549281@qq.com','湖北武当山','t7.jpg',0),(8,'殷素素','yss123','女',35,'13123819301','2425549281@qq.com','光明顶','t8.jpg',0),(9,'殷梨亭','ylt123','男',35,'13123249301','2425549281@qq.com','湖北武当山','t9.jpg',1),(10,'莫声谷','msg123','男',32,'13123249892','2425549281@qq.com','湖北武当山','t10.jpg',1),(11,'张无忌','zwj123','男',21,'15797959509','2425549281@qq.com','光明顶','t11.jpg',1),(12,'杨逍','123','男',45,'15797959509','2425549281@qq.com','光明顶','t12.jpg',0),(13,'白眉鹰王','8888','男',75,'15797959509','2425549281@qq.com','光明顶','t13.jpg',0),(14,'觉远大师','8888','男',145,'15797959509','2425549281@qq.com','嵩山少林寺','t14.jpg',1),(15,'包拯','1111','男',19,'15797959509','2425549281@qq.com','开封','t15.jpg',0),(16,'展昭','2222','男',31,'15797959509','2425549281@qq.com','开封','t16.jpg',0),(17,'小龙女','4444','女',32,'15797959509','2425549281@qq.com','古墓','t17.jpg',0),(18,'王语嫣','7777','女',45,'15797959509','2425549281@qq.com','云南大理','t18.jpg',0),(19,'段誉','1111','男',26,'15797959509','2425549281@qq.com','江西省南昌市','t19.jpg',1);
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

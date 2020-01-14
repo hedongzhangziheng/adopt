@@ -8,9 +8,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import javax.annotation.Resource;
-
 import java.util.List;
 
 @Service
@@ -33,15 +31,32 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public Admins login(String adminName, String adminPwd) {
         Admins a = new Admins();
-        a.setAdminName(adminName);
+        a.setAdminsName(adminName);
         Admins admin = adminMapper.selectOne(a);
-        if (admin != null && admin.getAdminPwd().equals(adminPwd)){
+        if (admin != null && admin.getAdminsPwd().equals(adminPwd)){
             return admin;
         }
         return null;
     }
+
+    @Override
+    public int add(Admins admins) {
+        return adminMapper.insert(admins);
+    }
+
+    @Override
+    public int update(Admins admins) {
+
+        return adminMapper.updateById(admins);
+    }
+
     @Override
     public Admins findById(Integer id) {
         return adminMapper.selectById(id);
+    }
+
+    @Override
+    public int del(Integer id) {
+        return adminMapper.deleteById(id);
     }
 }

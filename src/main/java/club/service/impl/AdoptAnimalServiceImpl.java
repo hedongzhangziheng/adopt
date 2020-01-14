@@ -16,6 +16,11 @@ import com.github.pagehelper.PageInfo;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
@@ -60,4 +65,32 @@ public class AdoptAnimalServiceImpl implements AdoptAnimalService {
     public Integer create(AdoptAnimal adoptAnimal) {
         return adoptAnimalMapper.insert(adoptAnimal);
     }
+
+    @Override
+    public PageInfo<AdoptAnimal> all(String adoptTime,Integer pageNum,Integer pageSize) {
+        PageHelper.startPage(pageNum,pageSize);
+        EntityWrapper<AdoptAnimal> wrapper = new EntityWrapper<>();
+        if(adoptTime!=null && !"".equals(adoptTime)){
+            wrapper.like("adoptTime",adoptTime);
+        }
+        List<AdoptAnimal> list = adoptAnimalMapper.selectList(wrapper.eq("state",1));
+        for(AdoptAnimal a : list){
+            Pet pet = petMapper.selectById(a.getPetId());
+            a.setPet(pet);
+            User user = userMapper.selectById(a.getUserId());
+            a.setUser(user);
+        }
+        PageInfo<AdoptAnimal> pageInfo = new PageInfo<>(list);
+        return pageInfo;
+    }
+
+    @Override
+    public int update(Integer id, Integer state) {
+        AdoptAnimal adoptAnimal = adoptAnimalMapper.selectById(id);
+        adoptAnimal.setState(state);
+        Integer integer = adoptAnimalMapper.updateById(adoptAnimal);
+        return integer;
+    }
+
+
 }

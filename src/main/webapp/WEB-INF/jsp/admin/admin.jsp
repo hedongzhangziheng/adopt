@@ -416,7 +416,7 @@
         $.each(admins,function(index,admin){
             var checkBoxTd = $("<td><input type='checkbox' class='check_item'/></td>");
             var adminIdTd = $("<td></td>").append(admin.id);
-            var adminNameTd = $("<td></td>").append(admin.adminName);
+            var adminNameTd = $("<td></td>").append(admin.adminsName);
             var realNameTd = $("<td></td>").append(admin.realName);
             var telephoneTd=$("<td></td>").append(admin.telephone);
             var emailTd=$("<td></td>").append(admin.email);
@@ -644,7 +644,7 @@
 
     function to_findByName(pn,adminName) {
         $.ajax({
-            url:"${path}/admin/admins",
+            url:"${path}/admin/findByName",
             type:"POST",
             dataType:"json",
             data:{"pn":pn,"adminName":adminName},

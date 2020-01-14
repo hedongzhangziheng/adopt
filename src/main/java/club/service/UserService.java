@@ -2,6 +2,10 @@ package club.service;
 
 import club.pojo.User;
 
+import club.pojo.User;
+import com.github.pagehelper.PageInfo;
+
+
 import java.util.List;
 
 public interface UserService {
@@ -13,4 +17,7 @@ public interface UserService {
     //注册
     int addUser(User user);
     Integer update(User user);
+    PageInfo<User> allUser(String userName, Integer pageNum, Integer pageSize);
+    int add(User user);
+    int del(Integer id);
 }

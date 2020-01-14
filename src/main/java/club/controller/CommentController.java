@@ -1,10 +1,10 @@
 package club.controller;
 
+import club.pojo.Answer;
 import club.pojo.Comment;
 import club.service.CommentService;
 import club.util.Message;
 import com.github.pagehelper.PageInfo;
-import club.pojo.Answer;
 import club.pojo.Pet;
 import club.pojo.User;
 import club.service.AnswerService;
@@ -16,28 +16,28 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/comment")
 public class CommentController {
     @Resource
     private CommentService commentService;
-    @RequestMapping("/comments")
-    @ResponseBody
-    public Message comments(String userName, Integer pn){
-        Integer pageSize = 5;
-        if(pn == 0){
-            pn = 1;
-        }
-        PageInfo<Comment> pageInfo = commentService.allComment(userName, pn, pageSize);
-        return Message.success().add("pageInfo",pageInfo);
-    }
-
     @Resource
     private AnswerService answerService;
-
     @Resource
     private UserService userService;
+
+    @RequestMapping("/comments")
+    @ResponseBody
+    public Message comments(@RequestParam(required = false) String userName, @RequestParam(required = false, value = "pn") Integer pageNum){
+        int pageSize = 3 ;
+        if(pageNum == null){
+            pageNum = 1;
+        }
+        PageInfo<Comment> pageInfo = commentService.all(userName, pageNum, pageSize);
+        return Message.success().add("pageInfo",pageInfo);
+    }
 
     @RequestMapping("/petComments")
     @ResponseBody
@@ -70,5 +70,27 @@ public class CommentController {
     public Message findById(Integer id){
         Comment comment = commentService.findById(id);
         return Message.success().add("comment", comment);
+    }
+
+    @RequestMapping("/update")
+    @ResponseBody
+    public Message update(Comment comment){
+        int update = commentService.update(comment);
+        if(update>0){
+            return Message.success();
+        }else{
+            return Message.fail();
+        }
+    }
+
+    @RequestMapping("/delete")
+    @ResponseBody
+    public Message delete(Integer id){
+        int delete = commentService.delete(id);
+        if(delete>0){
+           return Message.success();
+        }else{
+           return Message.fail();
+        }
     }
 }

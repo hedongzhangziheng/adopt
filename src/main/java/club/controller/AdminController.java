@@ -1,7 +1,6 @@
 package club.controller;
 
 import club.pojo.Admins;
-import club.pojo.User;
 import club.service.AdminService;
 import club.service.UserService;
 import club.util.Message;
@@ -13,8 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
-import java.util.List;
-
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
@@ -22,10 +19,58 @@ public class AdminController {
     private AdminService adminService;
     @Resource
     private UserService userService;
-    @RequestMapping("/admin")
-    public String admin(){
-        return "admin/admin";
+
+    @RequestMapping("/admins")
+    @ResponseBody
+    public Message admin(@RequestParam(value = "adminName",required = false) String adminsName, @RequestParam("pn")Integer pageNum){
+        Integer pageSize = 3;
+        if(pageNum==null){
+            pageNum = 1;
+        }
+        PageInfo<Admins> admins = adminService.allAdmin(adminsName,pageNum,pageSize);
+        return Message.success().add("pageInfo",admins);
     }
+
+    @RequestMapping("/create")
+    @ResponseBody
+    public Message add(Admins admins){
+        int add = adminService.add(admins);
+        if(add>0){
+            return Message.success();
+        }else{
+            return Message.fail();
+        }
+    }
+
+    @RequestMapping("findById")
+    @ResponseBody
+    public Message findById(Integer id){
+        Admins byId = adminService.findById(id);
+        return Message.success().add("admin",byId);
+    }
+
+    @RequestMapping("/update")
+    @ResponseBody
+    public Message update(Admins admins){
+        int update = adminService.update(admins);
+        if(update>0){
+            return  Message.success();
+        }else {
+            return Message.fail();
+        }
+    }
+
+    @RequestMapping("/delete")
+    @ResponseBody
+    public Message del(Integer id){
+        int del = adminService.del(id);
+        if(del>0){
+            return Message.success();
+        }else {
+            return Message.fail();
+        }
+    }
+
     @RequestMapping("/admins")
     @ResponseBody
     public Message admins(@RequestParam(required = false) String adminName,@RequestParam("pn") Integer pageNum){
@@ -36,7 +81,6 @@ public class AdminController {
         PageInfo<Admins> list = adminService.adminPage(adminName, pageNum, pageSize);
         return Message.success().add("pageInfo",list);
     }
-    @RequestMapping("/adopt")
     public String adopt(){
         return "admin/adopt";
     }
@@ -65,8 +109,6 @@ public class AdminController {
     public String disAgree(){
         return "admin/disAgree";
     }
-
-
 
     @RequestMapping("/pet")
     public String pet(){

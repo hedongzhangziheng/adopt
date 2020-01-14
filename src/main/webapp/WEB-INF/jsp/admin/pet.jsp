@@ -8,9 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <c:set var="path" value="${pageContext.request.contextPath}"></c:set>
 <!DOCTYPE html>
-<html><head>
+<html>
+<head>
     <meta content="text/html; charset=UTF-8">
-    <meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8"/>
     <title>宠物领养管理后台</title>
     <!-- 引入css样式文件 -->
     <!-- Bootstrap Core CSS -->
@@ -25,9 +26,29 @@
     <link href="${path}/static/css/admin/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="${path}/static/css/admin/boot-crm.css" rel="stylesheet" type="text/css">
     <style>
-        .panel-heading{background-color: #337ab7;border-color: #2e6da4;font-size:14px;padding-left:20px;height:36px;line-height:36px;color:white;position:relative;cursor:pointer;}/*转成手形图标*/
-        .panel-heading span{position:absolute;right:10px;top:12px;}
-        .mySize{width: 55px;height: 65px;}
+        .panel-heading {
+            background-color: #337ab7;
+            border-color: #2e6da4;
+            font-size: 14px;
+            padding-left: 20px;
+            height: 36px;
+            line-height: 36px;
+            color: white;
+            position: relative;
+            cursor: pointer;
+        }
+
+        /*转成手形图标*/
+        .panel-heading span {
+            position: absolute;
+            right: 10px;
+            top: 12px;
+        }
+
+        .mySize {
+            width: 55px;
+            height: 65px;
+        }
     </style>
 </head>
 <body>
@@ -65,12 +86,14 @@
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <!-- 教学管理  折叠的分组列表 -->
-                <div class="panel-heading" id="collapseListGroupHeading3" data-toggle="collapse" data-target="#collapseListGroup3" role="tab">
+                <div class="panel-heading" id="collapseListGroupHeading3" data-toggle="collapse"
+                     data-target="#collapseListGroup3" role="tab">
                     <h4 class="panel-title">
                         后台管理 <span class="fa fa-chevron-up right"></span>
                     </h4>
                 </div>
-                <div id="collapseListGroup3" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="collapseListGroupHeading3">
+                <div id="collapseListGroup3" class="panel-collapse collapse in" role="tabpanel"
+                     aria-labelledby="collapseListGroupHeading3">
                     <ul class="list-group">
                         <li class="list-group-item my_font">
                             <a href="${path}/admin/users">
@@ -285,14 +308,16 @@
                             宠物名
                         </label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="edit_petName" placeholder="宠物名" value="${pet.petName}"
+                            <input type="text" class="form-control" id="edit_petName" placeholder="宠物名"
+                                   value="${pet.petName}"
                                    name="petName">
                         </div>
                         <label for="edit_petType" class="col-sm-2 control-label">
                             宠物类型
                         </label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="edit_petType" placeholder="宠物类型" value="${pet.petType}"
+                            <input type="text" class="form-control" id="edit_petType" placeholder="宠物类型"
+                                   value="${pet.petType}"
                                    name="petType">
                         </div>
                     </div>
@@ -310,7 +335,8 @@
                             生日
                         </label>
                         <div class="col-sm-4">
-                            <input type="date" class="form-control" id="edit_birthday" placeholder="生日" value="${pet.birthday}"
+                            <input type="date" class="form-control" id="edit_birthday" placeholder="生日"
+                                   value="${pet.birthday}"
                                    name="birthday">
                         </div>
                     </div>
@@ -367,22 +393,24 @@
 
 
     //总的数据 当前的页面
-    var totalRecord,currentPage,currentSize,currentPageSize,currentPages;
+    var totalRecord, currentPage, currentSize, currentPageSize, currentPages;
 
-    $(function(){
+    $(function () {
         to_page(1);
     });
-    function to_page(pn){
+
+    function to_page(pn) {
         $.ajax({
-            url:"${path}/pet/pets",
-            data:"pn="+pn,
-            type:"GET",
-            success:function(result){
+            url: "${path}/pet/pets",
+            data: "pn=" + pn,
+            type: "GET",
+            success: function (result) {
                 resolving(result);
             }
         });
     }
-    function resolving(result){
+
+    function resolving(result) {
         //1、解析并显示员工数据
         build_pets_table(result);
         //2、解析并显示分页信息
@@ -392,36 +420,36 @@
     }
 
     //解析并显示员工数据
-    function build_pets_table(result){
+    function build_pets_table(result) {
         //清空table表格
         $("#pet_table tbody").empty();
         //index：下标 user：单个对象
-        var pets=result.extend.pageInfo.list;
-        $.each(pets,function(index,pet){
+        var pets = result.extend.pageInfo.list;
+        $.each(pets, function (index, pet) {
             var checkBoxTd = $("<td><input type='checkbox' class='check_item'/></td>");
             var petIdTd = $("<td></td>").append(pet.id);
             var petNameTd = $("<td></td>").append(pet.petName);
             var petTypeTd = $("<td></td>").append(pet.petType);
-            var sexTd=$("<td></td>").append(pet.sex);
-            var birthdayTd=$("<td></td>").append(pet.birthday);
-            var picTd=$("<td></td>").append($("<img/>").addClass("mySize").attr("src","/images/animal/"+spilt(pet.pic)));
-            var stateTd=null;
-            if(pet.state==0){
-                stateTd=$("<td></td>").append("还未被申请领养");
-            }else if(pet.state==1){
-                stateTd=$("<td></td>").append("正在被申请领养");
-            }else{
-                stateTd=$("<td></td>").append("已经被领养");
+            var sexTd = $("<td></td>").append(pet.sex);
+            var birthdayTd = $("<td></td>").append(pet.birthday);
+            var picTd = $("<td></td>").append($("<img/>").addClass("mySize").attr("src", "/static/images/animal/" + spilt(pet.pic)));
+            var stateTd = null;
+            if (pet.state == 0) {
+                stateTd = $("<td></td>").append("还未被申请领养");
+            } else if (pet.state == 1) {
+                stateTd = $("<td></td>").append("正在被申请领养");
+            } else {
+                stateTd = $("<td></td>").append("已经被领养");
             }
 
             var editBtn = $("<button></button>").addClass("btn btn-primary btn-sm edit_btn")
                 .append($("<span></span>").addClass("glyphicon glyphicon-pencil")).append("修改");
             //为编辑按钮添加一个自定义的属性，来表示当前员工id
-            editBtn.attr("edit-id",pet.id);
-            var delBtn =  $("<button></button>").addClass("btn btn-danger btn-sm delete_btn")
+            editBtn.attr("edit-id", pet.id);
+            var delBtn = $("<button></button>").addClass("btn btn-danger btn-sm delete_btn")
                 .append($("<span></span>").addClass("glyphicon glyphicon-trash")).append("删除");
             //为删除按钮添加一个自定义的属性来表示当前删除的员工id
-            delBtn.attr("del-id",pet.id);
+            delBtn.attr("del-id", pet.id);
             var btnTd = $("<td></td>").append(editBtn).append("").append(delBtn);
             //var delBtn =
             //append方法执行完成以后还是返回原来的元素
@@ -437,50 +465,52 @@
                 .appendTo("#pet_table tbody");
         });
     }
+
     //解析显示分页信息
-    function build_page_info(result){
+    function build_page_info(result) {
         $("#page_info_area").empty();
-        $("#page_info_area").append("当前"+result.extend.pageInfo.pageNum+"页,总"+
-            result.extend.pageInfo.pages+"页,总"+
-            result.extend.pageInfo.total+"条记录");
+        $("#page_info_area").append("当前" + result.extend.pageInfo.pageNum + "页,总" +
+            result.extend.pageInfo.pages + "页,总" +
+            result.extend.pageInfo.total + "条记录");
         totalRecord = result.extend.pageInfo.total;//最后的数据
         currentPage = result.extend.pageInfo.pageNum;//当前页
-        var currentPages=result.extend.pageInfo.pages;//总的页数
-        currentSize=result.extend.pageInfo.size;//当前页面的尺寸
-        currentPageSize=result.extend.pageInfo.pageSize;//每页的尺寸
+        currentPages = result.extend.pageInfo.pages;//总的页数
+        currentSize = result.extend.pageInfo.size;//当前页面的尺寸
+        currentPageSize = result.extend.pageInfo.pageSize;//每页的尺寸
     }
+
     //解析显示分页条，点击分页要能去下一页....
-    function build_page_nav(result){
+    function build_page_nav(result) {
         //page_nav_area
         $("#page_nav_area").empty();
         var ul = $("<ul></ul>").addClass("pagination");
 
         //构建元素
-        var firstPageLi = $("<li></li>").append($("<a></a>").append("首页").attr("href","#"));
+        var firstPageLi = $("<li></li>").append($("<a></a>").append("首页").attr("href", "#"));
         var prePageLi = $("<li></li>").append($("<a></a>").append("&laquo;"));
-        if(result.extend.pageInfo.hasPreviousPage == false){
+        if (result.extend.pageInfo.hasPreviousPage == false) {
             firstPageLi.addClass("disabled");
             prePageLi.addClass("disabled");
-        }else{
+        } else {
             //为元素添加点击翻页的事件
-            firstPageLi.click(function(){
+            firstPageLi.click(function () {
                 to_page(1);
             });
-            prePageLi.click(function(){
-                to_page(result.extend.pageInfo.pageNum -1);
+            prePageLi.click(function () {
+                to_page(result.extend.pageInfo.pageNum - 1);
             });
         }
 
         var nextPageLi = $("<li></li>").append($("<a></a>").append("&raquo;"));
-        var lastPageLi = $("<li></li>").append($("<a></a>").append("末页").attr("href","#"));
-        if(result.extend.pageInfo.hasNextPage == false){
+        var lastPageLi = $("<li></li>").append($("<a></a>").append("末页").attr("href", "#"));
+        if (result.extend.pageInfo.hasNextPage == false) {
             nextPageLi.addClass("disabled");
             lastPageLi.addClass("disabled");
-        }else{
-            nextPageLi.click(function(){
-                to_page(result.extend.pageInfo.pageNum +1);
+        } else {
+            nextPageLi.click(function () {
+                to_page(result.extend.pageInfo.pageNum + 1);
             });
-            lastPageLi.click(function(){
+            lastPageLi.click(function () {
                 to_page(result.extend.pageInfo.pages);
             });
         }
@@ -488,13 +518,13 @@
         //添加首页和前一页 的提示
         ul.append(firstPageLi).append(prePageLi);
         //1,2，3遍历给ul中添加页码提示
-        $.each(result.extend.pageInfo.navigatepageNums,function(index,item){
+        $.each(result.extend.pageInfo.navigatepageNums, function (index, item) {
 
             var numLi = $("<li></li>").append($("<a></a>").append(item));
-            if(result.extend.pageInfo.pageNum == item){
+            if (result.extend.pageInfo.pageNum == item) {
                 numLi.addClass("active");
             }
-            numLi.click(function(){
+            numLi.click(function () {
                 to_page(item);
             });
             ul.append(numLi);
@@ -509,7 +539,7 @@
 
 
     //清空表单样式及内容
-    function reset_form(ele){
+    function reset_form(ele) {
         $(ele)[0].reset();
         //清空表单样式
         $(ele).find("*").removeClass("has-error has-success");
@@ -517,51 +547,65 @@
     }
 
     //点击新增按钮弹出模态框。
-    $("#pet_add_modal_btn").click(function(){
+    $("#pet_add_modal_btn").click(function () {
         //清除表单数据（表单完整重置（表单的数据，表单的样式））
         reset_form("#newPet form");
         //弹出模态框
         $("#newPet").modal({
-            backdrop:"static"
+            backdrop: "static"
         });
     });
     //点击保存，保存宠物。
-    $("#pet_save_btn").click(function(){
-        var pet=document.getElementById("new_pet_form");
-        var petTd=new FormData(pet);
-        $.ajax({
-            url:"${path}/pet/create",
-            type:"POST",
-            processData: false,  // 告诉jQuery不要去处理发送的数据
-            contentType: false, // 告诉jQuery不要去设置Content-Type请求头
-            data:petTd,
-            success:function (result) {
-                alert("宠物创建成功");
-                $("#pet_saveDown_btn").click();
-                if(currentSize=currentPageSize){
-                    to_page(currentPages+1);
-                } else {
-                    to_page(currentPages)
+    $("#pet_save_btn").click(function () {
+        var name = $("#new_petName").val();
+        var type = $("#new_petType").val();
+        var birthday = $("#new_birthday").val();
+        var pic = $("#new_pic").val();
+        if (name == "") {
+            alert("宠物姓名不能为空！")
+        } else if (type == "") {
+            alert("宠物类型不能为空！")
+        } else if (birthday == "") {
+            alert("宠物生日不能为空！")
+        } else if (pic == "") {
+            alert("请上传至少一张宠物照片！")
+        } else {
+            var pet = document.getElementById("new_pet_form");
+            var petTd = new FormData(pet);
+            $.ajax({
+                url: "${path}/pet/create",
+                type: "POST",
+                processData: false,  // 告诉jQuery不要去处理发送的数据
+                contentType: false, // 告诉jQuery不要去设置Content-Type请求头
+                data: petTd,
+                success: function (result) {
+                    alert("宠物创建成功");
+                    $("#pet_saveDown_btn").click();
+                    if (currentSize = currentPageSize) {
+                        to_page(currentPages + 1);
+                    } else {
+                        to_page(currentPages)
+                    }
+                },
+                error: function (result) {
+                    $("#pet_saveDown_btn").click();
+                    alert("宠物创建失败");
                 }
-            },
-            error:function (result) {
-                $("#pet_saveDown_btn").click();
-                alert("宠物创建失败");
-            }
-        });
+            });
+        }
     });
 
 
     //点击编辑按钮弹出模态框。
-    $(document).on("click",".edit_btn",function(){
+    $(document).on("click", ".edit_btn", function () {
         //1、发送ajax,根据id获取用户信息
         //清除表单数据（表单完整重置（表单的数据，表单的样式））
         reset_form("#editPet form");
         var id = $(this).attr("edit-id");
         $.ajax({
-            url:"${path}/pet/findById?id="+id,
-            type:"GET",
-            success:function(result){
+            url: "${path}/pet/findById?id=" + id,
+            type: "GET",
+            success: function (result) {
                 //填充用户信息
                 $("#edit_id").val(result.extend.pet.id);
                 $("#edit_petName").val(result.extend.pet.petName);
@@ -571,33 +615,33 @@
                 $("#edit_state").val(result.extend.pet.state);
                 $("#edit_remark").val(result.extend.pet.remark);
             },
-            error:function (result) {
+            error: function (result) {
                 alert("通过id查询用户失败")
-           }
+            }
         });
         //2、弹出模态框
         $("#editPet").modal({
-            backdrop:"static"
+            backdrop: "static"
         });
 
     });
 
     //点击更新按钮弹出模态框。
-    $("#pet_update_btn").click(function(){
-        var pet=document.getElementById("edit_pet_from");
-        var petTd=new FormData(pet);
+    $("#pet_update_btn").click(function () {
+        var pet = document.getElementById("edit_pet_from");
+        var petTd = new FormData(pet);
         $.ajax({
-            url:"${path}/pet/update",
-            type:"POST",
+            url: "${path}/pet/update",
+            type: "POST",
             processData: false,  // 告诉jQuery不要去处理发送的数据
             contentType: false, // 告诉jQuery不要去设置Content-Type请求头
-            data:petTd,
-            success:function (result) {
+            data: petTd,
+            success: function (result) {
                 to_page(currentPage);
                 $("#pet_updateDown_btn").click();
                 alert("宠物信息更新成功！");
             },
-            error:function(result){
+            error: function (result) {
                 alert("宠物信息更新失败！");
                 $("#pet_saveDown_btn").click();
                 to_page(currentPage);
@@ -607,24 +651,24 @@
     });
 
     //单个删除
-    $(document).on("click",".delete_btn",function(){
+    $(document).on("click", ".delete_btn", function () {
         //1、弹出是否确认删除对话框
         var petName = $(this).parents("tr").find("td:eq(2)").text();
         var petId = $(this).attr("del-id");
-        if(confirm("确认删除【"+petName+"】吗？")){
+        if (confirm("确认删除【" + petName + "】吗？")) {
             //确认，发送ajax请求删除即可
             $.ajax({
-                url:"${path}/pet/delete?id="+petId,
-                type:"GET",
-                success:function (result) {
-                    if(result.code==100){
+                url: "${path}/pet/delete?id=" + petId,
+                type: "GET",
+                success: function (result) {
+                    if (result.code == 100) {
                         alert("宠物删除成功！");
-                        if(currentSize==1){
-                            to_page(currentPage-1);
+                        if (currentSize == 1) {
+                            to_page(currentPage - 1);
                         } else {
                             to_page(currentPage);
                         }
-                    }else{
+                    } else {
                         alert("宠物删除失败！");
                         to_page(currentPage);
                     }
@@ -634,30 +678,30 @@
     });
 
     function spilt(pics) {
-        var pis=pics;
-        var pt=pis.toString().split(",");
+        var pis = pics;
+        var pt = pis.toString().split(",");
         return pt[0];
     }
 
     $("#pet_find_modal_btn").click(function () {
         $("#pet_table tbody").empty();
-        var petType=$("#findByPetType").val();
-        to_findByPetType(1,petType);
+        var petType = $("#findByPetType").val();
+        to_findByPetType(1, petType);
     });
 
-    function to_findByPetType(pn,petType) {
+    function to_findByPetType(pn, petType) {
         $.ajax({
-            url:"${path}/pet/findByPetType",
-            type:"POST",
-            dataType:"json",
-            data:{"pn":pn,"petType":petType},
-            async:"true",
-            success:function (result) {
+            url: "${path}/pet/pets",
+            type: "POST",
+            dataType: "json",
+            data: {"pn": pn, "petType": petType},
+            async: "true",
+            success: function (result) {
                 build_pets_table(result);
                 build_page_info(result);
-                build_page_findByPetType(result,petType);
+                build_page_findByPetType(result, petType);
             },
-            error:function (result) {
+            error: function (result) {
                 alert("查询错误")
             }
         });
@@ -665,52 +709,52 @@
 
 
     //解析显示分页条，点击分页要能去下一页....
-    function build_page_findByPetType(result,petType){
+    function build_page_findByPetType(result, petType) {
         //page_nav_area
         $("#page_nav_area").empty();
         var ul = $("<ul></ul>").addClass("pagination");
 
         //构建元素
-        var firstPageLi = $("<li></li>").append($("<a></a>").append("首页").attr("href","#"));
+        var firstPageLi = $("<li></li>").append($("<a></a>").append("首页").attr("href", "#"));
         var prePageLi = $("<li></li>").append($("<a></a>").append("&laquo;"));
-        if(result.extend.pageInfo.hasPreviousPage == false){
+        if (result.extend.pageInfo.hasPreviousPage == false) {
             firstPageLi.addClass("disabled");
             prePageLi.addClass("disabled");
-        }else{
+        } else {
             //为元素添加点击翻页的事件
-            firstPageLi.click(function(){
-                to_findByPetType(1,petType);
+            firstPageLi.click(function () {
+                to_findByPetType(1, petType);
             });
-            prePageLi.click(function(){
-                to_findByPetType(result.extend.pageInfo.pageNum -1,petType);
+            prePageLi.click(function () {
+                to_findByPetType(result.extend.pageInfo.pageNum - 1, petType);
             });
         }
 
         var nextPageLi = $("<li></li>").append($("<a></a>").append("&raquo;"));
-        var lastPageLi = $("<li></li>").append($("<a></a>").append("末页").attr("href","#"));
-        if(result.extend.pageInfo.hasNextPage == false){
+        var lastPageLi = $("<li></li>").append($("<a></a>").append("末页").attr("href", "#"));
+        if (result.extend.pageInfo.hasNextPage == false) {
             nextPageLi.addClass("disabled");
             lastPageLi.addClass("disabled");
-        }else{
-            nextPageLi.click(function(){
-                to_findByPetType(result.extend.pageInfo.pageNum +1,petType);
+        } else {
+            nextPageLi.click(function () {
+                to_findByPetType(result.extend.pageInfo.pageNum + 1, petType);
             });
-            lastPageLi.click(function(){
-                to_findByPetType(result.extend.pageInfo.pages,petType);
+            lastPageLi.click(function () {
+                to_findByPetType(result.extend.pageInfo.pages, petType);
             });
         }
 
         //添加首页和前一页 的提示
         ul.append(firstPageLi).append(prePageLi);
         //1,2，3遍历给ul中添加页码提示
-        $.each(result.extend.pageInfo.navigatepageNums,function(index,item){
+        $.each(result.extend.pageInfo.navigatepageNums, function (index, item) {
 
             var numLi = $("<li></li>").append($("<a></a>").append(item));
-            if(result.extend.pageInfo.pageNum == item){
+            if (result.extend.pageInfo.pageNum == item) {
                 numLi.addClass("active");
             }
-            numLi.click(function(){
-                to_findByPetType(item,petType);
+            numLi.click(function () {
+                to_findByPetType(item, petType);
             });
             ul.append(numLi);
         });

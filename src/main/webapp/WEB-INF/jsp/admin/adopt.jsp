@@ -324,12 +324,11 @@
     }
 
     $(document).on("click",".agree_btn",function(){
-        var adoptAnimal=$(this).attr("agree-id");
+        var id=$(this).attr("agree-id");
         if(confirm("确认同意吗？")){
             $.ajax({
-                url:"${path}/static/adopt/agree",
-                type:"POST",
-                date:adoptAnimal,
+                url:"${path}/adopt/agree?id="+id,
+                type:"GET",
                 success:function (result) {
                     alert("审核成功");
                     to_page(currentPage);
@@ -367,7 +366,7 @@
         $("#adopt_table tbody").empty();
         var adoptTime=$("#findByAdoptTime").val();
         $.ajax({
-            url:"${path}/adopt/findByAdoptTime?adoptTime="+adoptTime,
+            url:"${path}/adopt/adopts?adoptTime="+adoptTime,
             type:"Get",
             async:"true",
             success:function (result) {

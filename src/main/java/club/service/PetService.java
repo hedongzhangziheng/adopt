@@ -7,4 +7,9 @@ public interface PetService {
     PageInfo<Pet> pets(Integer pageNum, Integer pagesize);
     Pet findById(Integer id);
     Integer create(Pet pet);
+    PageInfo<Pet> allPet(String petType, Integer pageNum, Integer pageSize);
+    int add(Pet pet);
+    int update(Pet pet);
+    Pet findById(Integer id);
+    int del(Integer id);
 }
