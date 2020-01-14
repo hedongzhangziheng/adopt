@@ -22,7 +22,7 @@ public class FileLoad {
         String substring = fileName.substring(fileName.lastIndexOf("."));
         //上传文件
         try {
-            file.transferTo(new File("E:/adopt/Pictures/" + picName + substring));
+            file.transferTo(new File("D:/IdeaWorkSpace/adopt/src/main/webapp/static/images/animal/" + picName + substring));
         } catch (IOException e) {
             e.printStackTrace();
         }

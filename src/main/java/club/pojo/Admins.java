@@ -5,17 +5,16 @@ import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
-import java.util.List;
 
 /**
  * @author Mr Wu
  * @create: 2019-08-20 14:23
  */
 @Data
-public class Admin {
+public class Admins {
     private Integer id;
-    private String adminName;
-    private String adminPwd;
+    private String adminsName;
+    private String adminsPwd;
     private String realName;
     private String telephone;
     private String email;

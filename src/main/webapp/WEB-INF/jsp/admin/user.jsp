@@ -72,7 +72,7 @@
                 <div id="collapseListGroup3" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="collapseListGroupHeading3">
                     <ul class="list-group">
                         <li class="list-group-item my_font">
-                            <a href="${path}/admin/users">
+                            <a href="${path}/admin/user">
                                 <i class="fa fa-flash fa-fw"></i> 用户信息
                             </a>
                         </li>
@@ -134,7 +134,7 @@
         <div class="panel panel-default">
             <!-- 搜索部分 -->
             <div class="panel-body">
-                <form class="form-inline" method="get" action="">
+                <form class="form-inline" method="get" action="{path}/user/users">
                     <div class="form-group">
                         <label for="findByName">用户名称</label>
                         <input type="text" class="form-control" id="findByName" value="" name="userName">
@@ -535,7 +535,7 @@
             type:"POST",
             data:$("#newUsers form").serialize(),
             success:function (result) {
-                alert("管理员创建成功");
+                alert("用户创建成功");
                 $("#user_saveDown-btn").click();
                 if(currentSize==currentPageSize) {
                     to_page(currentPages + 1);
@@ -545,7 +545,7 @@
             },
             error:function (result) {
                 console.log(result);
-                alert("管理员创建失败");
+                alert("管用户创建失败");
 
             }
         });
@@ -632,7 +632,7 @@
 
     function to_findByNamePage(pn,userName) {
         $.ajax({
-            url:"${path}/user/findByName",
+            url:"${path}/user/users",
             type:"POST",
             dataType:"json",
             data:{"userName":userName,"pn":pn},

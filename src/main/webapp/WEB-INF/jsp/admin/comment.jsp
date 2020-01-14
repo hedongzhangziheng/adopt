@@ -468,9 +468,9 @@
 
     $("#comment_find_modal_btn").click(function () {
         $("#comment_table tbody").empty();
-        var adminName=$("#findByName").val();
+        var userName=$("#findByName").val();
         $.ajax({
-            url:"${path}/comment/findByName?name="+adminName,
+            url:"${path}/comment/comments?userName="+userName,
             type:"Get",
             async:"true",
             success:function (result) {

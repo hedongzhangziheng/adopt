@@ -72,7 +72,7 @@
     <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
         <property name="exceptionMappings">
             <props>
-                <prop key="java.lang.Exception">error</prop>
+                <prop key="java.lang.Exception">user/error</prop>
             </props>
         </property>
     </bean>

@@ -1,5 +1,6 @@
 package club.pojo;
 
+import com.baomidou.mybatisplus.annotations.TableField;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -18,8 +19,11 @@ public class Answer {
     private Date answerTime;
     private String content;
 
+    @TableField(exist = false)
     private User user;
+    @TableField(exist = false)
     private Answer answer;
+    @TableField(exist = false)
     private Comment comment;
 
 }
