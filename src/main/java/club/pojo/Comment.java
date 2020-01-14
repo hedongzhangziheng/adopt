@@ -1,5 +1,6 @@
 package club.pojo;
 
+import com.baomidou.mybatisplus.annotations.TableField;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -18,10 +19,16 @@ public class Comment {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date commentTime;
     private String content;
-
+    @TableField(exist = false)
     private User user;
-    private Admin admin;
+    @TableField(exist = false)
+    private Admins admin;
+    @TableField(exist = false)
     private Pet pet;
+    @TableField(exist = false)
     private List<Answer> answer;
+    private Integer userId;
+    private Integer adminsId;
+    private Integer petId;
 
 }

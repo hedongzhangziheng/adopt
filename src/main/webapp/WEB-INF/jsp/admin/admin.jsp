@@ -644,7 +644,7 @@
 
     function to_findByName(pn,adminName) {
         $.ajax({
-            url:"${path}/admin/findByName",
+            url:"${path}/admin/admins",
             type:"POST",
             dataType:"json",
             data:{"pn":pn,"adminName":adminName},

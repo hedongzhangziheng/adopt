@@ -1,11 +1,20 @@
 package club.controller;
 
+import club.dao.UserMapper;
+import club.pojo.User;
+import club.service.UserService;
+import club.util.Message;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.annotation.Resource;
 
 @Controller
 @RequestMapping("/user")
 public class UserController {
+    @Resource
+    private UserService userService;
 
     @RequestMapping("/about")
     public String about(){
@@ -46,5 +55,10 @@ public class UserController {
     public String teamBlog(){
         return "user/teamBlog";
     }
-
+  /*  @RequestMapping("/findById")
+    @ResponseBody
+    public Message findById(Integer id){
+        User user = userService.findById(id);
+        return Message.success();
+    }*/
 }

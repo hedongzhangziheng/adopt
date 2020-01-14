@@ -1,5 +1,6 @@
 package club.pojo;
 
+import com.baomidou.mybatisplus.annotations.TableField;
 import lombok.Data;
 
 import java.util.List;
@@ -20,8 +21,9 @@ public class User {
     private String address;
     private String pic;
     private Integer state=0;
-
+    @TableField(exist = false)
     List<Comment> commentList;
+    @TableField(exist = false)
     List<AdoptAnimal> animalList;
 
 }
