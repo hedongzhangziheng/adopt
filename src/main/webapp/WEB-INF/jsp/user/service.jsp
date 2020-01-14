@@ -67,8 +67,8 @@
 <!-- //js -->
 
 <!-- start-smooth-scrolling 上去-->
-<script src="${path}/static/js/move-top.js"></script>
-<script src="${path}/static/js/easing.js"></script>
+<script src="${path}/static/js/user/move-top.js"></script>
+<script src="${path}/static/js/user/easing.js"></script>
 <script>
     jQuery(document).ready(function ($) {
         $(".scroll").click(function (event) {
@@ -102,7 +102,7 @@
     });
     function to_page(pn){
         $.ajax({
-            url:"${path}/pet/petState",
+            url:"${path}/pet/pets",
             data:"pn="+pn,
             type:"GET",
             success:function(result){
@@ -203,7 +203,7 @@
         console.log($(this));
         console.log(id);
         $.ajax({
-            url:"${path}/pet/findByPet?id="+id,
+            url:"${path}/pet/findById?id="+id,
             type:"GET",
             success:function (result) {
                 window.location.href="${path}/user/show";

@@ -16,16 +16,16 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `admin`
+-- Table structure for table `admins`
 --
 
-DROP TABLE IF EXISTS `admin`;
+DROP TABLE IF EXISTS `admins`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `admin` (
+CREATE TABLE `admins` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `adminName` varchar(20) NOT NULL COMMENT '管理员的名字',
-  `adminPwd` varchar(20) NOT NULL COMMENT '密码',
+  `adminsName` varchar(20) NOT NULL COMMENT '管理员的名字',
+  `adminsPwd` varchar(20) NOT NULL COMMENT '密码',
   `realName` varchar(20) NOT NULL COMMENT '真实的名字',
   `telephone` varchar(20) NOT NULL COMMENT '电话',
   `Email` varchar(20) NOT NULL,
@@ -38,13 +38,13 @@ CREATE TABLE `admin` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `admin`
+-- Dumping data for table `admins`
 --
 
-LOCK TABLES `admin` WRITE;
-/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
-INSERT INTO `admin` VALUES (1,'齐达内','yi123','杨一','13902193927','2425902914@qq.com','1993-09-10','男','a1.png','外号 玄宗。这位可是我们团队的玄学的代表。由他在似乎任何困难都能解决。'),(2,'卡瓦哈尔','wemz123','王二麻子','14402193927','2425902016@qq.com','1994-09-12','男','a2.png','外号 大傻；他是我们团队中最热心的人。他积极参加团队活动，并且在团队需要他的时候总是全力完成 '),(3,'瓦拉内','zs123','张三','14495893927','2917902016@qq.com','1994-10-12','男','a3.png','外号 学霸。这是为真正的学霸，他平时热心团队活动，并且负责团队的财务管理，认真严谨。'),(4,'拉莫斯','ls123','李四','14495893012','2107902016@qq.com','1994-06-09','男','a4.png','外号 水爷。这位团队外号虽然有水，但是一点也不水，他是我们的队长，为了团队他付出了最多的精力，而且他经常保护队员的安全.'),(5,'纳乔','ww123','王五','14495890112','2992902016@qq.com','1995-06-12','女','a5.png','外号 万金油。这位队员人如其名，是我们团队的万金油，当我们团队成员，紧急有事的时候，他都能顶上去，是一个很可靠的人。'),(6,'马塞洛','zl123','赵六','13195890112','2992909126@qq.com','1995-09-12','男','a6.png','外号 队宠。这位是我们的副队长，他是我们团队的开心果，在平常的活动中，他总能带给我们快乐。'),(7,'阿扎尔','sql1234','孙七','13195890081','2992909823@qq.com','1995-10-12','男','a7.png','外号 杨坤。这位不仅是团队中的颜值代表，而且是技术代表，他对小动物的保护知识是专家。他总能在保护小动物的方面给出正确的建议。'),(9,'本泽马','342','342','342','342','2019-08-20','女','a9.png','外号 背锅侠。这位是我们团队中的冲锋者，勇敢。但由于一些事，就造就了背锅侠的名号。'),(10,'莫德里奇','111','卢卡','15797959509','2425549281@qq.com','2019-08-05','男','a10.png','外号 魔笛。这位和我们团队中的杨坤都是技术与颜值的代表，而且他总是保持一颗冷静的心，在面对困难的时候，总是临危不惧。'),(11,'贝尔','1111','孙悟空','15797959509','2425549281@qq.com','1990-01-30','女','a11.png','号称孙悟空，无敌的存在！！');
-/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
+LOCK TABLES `admins` WRITE;
+/*!40000 ALTER TABLE `admins` DISABLE KEYS */;
+INSERT INTO `admins` VALUES (1,'齐达内','yi123','杨一','13902193927','2425902914@qq.com','1993-09-10','男','a1.png','外号 玄宗。这位可是我们团队的玄学的代表。由他在似乎任何困难都能解决。'),(2,'卡瓦哈尔','wemz123','王二麻子','14402193927','2425902016@qq.com','1994-09-12','男','a2.png','外号 大傻；他是我们团队中最热心的人。他积极参加团队活动，并且在团队需要他的时候总是全力完成 '),(3,'瓦拉内','zs123','张三','14495893927','2917902016@qq.com','1994-10-12','男','a3.png','外号 学霸。这是为真正的学霸，他平时热心团队活动，并且负责团队的财务管理，认真严谨。'),(4,'拉莫斯','ls123','李四','14495893012','2107902016@qq.com','1994-06-09','男','a4.png','外号 水爷。这位团队外号虽然有水，但是一点也不水，他是我们的队长，为了团队他付出了最多的精力，而且他经常保护队员的安全.'),(5,'纳乔','ww123','王五','14495890112','2992902016@qq.com','1995-06-12','女','a5.png','外号 万金油。这位队员人如其名，是我们团队的万金油，当我们团队成员，紧急有事的时候，他都能顶上去，是一个很可靠的人。'),(6,'马塞洛','zl123','赵六','13195890112','2992909126@qq.com','1995-09-12','男','a6.png','外号 队宠。这位是我们的副队长，他是我们团队的开心果，在平常的活动中，他总能带给我们快乐。'),(7,'阿扎尔','sql1234','孙七','13195890081','2992909823@qq.com','1995-10-12','男','a7.png','外号 杨坤。这位不仅是团队中的颜值代表，而且是技术代表，他对小动物的保护知识是专家。他总能在保护小动物的方面给出正确的建议。'),(9,'本泽马','342','342','342','342','2019-08-20','女','a9.png','外号 背锅侠。这位是我们团队中的冲锋者，勇敢。但由于一些事，就造就了背锅侠的名号。'),(10,'莫德里奇','111','卢卡','15797959509','2425549281@qq.com','2019-08-05','男','a10.png','外号 魔笛。这位和我们团队中的杨坤都是技术与颜值的代表，而且他总是保持一颗冷静的心，在面对困难的时候，总是临危不惧。'),(11,'贝尔','1111','孙悟空','15797959509','2425549281@qq.com','1990-01-30','女','a11.png','号称孙悟空，无敌的存在！！');
+/*!40000 ALTER TABLE `admins` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -67,7 +67,7 @@ CREATE TABLE `answer` (
   KEY `fk10` (`replay_id`),
   CONSTRAINT `fk10` FOREIGN KEY (`replay_id`) REFERENCES `answer` (`id`),
   CONSTRAINT `fk11` FOREIGN KEY (`comment_id`) REFERENCES `comment` (`id`),
-  CONSTRAINT `fk8` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+  CONSTRAINT `fk8` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -157,7 +157,7 @@ CREATE TABLE `comment` (
   KEY `fk1` (`user_id`),
   KEY `fk2` (`pet_id`),
   KEY `fk5` (`admin_id`),
-  CONSTRAINT `fk1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk2` FOREIGN KEY (`pet_id`) REFERENCES `pet` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk5` FOREIGN KEY (`admin_id`) REFERENCES `admin` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
@@ -219,7 +219,7 @@ CREATE TABLE `t_adopt` (
   PRIMARY KEY (`id`),
   KEY `fk3` (`user_id`),
   KEY `fk4` (`pet_id`),
-  CONSTRAINT `fk3` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk3` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk4` FOREIGN KEY (`pet_id`) REFERENCES `pet` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -272,7 +272,7 @@ CREATE TABLE `user` (
   `telephone` varchar(20) DEFAULT NULL COMMENT '电话',
   `Email` varchar(30) DEFAULT NULL COMMENT 'Email',
   `address` varchar(50) DEFAULT NULL COMMENT '地址',
-  `pic` varchar(100) DEFAULT 't0.jpg',
+  `pic` varchar(100) DEFAULT 't9.jpg',
   `state` int(11) DEFAULT '0' COMMENT '有无领养宠物的经历 0 是没有 1 是由',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
@@ -285,7 +285,7 @@ CREATE TABLE `user` (
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` VALUES (1,'张三丰','zsf123','男',100,'13809182091','2425549281@qq.com','湖北武当山','t1.jpg',1),(2,'宋远桥','syq123','男',50,'13908457344','2425549281@qq.com','湖北武当山','t2.jpg',0),(3,'俞莲舟','ylz123','男',45,'13903827601','2425549281@qq.com','湖北武当山','t3.jpg',1),(4,'俞岱岩','ydy123','男',43,'13903822001','2425549281@qq.com','湖北武当山','t4.jpg',1),(5,'赵敏','zm123','女',23,'13903810621','2425549281@qq.com','蒙古科尔沁','t5.jpg',1),(6,'张松溪','zsx123','男',40,'13903819146','2425549281@qq.com','湖北武当山','t6.jpg',0),(7,'张翠山','zcs123','男',38,'13903819301','2425549281@qq.com','湖北武当山','t7.jpg',0),(8,'殷素素','yss123','女',35,'13123819301','2425549281@qq.com','光明顶','t8.jpg',0),(9,'殷梨亭','ylt123','男',35,'13123249301','2425549281@qq.com','湖北武当山','t9.jpg',1),(10,'莫声谷','msg123','男',32,'13123249892','2425549281@qq.com','湖北武当山','t10.jpg',1),(11,'张无忌','zwj123','男',21,'15797959509','2425549281@qq.com','光明顶','t11.jpg',1),(12,'杨逍','123','男',45,'15797959509','2425549281@qq.com','光明顶','t12.jpg',0),(13,'白眉鹰王','8888','男',75,'15797959509','2425549281@qq.com','光明顶','t13.jpg',0),(14,'觉远大师','8888','男',145,'15797959509','2425549281@qq.com','嵩山少林寺','t14.jpg',1),(15,'包拯','1111','男',19,'15797959509','2425549281@qq.com','开封','t15.jpg',0),(16,'展昭','2222','男',31,'15797959509','2425549281@qq.com','开封','t16.jpg',0),(17,'小龙女','4444','女',32,'15797959509','2425549281@qq.com','古墓','t17.jpg',0),(18,'王语嫣','7777','女',45,'15797959509','2425549281@qq.com','云南大理','t18.jpg',0),(19,'段誉','1111','男',26,'15797959509','2425549281@qq.com','江西省南昌市','t19.jpg',1);
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

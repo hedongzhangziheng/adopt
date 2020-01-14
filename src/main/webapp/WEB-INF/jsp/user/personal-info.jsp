@@ -115,7 +115,7 @@
         </div>
     </div>
 </div>
-<script src="${path}/static/js/jquery-2.2.3.min.js"></script>
+<script src="${path}/static/js/user/jquery-2.2.3.min.js"></script>
 <script src="${path}/static/bootstrap/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">

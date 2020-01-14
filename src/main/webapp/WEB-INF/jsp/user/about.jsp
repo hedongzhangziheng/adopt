@@ -21,7 +21,7 @@
     <!-- css files -->
     <link rel="stylesheet" href="${path}/static/bootstrap/css/bootstrap.css" type="text/css" media="all">
     <!-- Owl-Carousel-CSS -->
-    <link rel="stylesheet" href="${path}/static/css/user/userstyle.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="${path}/static/css/user/style.css" type="text/css" media="all" />
     <link href='${path}/static/css/user/usersimplelightbox.min.css' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -157,7 +157,7 @@
 <!-- //js -->
 
 <!-- simple-lightbox -->
-<script src="${path}/static/js/simple-lightbox.min.js"></script>
+<script src="${path}/static/js/user/simple-lightbox.min.js"></script>
 <script>
     $(function () {
         var gallery = $('.agileinfo-gallery-row a').simpleLightbox({

@@ -576,8 +576,8 @@
         $("#editUsers").modal({
             backdrop:"static"
         });
-
     });
+
 
     //点击更新按钮弹出模态框。
     $("#user_update_btn").click(function(){

@@ -72,9 +72,9 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <div class="modal-info">
 
-                    <h4 id="edit_title"></h4>
-                    <p id="edit_address"></p>
-                    <p class="para-agileits-w3layouts" id="edit_event"></p>
+                    <h4 id="title"></h4>
+                    <p id="addres"></p>
+                    <p class="para-agileits-w3layouts" id="event"></p>
                 </div>
             </div>
         </div>
@@ -116,11 +116,11 @@
         var blogs=result.extend.pageInfo.list;
         $.each(blogs,function(index,blog){
 
-            var yearTd=$("<div></div>").addClass("blog-left-agileits").append($("<p></p>")).append(blogTime);
+            var yearTd=$("<div></div>").addClass("blog-left-agileits").append($("<p></p>")).append(blog.actionTime);
 
             var blogTd=$("<div></div>").addClass("blog-right-agileits-w3layouts");
 
-            var titleTd=$("<h4></h4>").append($("<a></a>")).addClass("myfont").append(blog.title);
+            var titleTd=$("<h4 style='cursor: pointer'></h4>").append($("<a></a>")).addClass("myfont").append(blog.title);
             titleTd.attr("id","title_btn");
             titleTd.attr("title-id",blog.id);
 
@@ -146,8 +146,8 @@
         var ul = $("<ul></ul>").addClass("pagination");
 
         //构建元素
-        var firstPageLi = $("<li></li>").append($("<a></a>").append("首页").attr("href","#"));
-        var prePageLi = $("<li></li>").append($("<a></a>").append("&laquo;"));
+        var firstPageLi = $("<li></li>").append($("<a style='cursor: pointer'></a>").append("首页").attr("href","#"));
+        var prePageLi = $("<li></li>").append($("<a style='cursor: pointer'></a>").append("&laquo;"));
         if(result.extend.pageInfo.hasPreviousPage == false){
             firstPageLi.addClass("disabled");
             prePageLi.addClass("disabled");
@@ -161,8 +161,8 @@
             });
         }
 
-        var nextPageLi = $("<li></li>").append($("<a></a>").append("&raquo;"));
-        var lastPageLi = $("<li></li>").append($("<a></a>").append("末页").attr("href","#"));
+        var nextPageLi = $("<li></li>").append($("<a style='cursor: pointer'></a>").append("&raquo;"));
+        var lastPageLi = $("<li></li>").append($("<a style='cursor: pointer'></a>").append("末页").attr("href","#"));
         if(result.extend.pageInfo.hasNextPage == false){
             nextPageLi.addClass("disabled");
             lastPageLi.addClass("disabled");
@@ -207,9 +207,9 @@
             type:"GET",
             success:function(result){
                 //填充用户信息
-                $("#edit_title").text(result.extend.blog.title);
-                $("#edit_address").text(result.extend.blog.address);
-                $("#edit_event").text(result.extend.blog.event);
+                $("#title").text(result.extend.blog.title);
+                $("#addres").text(result.extend.blog.address);
+                $("#event").text(result.extend.blog.event);
 
             }});
         //2、弹出模态框

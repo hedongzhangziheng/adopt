@@ -210,6 +210,7 @@ label {
     width: 50px;
     height: 50px;
     background: transparent url(../../images/home/arrows.png) no-repeat left top;
+    background-size: 110px 50px;
 }
 
 .callbacks_nav.next {

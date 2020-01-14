@@ -426,9 +426,9 @@
             var editBtn = $("<button></button>").addClass("btn btn-primary btn-sm edit_btn")
                 .append($("<span></span>").addClass("glyphicon glyphicon-pencil")).append("修改");
             //为编辑按钮添加一个自定义的属性，来表示当前员工id
+            editBtn.attr("edit-id",admin.id);
             var delBtn =  $("<button></button>").addClass("btn btn-danger btn-sm delete_btn")
                 .append($("<span></span>").addClass("glyphicon glyphicon-trash")).append("删除");
-            editBtn.attr("edit-id",admin.id);
             //为删除按钮添加一个自定义的属性来表示当前删除的员工id
             delBtn.attr("del-id",admin.id);
             var btnTd = $("<td></td>").append(editBtn).append(" ").append(delBtn);
@@ -618,7 +618,7 @@
         if(confirm("确认删除【"+adminName+"】吗？")){
             //确认，发送ajax请求删除即可
             $.ajax({
-                url:"${path}/admin/delete?id="+adminId,
+                url:"${path}/static/admin/delete.action?id="+adminId,
                 type:"GET",
                 success:function (result) {
                     if(result.code==100){
@@ -644,8 +644,7 @@
 
     function to_findByName(pn,adminName) {
         $.ajax({
-
-            url:"${path}/admin/admins",
+            url:"${path}/admin/findByName",
             type:"POST",
             dataType:"json",
             data:{"pn":pn,"adminName":adminName},

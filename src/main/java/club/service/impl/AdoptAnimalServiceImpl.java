@@ -1,12 +1,16 @@
 package club.service.impl;
 
 import club.dao.AdoptAnimalMapper;
+import club.pojo.AdoptAnimal;
+import club.dao.AdoptAnimalMapper;
 import club.dao.PetMapper;
 import club.dao.UserMapper;
 import club.pojo.AdoptAnimal;
 import club.pojo.Pet;
 import club.pojo.User;
 import club.service.AdoptAnimalService;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -14,10 +18,22 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+
+@Service
+@Transactional
+import javax.annotation.Resource;
 import java.util.List;
 @Service
 @Transactional
 public class AdoptAnimalServiceImpl implements AdoptAnimalService {
+
+    @Resource
+    private AdoptAnimalMapper adoptAnimalMapper;
+
+    @Override
+    public Integer create(AdoptAnimal adoptAnimal) {
+        return adoptAnimalMapper.insert(adoptAnimal);
+    }
 
     @Resource
     private AdoptAnimalMapper aam;
