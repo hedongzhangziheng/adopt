@@ -1,9 +1,9 @@
 package club.pojo;
 
-import com.baomidou.mybatisplus.annotations.TableField;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
+import com.baomidou.mybatisplus.annotations.TableField;
 
 import java.util.Date;
 import java.util.List;
@@ -15,6 +15,9 @@ import java.util.List;
 @Data
 public class Comment {
     private Integer id;
+    private Integer userId;
+    private Integer adminsId;
+    private Integer petId;
     @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date commentTime;
@@ -27,8 +30,5 @@ public class Comment {
     private Pet pet;
     @TableField(exist = false)
     private List<Answer> answer;
-    private Integer userId;
-    private Integer adminsId;
-    private Integer petId;
 
 }

@@ -60,16 +60,13 @@ public class AdminController {
     public String comment(){
         return "admin/comment";
     }
-    //
+
     @RequestMapping("/disAgree")
     public String disAgree(){
         return "admin/disAgree";
     }
 
-    @RequestMapping("/login")
-    public String login(){
-        return "admin/login";
-    }
+
 
     @RequestMapping("/pet")
     public String pet(){
@@ -80,11 +77,25 @@ public class AdminController {
     public String user(){
         return "admin/user";
     }
-    /*@RequestMapping("/users")
-    @ResponseBody
-    public Message users(HttpSession session){
-        List<User> list = userService.all();
-        session.setAttribute("users",list);
-        return Message.success().add("users",list);
-    }*/
+
+    /*管理员登录*/
+    @RequestMapping("/login")
+    public String login(){
+        return "admin/login";
+    }
+    @RequestMapping("/dologin")
+    public String doLogin(HttpSession session, String adminName,String adminPwd){
+        Admins login = adminService.login(adminName, adminPwd);
+        if (login == null){
+            session.setAttribute("msg","用户名或密码错误！");
+            return "redirect:/admin/login";
+        }
+            session.setAttribute("admin",login);
+        return "admin/admin";
+    }
+    @RequestMapping("/logout")
+    public String logout(HttpSession session){
+        session.invalidate();
+        return "admin/login";
+    }
 }

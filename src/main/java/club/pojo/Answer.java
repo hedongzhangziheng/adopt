@@ -14,10 +14,14 @@ import java.util.Date;
 @Data
 public class Answer {
     private Integer id;
+    private Integer userId;
+    private Integer replayId;
+    private Integer commentId;
     @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date answerTime;
     private String content;
+
     @TableField(exist = false)
     private User user;
     @TableField(exist = false)

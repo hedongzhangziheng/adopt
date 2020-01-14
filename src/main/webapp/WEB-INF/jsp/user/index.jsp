@@ -185,7 +185,7 @@
 
 
 <!-- js 非得用2.0版本得jQuery-->
-<script src="${path}/static/js/jquery-2.2.3.min.js"></script>
+<script src="${path}/static/js/user/jquery-2.2.3.min.js"></script>
 <script src="${path}/static/bootstrap/js/bootstrap.min.js"></script>
 <!-- Necessary-JavaScript-File-For-Bootstrap -->
 <!-- //js -->

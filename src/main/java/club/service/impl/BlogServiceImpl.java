@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -49,5 +48,13 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public int del(Integer id) {
         return blogMapper.deleteById(id);
+    }
+
+    @Override
+    public PageInfo<Blog> blogs(Integer pageNum, Integer pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<Blog> blogs = blogMapper.selectList(null);
+        PageInfo<Blog> pageInfo = new PageInfo<Blog>(blogs, 3);
+        return pageInfo;
     }
 }

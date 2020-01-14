@@ -72,7 +72,7 @@
                 <div id="collapseListGroup3" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="collapseListGroupHeading3">
                     <ul class="list-group">
                         <li class="list-group-item my_font">
-                            <a href="${path}/admin/users">
+                            <a href="${path}/admin/user">
                                 <i class="fa fa-flash fa-fw"></i> 用户信息
                             </a>
                         </li>
@@ -576,8 +576,8 @@
         $("#editUsers").modal({
             backdrop:"static"
         });
-
     });
+
 
     //点击更新按钮弹出模态框。
     $("#user_update_btn").click(function(){

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+
 import java.util.List;
 
 @Service
@@ -29,6 +30,16 @@ public class AdminServiceImpl implements AdminService {
         return pageInfo;
     }
 
+    @Override
+    public Admins login(String adminName, String adminPwd) {
+        Admins a = new Admins();
+        a.setAdminName(adminName);
+        Admins admin = adminMapper.selectOne(a);
+        if (admin != null && admin.getAdminPwd().equals(adminPwd)){
+            return admin;
+        }
+        return null;
+    }
     @Override
     public Admins findById(Integer id) {
         return adminMapper.selectById(id);

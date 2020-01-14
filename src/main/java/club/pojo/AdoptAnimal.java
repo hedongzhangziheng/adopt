@@ -14,12 +14,13 @@ import java.util.Date;
 @Data
 public class AdoptAnimal {
     private Integer id;
-    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Integer userId;
     private Integer petId;
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date adoptTime;
     private Integer state;
+
     @TableField(exist = false)
     private Pet pet;
     @TableField(exist = false)

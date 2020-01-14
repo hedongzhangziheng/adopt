@@ -43,4 +43,9 @@ public class ApplyServiceImpl implements ApplyService {
     public int del(Integer id) {
         return applyMapper.deleteById(id);
     }
+
+    @Override
+    public Integer create(Apply apply) {
+        return applyMapper.insert(apply);
+    }
 }

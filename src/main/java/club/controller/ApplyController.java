@@ -10,9 +10,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.Date;
 
 @Controller
-@RequestMapping("apply")
+@RequestMapping("/apply")
 public class ApplyController {
     @Resource
     private ApplyService applyService;
@@ -48,6 +49,18 @@ public class ApplyController {
     public Message delete(Integer id){
         int i = applyService.del(id);
         if(i > 0){
+            return Message.success();
+        }else {
+            return Message.fail();
+        }
+    }
+    @RequestMapping("/create")
+    @ResponseBody
+    public Message create(Apply apply){
+        apply.setApplyTime(new Date());
+        apply.setState(2);
+        Integer integer = applyService.create(apply);
+        if(integer > 0){
             return Message.success();
         }else {
             return Message.fail();

@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
-import java.util.Date;
-
 @Controller
-@RequestMapping("blog")
+@RequestMapping("/blog")
 public class BlogController {
     @Resource
     private BlogService blogService;
@@ -37,12 +35,6 @@ public class BlogController {
             return Message.fail();
         }
     }
-    @RequestMapping("/findById")
-    @ResponseBody
-    public Message findById(Integer id){
-        Blog byId = blogService.findById(id);
-        return Message.success().add("blog",byId);
-    }
     @RequestMapping("/update")
     @ResponseBody
     public Message update(Blog blog){
@@ -62,5 +54,20 @@ public class BlogController {
         }else {
             return Message.fail();
         }
+    }
+
+    @RequestMapping("/blogs")
+    @ResponseBody
+    public Message blogs(Integer pn){
+        Integer pageSize = 3;
+        PageInfo<Blog> pageInfo = blogService.blogs(pn, pageSize);
+        return Message.success().add("pageInfo", pageInfo);
+    }
+
+    @RequestMapping("/findById")
+    @ResponseBody
+    public Message findById(Integer id){
+        Blog blog = blogService.findById(id);
+        return Message.success().add("blog", blog);
     }
 }

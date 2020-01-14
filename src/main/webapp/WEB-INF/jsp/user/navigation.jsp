@@ -13,13 +13,13 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>
-        <sitemesh:write property='title' /></title>
-    <sitemesh:write property='head' />
+        <sitemesh:write property='title'/></title>
+    <sitemesh:write property='head'/>
     <link rel="stylesheet" href="${path}/static/bootstrap/css/bootstrap.min.css">
-    <script src="${path}/static/js/jquery-2.2.3.min.js"></script>
+    <script src="${path}/static/js/user/jquery-2.2.3.min.js"></script>
     <script src="${path}/static/bootstrap/js/bootstrap.min.js"></script>
     <!-- Owl-Carousel-CSS -->
-    <link rel="stylesheet" href="${path}/static/css/user/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="${path}/static/css/user/style.css" type="text/css" media="all"/>
 </head>
 <body>
 <!-- sticky navigation -->
@@ -46,16 +46,18 @@
 
                     <!-- 判断是否登录 显示哪个内容 -->
                     <%
-                        boolean isLogin=false;
+                        boolean isLogin = false;
                         Object user = request.getSession().getAttribute("user");
-                        if (user!=null){
+                        if (user != null) {
                             isLogin = true;
                         }
-                        request.getSession().setAttribute("isLogin",isLogin);
+                        request.getSession().setAttribute("isLogin", isLogin);
                     %>
                     <c:if test="${sessionScope.isLogin}" var="flage" scope="session">
                         <li id="edit_logout">
-                            <div class="img"><img src="/static/images/user/${user.getPic()}" alt="" width="60px" style="border-radius:50% " value="${user.getId()}" id="user_edit_modal_btn"></div>
+                            <div class="img"><img src="/static/images/user/${user.getPic()}" alt="" width="60px"
+                                                  style="border-radius:50% " value="${user.getId()}"
+                                                  id="user_edit_modal_btn"></div>
                         </li>
                         <a id="logout">退出</a>
                     </c:if>
@@ -117,19 +119,22 @@
                 </div>
                 <div role="tabpanel" class="tab-pane" id="tab">
                     <div class="modal-body">
-                        <form class="form-horizontal" id="user_register_form" method="post" enctype="multipart/form-data">
+                        <form class="form-horizontal" id="user_register_form" method="post"
+                              enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="new_userName" class="col-sm-2 control-label">
                                     用户名字
                                 </label>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="new_userName" placeholder="用户名称" name="userName">
+                                    <input type="text" class="form-control" id="new_userName" placeholder="用户名称"
+                                           name="userName">
                                 </div>
                                 <label for="new_password" class="col-sm-2 control-label">
                                     用户密码
                                 </label>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="new_password" placeholder="用户密码" name="password">
+                                    <input type="text" class="form-control" id="new_password" placeholder="用户密码"
+                                           name="password">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -155,13 +160,15 @@
                                     电话号码
                                 </label>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="new_telephone" placeholder="电话" name="telephone">
+                                    <input type="text" class="form-control" id="new_telephone" placeholder="电话"
+                                           name="telephone">
                                 </div>
                                 <label for="new_Email" class="col-sm-2 control-label">
                                     Email
                                 </label>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="new_Email" placeholder="Email"  name="Email">
+                                    <input type="text" class="form-control" id="new_Email" placeholder="Email"
+                                           name="Email">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -169,7 +176,8 @@
                                     地址
                                 </label>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="new_address" placeholder="地址" name="address">
+                                    <input type="text" class="form-control" id="new_address" placeholder="地址"
+                                           name="address">
                                 </div>
                                 <label for="new_state" class="col-sm-2 control-label">
                                     经历
@@ -211,13 +219,15 @@
                             用户名称
                         </label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="edit_userName" placeholder="用户名称" name="userName" value="${user.userName}">
+                            <input type="text" class="form-control" id="edit_userName" placeholder="用户名称"
+                                   name="userName" value="${user.userName}">
                         </div>
                         <label for="edit_password" class="col-sm-2 control-label">
                             用户密码
                         </label>
                         <div class="col-sm-4">
-                            <input type="password" class="form-control" id="edit_password" placeholder="用户密码" name="password" value="${user.password}">
+                            <input type="password" class="form-control" id="edit_password" placeholder="用户密码"
+                                   name="password" value="${user.password}">
                         </div>
                     </div>
                     <div class="form-group">
@@ -225,7 +235,8 @@
                             年龄
                         </label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="edit_age" placeholder="年龄" name="age" value="${user.age}">
+                            <input type="text" class="form-control" id="edit_age" placeholder="年龄" name="age"
+                                   value="${user.age}">
                         </div>
                         <label for="edit_sex" class="col-sm-2 control-label">
                             性别
@@ -243,13 +254,15 @@
                             电话号码
                         </label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="edit_telephone" placeholder="电话" name="telephone" value="${user.telephone}">
+                            <input type="text" class="form-control" id="edit_telephone" placeholder="电话"
+                                   name="telephone" value="${user.telephone}">
                         </div>
                         <label for="edit_Email" class="col-sm-2 control-label">
                             Email
                         </label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="edit_Email" placeholder="Email"  name="Email" value="${user.email}">
+                            <input type="text" class="form-control" id="edit_Email" placeholder="Email" name="Email"
+                                   value="${user.email}">
                         </div>
 
                     </div>
@@ -258,7 +271,8 @@
                             地址
                         </label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="edit_address" placeholder="地址" name="address" value="${user.address}">
+                            <input type="text" class="form-control" id="edit_address" placeholder="地址" name="address"
+                                   value="${user.address}">
                         </div>
                         <label for="edit_state" class="col-sm-2 control-label">
                             经历
@@ -286,21 +300,21 @@
 
     $("#user_login_btn").click(function () {
         $.ajax({
-            url:"${path}/user/login",
-            type:"POST",
-            data:$("#user_login_form").serialize(),
-            success:function (result) {
+            url: "${path}/user/login",
+            type: "POST",
+            data: $("#user_login_form").serialize(),
+            success: function (result) {
                 alert("登录成功");
                 window.location.reload();
             },
-            error:function (result) {
-                alert("登陆失败");
+            error: function (result) {
+                alert("登录失败");
             }
         });
     });
 
     //清空表单样式及内容
-    function reset_form(ele){
+    function reset_form(ele) {
         $(ele)[0].reset();
         //清空表单样式
         $(ele).find("*").removeClass("has-error has-success");
@@ -308,7 +322,7 @@
     }
 
     //点击编辑按钮弹出模态框。
-    $("#user_edit_modal_btn").click(function(){
+    $("#user_edit_modal_btn").click(function () {
         // //1、发送ajax,根据id获取用户信息
         // //清除表单数据（表单完整重置（表单的数据，表单的样式））
         // reset_form("#user_edit_form");
@@ -316,24 +330,24 @@
         // $("#editUser").modal({
         //     backdrop:"static"
         // });
-        window.location.href="${path}/user/personal-info"
+        window.location.href = "${path}/user/personal-info"
 
     });
 
     //点击更新按钮弹出模态框。
-    $("#user_update_btn").click(function(){
-        var file=document.getElementById("user_edit_form");
+    $("#user_update_btn").click(function () {
+        var file = document.getElementById("user_edit_form");
         var fd = new FormData(file);
         $.ajax({
-            url:"${path}/user/update",
-            type:"POST",
+            url: "${path}/user/update",
+            type: "POST",
             processData: false,  // 告诉jQuery不要去处理发送的数据
             contentType: false, // 告诉jQuery不要去设置Content-Type请求头
-            data:fd,
-            success:function (result) {
+            data: fd,
+            success: function (result) {
                 alert("用户信息更新成功！");
             },
-            error:function(result){
+            error: function (result) {
                 alert("用户信息更新失败！");
             }
         });
@@ -342,29 +356,38 @@
 
     $("#logout").click(function () {
         $.ajax({
-            url:"${path}/user/logout",
-            type:"GET",
-            success:function (result) {
-                window.location.href="${path}/user/index";
+            url: "${path}/user/logout",
+            type: "GET",
+            success: function (result) {
+                window.location.href = "${path}/user/index";
                 alert("退出成功");
             },
-            error:function (result) {
-               alert("退出失败");
+            error: function (result) {
+                alert("退出失败");
             }
         })
     })
     $("#user_register_btn").click(function () {
-        $.ajax({
-            url:"${path}/user/create",
-            type:"POST",
-            data:$("#user_register_form").serialize(),
-            success:function (result) {
-                alert("注册成功，请去登录！");
-            },
-            error:function (result) {
-                alert("注册失败");
-            }
-        });
+        var name = $("#new_userName").val();
+        var pass = $("#new_password").val();
+        if (name == "" ) {
+            alert("请输入用户名")
+        } else if (pass == "") {
+            alert("请输入密码")
+        } else {
+            $.ajax({
+                url: "${path}/user/create",
+                type: "POST",
+                data: $("#user_register_form").serialize(),
+                success: function (result) {
+                    alert("注册成功，请去登录！");
+                    window.location.href = "${path}/user/index";
+                },
+                error: function (result) {
+                    alert("注册失败");
+                }
+            });
+        }
     });
 
 
