@@ -199,18 +199,18 @@ CREATE TABLE `pet` (
 
 LOCK TABLES `pet` WRITE;
 /*!40000 ALTER TABLE `pet` DISABLE KEYS */;
-INSERT INTO `pet` VALUES (1,'kitty','波斯猫','雄性','2018-09-10','cat1_1.jpg,cat1_2.jpg,cat1_3.jpg',1,'kitty是一名害羞，温暖，柔和，友善的波斯猫。'),(2,'Vito','波斯猫','雄性','2018-09-21','cat2_1.jpg,cat2_2.jpg,cat2_3.jpg',0,'Vito是一只精力充沛的猫，比起其他猫更加热爱玩耍。'),(3,'kena','短尾猫','雌性','2018-01-21','cat3_1.jpg,cat3_2.jpg,cat3_3.jpg,cat3_4.jpg',1,'Kena是一只可爱活泼的小公主，对食物有份执着，她向往自由，喜欢无拘无束的生活。'),(4,'Vamp','波斯猫','雌性','2018-11-21','cat4_1.jpg,cat4_2.jpg,cat4_3.jpg,cat4_4.jpg',1,'Vamp是一只雄性蓝色的波斯猫。他安静，不喜欢玩耍。'),(5,'辛巴','牧羊犬','雄性','2018-11-21','dog1_1.jpg,dog1_2.jpg,dog1_3.jpg,dog1_4.jpg',0,'辛巴活泼又好奇，特别喜欢和别的狗狗玩耍，更十分喜欢户外活动。一个没有儿童的家庭更适合他，你愿意成为辛巴的好朋友，让他继续快乐的成长吗？'),(6,'glery','藏獒','雄性','2019-01-21','dog2_1.jpg,dog2_2.jpg,dog2_3.jpg,dog2_4.jpg',1,'kito是一只好奇，活力，智能，热情奔放的藏獒。'),(7,'Soju','藏獒','雄性','2019-01-21','dog3_1.jpg,dog3_2.jpg,dog3_3.jpg',1,'Soju是一只好奇，活力，智能，热情奔放的藏獒。'),(8,'Minnie','橘猫','雌性','2018-11-21','cat5_1.jpg,cat5_2.jpg,cat5_3.jpg,cat5_4.jpg',1,'MInnie是一名害羞，胆小，巨能吃的橘猫。'),(9,'Kena','狸猫','雌性','2018-11-21','cat6_1.jpg,cat6_2.jpg,cat6_3.jpg,cat6_4.jpg',2,'Kena是一名害羞，温暖，柔和，友善的狸猫。'),(10,'Pigge','牧羊犬','雌性','2018-03-19','dog4_1.jpg,dog4_2.jpg,dog4_3.jpg',1,'Pigge是一只喜欢玩耍的牧羊犬，但他在主人需要的时候，总是尽职尽责。'),(11,'Tommy','秋田犬','雄性','2019-07-12','dog5_1.jpg,dog5_2.jpg,dog5_3.jpg',0,'Tommy是一只喜欢玩耍的牧羊犬，但他在主人需要的时候，总是尽职尽责。'),(12,'James','短尾猫','雄性','2019-05-12','cat7_1.jpg,cat7_2.jpg,cat7_3.jpg',0,'James是一只精力充沛的猫，比起其他猫更加热爱玩耍。'),(13,'Snow','雪橇犬','雄性','2019-06-12','dog6_1.jpg,dog6_2.jpg,dog6_3.jpg',0,'Snow外表是一个很安静的犬，但是动起来比什么狗都爱玩耍。'),(14,'Isio','牧羊犬','雌性','2019-06-29','dog7_1.jpg,dog7_2.jpg,dog7_3.jpg',0,''),(16,'水母','秋田犬','雄性','2019-08-31','dog8_1.jpg,dog8_2.jpg,dog8_3.jpg',0,'ewew');
+INSERT INTO `pet` VALUES (1,'kitty','波斯猫','雄性','2018-09-10','cat1_1.jpg,cat1_2.jpg,cat1_3.jpg',1,'kitty是一名害羞，温暖，柔和，友善德波斯猫。'),(2,'Vito','波斯猫','雄性','2018-09-21','cat2_1.jpg,cat2_2.jpg,cat2_3.jpg',0,'Vito是一只精力充沛德猫，比起其他猫更加热爱玩耍。'),(3,'kena','短尾猫','雌性','2018-01-21','cat3_1.jpg,cat3_2.jpg,cat3_3.jpg,cat3_4.jpg',1,'Kena是一只可爱活泼德小公主，对食物有份执着，她向往自由，喜欢无拘无束的生活。'),(4,'Vamp','波斯猫','雌性','2018-11-21','cat4_1.jpg,cat4_2.jpg,cat4_3.jpg,cat4_4.jpg',1,'Vamp是一只雄性蓝色的波斯猫。他安静，不喜欢玩耍。'),(5,'辛巴','牧羊犬','雄性','2018-11-21','dog1_1.jpg,dog1_2.jpg,dog1_3.jpg,dog1_4.jpg',0,'辛巴活泼又好奇，特别喜欢和别的狗狗玩耍，更十分喜欢户外活动。一个没有儿童的家庭更适合他，你愿意成为辛巴德好朋友，让他继续快乐德成长吗？'),(6,'glery','藏獒','雄性','2019-01-21','dog2_1.jpg,dog2_2.jpg,dog2_3.jpg,dog2_4.jpg',1,'kito是一只好奇，活力，智能，热情奔放的藏獒。'),(7,'Soju','藏獒','雄性','2019-01-21','dog3_1.jpg,dog3_2.jpg,dog3_3.jpg',1,'Soju是一只好奇，活力，智能，热情奔放的藏獒。'),(8,'Minnie','橘猫','雌性','2018-11-21','cat5_1.jpg,cat5_2.jpg,cat5_3.jpg,cat5_4.jpg',1,'MInnie是一名害羞，胆小，巨能吃的橘猫。'),(9,'Kena','狸猫','雌性','2018-11-21','cat6_1.jpg,cat6_2.jpg,cat6_3.jpg,cat6_4.jpg',2,'Kena是一名害羞，温暖，柔和，友善的狸猫。'),(10,'Pigge','牧羊犬','雌性','2018-03-19','dog4_1.jpg,dog4_2.jpg,dog4_3.jpg',1,'Pigge是一只喜欢玩耍的牧羊犬，但他在主人需要的时候，总是尽职尽责。'),(11,'Tommy','秋田犬','雄性','2019-07-12','dog5_1.jpg,dog5_2.jpg,dog5_3.jpg',0,'Tommy是一只喜欢玩耍的牧羊犬，但他在主人需要的时候，总是尽职尽责。'),(12,'James','短尾猫','雄性','2019-05-12','cat7_1.jpg,cat7_2.jpg,cat7_3.jpg',0,'James是一只精力充沛德猫，比起其他猫更加热爱玩耍。'),(13,'Snow','雪橇犬','雄性','2019-06-12','dog6_1.jpg,dog6_2.jpg,dog6_3.jpg',0,'Snow外表是一个很安静的犬，但是动起来比什么狗都爱玩耍。'),(14,'Isio','牧羊犬','雌性','2019-06-29','dog7_1.jpg,dog7_2.jpg,dog7_3.jpg',0,''),(16,'水母','秋田犬','雄性','2019-08-31','dog8_1.jpg,dog8_2.jpg,dog8_3.jpg',0,'ewew');
 /*!40000 ALTER TABLE `pet` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `t_adopt`
+-- Table structure for table `adoptAnimal`
 --
 
-DROP TABLE IF EXISTS `t_adopt`;
+DROP TABLE IF EXISTS `adoptAnimal`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `t_adopt` (
+CREATE TABLE `adoptAnimal` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userId` int(11) NOT NULL COMMENT '用户表id的外键',
   `petId` int(11) NOT NULL COMMENT '宠物表id的外键',
@@ -225,13 +225,13 @@ CREATE TABLE `t_adopt` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `t_adopt`
+-- Dumping data for table `adoptAnimal`
 --
 
-LOCK TABLES `t_adopt` WRITE;
-/*!40000 ALTER TABLE `t_adopt` DISABLE KEYS */;
-INSERT INTO `t_adopt` VALUES (1,1,1,'2019-08-21',2),(2,5,2,'2019-08-20',0),(3,3,3,'2019-08-19',1),(4,4,4,'2019-08-18',0),(5,2,5,'2019-08-17',0),(6,6,6,'2019-08-16',1),(7,7,7,'2019-08-15',1),(8,2,8,'2019-08-14',0),(9,9,9,'2019-08-13',2),(10,9,1,'2019-08-09',0),(13,1,5,'2019-09-01',0),(14,30,5,'2019-09-09',0),(15,30,2,'2019-09-09',0),(16,30,2,'2019-09-09',0),(17,30,10,'2019-09-09',1);
-/*!40000 ALTER TABLE `t_adopt` ENABLE KEYS */;
+LOCK TABLES `adoptAnimal` WRITE;
+/*!40000 ALTER TABLE `adoptAnimal` DISABLE KEYS */;
+INSERT INTO `adoptAnimal` VALUES (1,1,1,'2019-08-21',2),(2,5,2,'2019-08-20',0),(3,3,3,'2019-08-19',1),(4,4,4,'2019-08-18',0),(5,2,5,'2019-08-17',0),(6,6,6,'2019-08-16',1),(7,7,7,'2019-08-15',1),(8,2,8,'2019-08-14',0),(9,9,9,'2019-08-13',2),(10,9,1,'2019-08-09',0),(13,1,5,'2019-09-01',0),(14,30,5,'2019-09-09',0),(15,30,2,'2019-09-09',0),(16,30,2,'2019-09-09',0),(17,30,10,'2019-09-09',1);
+/*!40000 ALTER TABLE `adoptAnimal` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -272,7 +272,7 @@ CREATE TABLE `user` (
   `telephone` varchar(20) DEFAULT NULL COMMENT '电话',
   `Email` varchar(30) DEFAULT NULL COMMENT 'Email',
   `address` varchar(50) DEFAULT NULL COMMENT '地址',
-  `pic` varchar(100) DEFAULT 't9.jpg',
+  `pic` varchar(100) DEFAULT 't0.jpg',
   `state` int(11) DEFAULT '0' COMMENT '有无领养宠物的经历 0 是没有 1 是由',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;

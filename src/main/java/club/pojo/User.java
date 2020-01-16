@@ -1,6 +1,5 @@
 package club.pojo;
 
-import com.baomidou.mybatisplus.annotations.TableField;
 import lombok.Data;
 
 import java.util.List;

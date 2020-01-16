@@ -21,6 +21,6 @@ public class Apply {
     @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date applyTime;
-    private int state;
+    private Integer state;
 
 }

@@ -201,9 +201,10 @@
         to_page(1);
     });
     function to_page(pn){
+        var state = 2;
         $.ajax({
-            url:"${path}/adopt/ByAgree",
-            data:"pn="+pn,
+            url:"${path}/adopt/apply",
+            data:{"pn":pn,"state":state},
             type:"GET",
             success:function(result){
                 resolving(result);
@@ -320,11 +321,12 @@
         to_findByName(1,userName);
     });
     function to_findByName(pn,userName){
+        var state = 2;
         $.ajax({
-            url:"${path}/adopt/findByName",
+            url:"${path}/adopt/apply",
             type:"POST",
             dataType:"json",
-            data:{"pn":pn,"userName":userName,"state":2},
+            data:{"pn":pn,"userName":userName,"state":state},
             async:"true",
             success:function (result) {
                 build_adopts_table(result);

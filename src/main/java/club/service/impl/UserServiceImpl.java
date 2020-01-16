@@ -2,17 +2,54 @@ package club.service.impl;
 
 import club.dao.UserMapper;
 import club.pojo.User;
+import club.dao.UserMapper;
+import club.pojo.Admins;
+import club.pojo.User;
 import club.service.UserService;
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
+import java.util.List;
+
+import java.util.List;
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
-
     @Resource
     private UserMapper userMapper;
+    @Override
+    public User findById(Integer id) {
+        return userMapper.selectById(id);
+    }
+
+    @Override
+    public List<User> findByName(String userName, Integer state) {
+        EntityWrapper<User> wrapper = new EntityWrapper<>();
+        if (userName != null && !userName.equals("")){
+            wrapper.like("userName", userName);
+        }
+        if (state != null){
+            wrapper.eq("state", state);
+        }
+        return userMapper.selectList(wrapper);
+    }
+
+    @Override
+    public List<User> showName(String userName) {
+        EntityWrapper wrapper = new EntityWrapper();
+        if(userName != null && !userName.equals("")){
+            wrapper.like("userName",userName);
+        }
+        return userMapper.selectList(wrapper);
+    }
 
     @Override
     public int addUser(User user) {
@@ -35,9 +72,38 @@ public class UserServiceImpl implements UserService {
     public Integer update(User user) {
         return userMapper.updateById(user);
     }
+    @Resource
+    private UserMapper um;
+    @Override
+    public PageInfo<User> allUser(String userName ,Integer pageNum, Integer pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        EntityWrapper<User> wrapper = new EntityWrapper<>();
+        if(userName != null && !"".equals(userName)){
+            wrapper.like("userName",userName);
+        }
+
+        List<User> list = um.selectList(wrapper);
+        PageInfo<User> pageInfo = new PageInfo<>(list);
+        return pageInfo;
+    }
+
+    @Override
+    public int add(User user) {
+        return um.insert(user);
+    }
+
+    @Override
+    public int update(User user) {
+        return um.updateById(user);
+    }
 
     @Override
     public User findById(Integer id) {
-        return userMapper.selectById(id);
+        return um.selectById(id);
+    }
+
+    @Override
+    public int del(Integer id) {
+        return um.deleteById(id);
     }
 }

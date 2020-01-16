@@ -359,7 +359,7 @@
 
             var blogIdTd = $("<td></td>").append(blog.id);
             var titleTd=$("<td></td>").append(blog.title);
-            var actionTimed = $("<td></td>").append(blogTime);
+            var actionTimed = $("<td></td>").append(blog.actionTime);
             var addressTd = $("<td></td>").append(blog.address);
             var peoplesTd=$("<td></td>").append(blog.peoples);
             var eventTd=$("<td></td>").append(blog.event);
@@ -515,7 +515,7 @@
                 console.log(result);
 
                 $("#edit_id").val(result.extend.blog.id);
-                $("#edit_actionTime").val(result.extend.blogTime);
+                $("#edit_actionTime").val(result.extend.blog.actionTime);
                 $("#edit_address").val(result.extend.blog.address);
                 $("#edit_peoples").val(result.extend.blog.peoples)
                 $("#edit_event").val(result.extend.blog.event);
@@ -585,7 +585,7 @@
 
     function to_findByTime(pn,actionTime) {
         $.ajax({
-            url:"${path}/blog/findByTime",
+            url:"${path}/blog/blogs",
             type:"POST",
             dataType:"json",
             data:{"pn":pn,"actionTime":actionTime},

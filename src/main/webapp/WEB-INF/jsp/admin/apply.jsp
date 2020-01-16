@@ -462,7 +462,7 @@
     //点击更新按钮弹出模态框。
     $("#apply_update_btn").click(function(){
         $.ajax({
-            url:"${path}/static/apply/update",
+            url:"${path}/apply/update",
             type:"POST",
             data:$("#edit_apply_form").serialize(),
             success:function (result) {
@@ -486,7 +486,7 @@
         if(confirm("确认删除【"+name+"】吗？")){
             //确认，发送ajax请求删除即可
             $.ajax({
-                url:"${path}/static/apply/delete?id="+id,
+                url:"${path}/apply/delete?id="+id,
                 type:"GET",
                 success:function (result) {
                     if(result.code==100){
@@ -513,7 +513,7 @@
 
     function to_findByState(pn,state) {
         $.ajax({
-            url:"${path}/apply/findByState",
+            url:"${path}/apply/applys",
             type:"POST",
             dataType:"json",
             data:{"pn":pn,"state":state},

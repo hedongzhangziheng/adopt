@@ -2,4 +2,37 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="club.dao.AdoptAnimalMapper">
     <sql id="allFields">id, user_id, pet_id, adoptTime, state</sql>
+    
+    <!--<resultMap id="adopt_animal" type="AdoptAnimal">
+     <id column="id" property="id"/>
+        <result column="userId" property="userId"/>
+        <result column="petId" property="petId"/>
+    <result column="adoptTime" property="adoptTime"/>
+
+    <association property="pet" javaType="Pet" autoMapping="true">
+        <id column="id" property="id"/>
+        <result column="petName" property="petName"/>
+
+        <collection property="user" ofType="User" autoMapping="true">
+            <id column="id" property="id"/>
+            <result column="userName" property="userName"/>
+        </collection>
+    </association>
+</resultMap>
+
+    <select id="all" resultMap="adopt_animal">
+
+
+    select a.id , a.state , p.petName , u.userName
+     from AdoptAnimal a
+     inner join Pet p on a.petId = p.id
+     inner join User u on a.userId = u.id
+
+        /*SELECT a.id,a.state , p.petName,U.userName FROM adoptanimal as a ,pet as p , USER as  U
+         WHERE a.petId = p.id AND a.userId = U.id*/
+        <if test="adoptTime!= null and ''!=adoptTime">
+            and adoptTime = #{adoptTime}
+        </if>
+    </select>-->
+
 </mapper>

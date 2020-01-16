@@ -3,14 +3,18 @@ package club.controller;
 import club.pojo.User;
 import club.service.UserService;
 import club.util.Message;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.web.multipart.MultipartFile;
+
+import javax.annotation.Resource;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 
@@ -50,6 +54,43 @@ public class UserController {
         return Message.success();
     }
 
+    @RequestMapping("/users")
+    @ResponseBody
+    public Message users(@RequestParam(required = false) String userName, @RequestParam("pn")Integer pageNum){
+        Integer pageSize = 5;
+        PageInfo<User> users = userService.allUser(userName,pageNum,pageSize);
+        System.out.println(users.getList());
+        return Message.success().add("pageInfo",users);
+    }
+
+    @RequestMapping("/create")
+    @ResponseBody
+    public Message add(User user){
+        int add = userService.add(user);
+        if(add>0){
+            return Message.success();
+        }else{
+            return Message.fail();
+        }
+    }
+
+    @RequestMapping("findById")
+    @ResponseBody
+    public Message findById(Integer id){
+        User byId = userService.findById(id);
+        return Message.success().add("user",byId);
+    }
+
+    @RequestMapping("/delete")
+    @ResponseBody
+    public Message del(Integer id){
+        int del = userService.del(id);
+        if(del>0){
+            return Message.success();
+        }else {
+            return Message.fail();
+        }
+    }
 
     @RequestMapping("/about")
     public String about(){
@@ -89,13 +130,6 @@ public class UserController {
     @RequestMapping("/teamBlog")
     public String teamBlog(){
         return "user/teamBlog";
-    }
-
-    @RequestMapping("/findById")
-    @ResponseBody
-    public Message findById(Integer id){
-        User user = userService.findById(id);
-        return Message.success();
     }
 
     @RequestMapping("/update")

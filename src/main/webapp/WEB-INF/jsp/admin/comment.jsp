@@ -291,7 +291,7 @@
             if(comment.user.userName!=null){
                 nameTd=$("<td></td>").append(comment.user.userName);
             }else{
-                nameTd=$("<td></td>").append(comment.admin.adminName);;
+                nameTd=$("<td></td>").append(comment.admins.adminName);
             }
             var petNameTd = $("<td></td>").append(comment.pet.petName);
             var contentTd=$("<td></td>").append(comment.content);
@@ -468,9 +468,9 @@
 
     $("#comment_find_modal_btn").click(function () {
         $("#comment_table tbody").empty();
-        var adminName=$("#findByName").val();
+        var userName=$("#findByName").val();
         $.ajax({
-            url:"${path}/comment/findByName?name="+adminName,
+            url:"${path}/comment/comments?userName="+userName,
             type:"Get",
             async:"true",
             success:function (result) {
