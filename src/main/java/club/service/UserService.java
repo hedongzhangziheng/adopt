@@ -7,5 +7,7 @@ public interface UserService {
     User loginuser(String userName,String password);
     //注册
     int addUser(User user);
+    //修改
     Integer update(User user);
+    User findById(Integer id);
 }

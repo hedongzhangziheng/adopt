@@ -43,7 +43,7 @@ CREATE TABLE `admins` (
 
 LOCK TABLES `admins` WRITE;
 /*!40000 ALTER TABLE `admins` DISABLE KEYS */;
-INSERT INTO `admins` VALUES (1,'齐达内','yi123','杨一','13902193927','2425902914@qq.com','1993-09-10','男','a1.png','外号 玄宗。这位可是我们团队的玄学的代表。由他在似乎任何困难都能解决。'),(2,'卡瓦哈尔','wemz123','王二麻子','14402193927','2425902016@qq.com','1994-09-12','男','a2.png','外号 大傻；他是我们团队中最热心的人。他积极参加团队活动，并且在团队需要他的时候总是全力完成 '),(3,'瓦拉内','zs123','张三','14495893927','2917902016@qq.com','1994-10-12','男','a3.png','外号 学霸。这是为真正的学霸，他平时热心团队活动，并且负责团队的财务管理，认真严谨。'),(4,'拉莫斯','ls123','李四','14495893012','2107902016@qq.com','1994-06-09','男','a4.png','外号 水爷。这位团队外号虽然有水，但是一点也不水，他是我们的队长，为了团队他付出了最多的精力，而且他经常保护队员的安全.'),(5,'纳乔','ww123','王五','14495890112','2992902016@qq.com','1995-06-12','女','a5.png','外号 万金油。这位队员人如其名，是我们团队的万金油，当我们团队成员，紧急有事的时候，他都能顶上去，是一个很可靠的人。'),(6,'马塞洛','zl123','赵六','13195890112','2992909126@qq.com','1995-09-12','男','a6.png','外号 队宠。这位是我们的副队长，他是我们团队的开心果，在平常的活动中，他总能带给我们快乐。'),(7,'阿扎尔','sql1234','孙七','13195890081','2992909823@qq.com','1995-10-12','男','a7.png','外号 杨坤。这位不仅是团队中的颜值代表，而且是技术代表，他对小动物的保护知识是专家。他总能在保护小动物的方面给出正确的建议。'),(9,'本泽马','342','342','342','342','2019-08-20','女','a9.png','外号 背锅侠。这位是我们团队中的冲锋者，勇敢。但由于一些事，就造就了背锅侠的名号。'),(10,'莫德里奇','111','卢卡','15797959509','2425549281@qq.com','2019-08-05','男','a10.png','外号 魔笛。这位和我们团队中的杨坤都是技术与颜值的代表，而且他总是保持一颗冷静的心，在面对困难的时候，总是临危不惧。'),(11,'贝尔','1111','孙悟空','15797959509','2425549281@qq.com','1990-01-30','女','a11.png','号称孙悟空，无敌的存在！！');
+INSERT INTO `admins` VALUES (1,'齐达内','yi123','杨一','13902193927','2425902914@qq.com','1993-09-10','男','a1.png','外号 玄宗。这位可是我们团队的玄学的代表。由他在似乎任何困难都能解决。'),(2,'卡瓦哈尔','wemz123','王二麻子','14402193927','2425902016@qq.com','1994-09-12','男','a2.png','外号 大傻；他是我们团队中最热心的人。他积极参加团队活动，并且在团队需要他的时候总是全力完成 '),(3,'瓦拉内','zs123','张三','14495893927','2917902016@qq.com','1994-10-12','男','a3.png','外号 学霸。这是为真正的学霸，他平时热心团队活动，并且负责团队的财务管理，认真严谨。'),(4,'拉莫斯','ls123','李四','14495893012','2107902016@qq.com','1994-06-09','男','a4.png','外号 水爷。这位团队外号虽然有水，但是一点也不水，他是我们的队长，为了团队他付出了最多的精力，而且他经常保护队员的安全.'),(5,'纳乔','ww123','王五','14495890112','2992902016@qq.com','1995-06-12','女','a5.png','外号 万金油。这位队员人如其名，是我们团队的万金油，当我们团队成员，紧急有事的时候，他都能顶上去，是一个很可靠的人。'),(6,'马塞洛','zl123','赵六','13195890112','2992909126@qq.com','1995-09-12','男','a6.png','外号 队宠。这位是我们的副队长，他是我们团队的开心果，在平常的活动中，他总能带给我们快乐。'),(7,'阿扎尔','sql1234','孙七','13195890081','2992909823@qq.com','1995-10-12','男','a7.png','外号 杨坤。这位不仅是团队中的颜值代表，而且是技术代表，他对小动物的保护知识是专家。他总能在保护小动物的方面给出正确的建议。'),(9,'本泽马','342','342','342','342','2019-08-20','女','a9.png','外号 背锅侠。这位是我们团队中的冲锋者，勇敢。但由于一些事，就造就了背锅侠的名号。'),(10,'莫的里奇','111','卢卡','15797959509','2425549281@qq.com','2019-08-05','男','a10.png','外号 魔笛。这位和我们团队中的杨坤都是技术与颜值的代表，而且他总是保持一颗冷静的心，在面对困难的时候，总是临危不惧。'),(11,'贝尔','1111','孙悟空','15797959509','2425549281@qq.com','1990-01-30','女','a11.png','号称孙悟空，无敌的存在！！');
 /*!40000 ALTER TABLE `admins` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -56,18 +56,18 @@ DROP TABLE IF EXISTS `answer`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `answer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) DEFAULT NULL,
-  `replay_id` int(11) DEFAULT NULL,
-  `comment_id` int(11) NOT NULL,
+  `userId` int(11) DEFAULT NULL,
+  `replayId` int(11) DEFAULT NULL,
+  `commentId` int(11) NOT NULL,
   `answerTime` date NOT NULL,
   `content` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk8` (`user_id`),
-  KEY `fk11` (`comment_id`),
-  KEY `fk10` (`replay_id`),
-  CONSTRAINT `fk10` FOREIGN KEY (`replay_id`) REFERENCES `answer` (`id`),
-  CONSTRAINT `fk11` FOREIGN KEY (`comment_id`) REFERENCES `comment` (`id`),
-  CONSTRAINT `fk8` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+  KEY `fk8` (`userId`),
+  KEY `fk11` (`commentId`),
+  KEY `fk10` (`replayId`),
+  CONSTRAINT `fk10` FOREIGN KEY (`replayId`) REFERENCES `answer` (`id`),
+  CONSTRAINT `fk11` FOREIGN KEY (`commentId`) REFERENCES `comment` (`id`),
+  CONSTRAINT `fk8` FOREIGN KEY (`userId`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -148,18 +148,18 @@ DROP TABLE IF EXISTS `comment`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `comment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) DEFAULT NULL,
-  `admins_id` int(11) DEFAULT NULL,
-  `pet_id` int(11) DEFAULT NULL,
+  `userId` int(11) DEFAULT NULL,
+  `adminsId` int(11) DEFAULT NULL,
+  `petId` int(11) DEFAULT NULL,
   `commentTime` date NOT NULL,
   `content` varchar(200) NOT NULL COMMENT '评论的内容',
   PRIMARY KEY (`id`),
-  KEY `fk1` (`user_id`),
-  KEY `fk2` (`pet_id`),
-  KEY `fk5` (`admins_id`),
-  CONSTRAINT `fk1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk2` FOREIGN KEY (`pet_id`) REFERENCES `pet` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk5` FOREIGN KEY (`admins_id`) REFERENCES `admins` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `fk1` (`userId`),
+  KEY `fk2` (`petId`),
+  KEY `fk5` (`adminsId`),
+  CONSTRAINT `fk1` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk2` FOREIGN KEY (`petId`) REFERENCES `pet` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk5` FOREIGN KEY (`adminsId`) REFERENCES `admins` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -199,7 +199,7 @@ CREATE TABLE `pet` (
 
 LOCK TABLES `pet` WRITE;
 /*!40000 ALTER TABLE `pet` DISABLE KEYS */;
-INSERT INTO `pet` VALUES (1,'kitty','波斯猫','雄性','2018-09-10','cat1_1.jpg,cat1_2.jpg,cat1_3.jpg',1,'kitty是一名害羞，温暖，柔和，友善德波斯猫。'),(2,'Vito','波斯猫','雄性','2018-09-21','cat2_1.jpg,cat2_2.jpg,cat2_3.jpg',0,'Vito是一只精力充沛德猫，比起其他猫更加热爱玩耍。'),(3,'kena','短尾猫','雌性','2018-01-21','cat3_1.jpg,cat3_2.jpg,cat3_3.jpg,cat3_4.jpg',1,'Kena是一只可爱活泼德小公主，对食物有份执着，她向往自由，喜欢无拘无束的生活。'),(4,'Vamp','波斯猫','雌性','2018-11-21','cat4_1.jpg,cat4_2.jpg,cat4_3.jpg,cat4_4.jpg',1,'Vamp是一只雄性蓝色的波斯猫。他安静，不喜欢玩耍。'),(5,'辛巴','牧羊犬','雄性','2018-11-21','dog1_1.jpg,dog1_2.jpg,dog1_3.jpg,dog1_4.jpg',0,'辛巴活泼又好奇，特别喜欢和别的狗狗玩耍，更十分喜欢户外活动。一个没有儿童的家庭更适合他，你愿意成为辛巴德好朋友，让他继续快乐德成长吗？'),(6,'glery','藏獒','雄性','2019-01-21','dog2_1.jpg,dog2_2.jpg,dog2_3.jpg,dog2_4.jpg',1,'kito是一只好奇，活力，智能，热情奔放的藏獒。'),(7,'Soju','藏獒','雄性','2019-01-21','dog3_1.jpg,dog3_2.jpg,dog3_3.jpg',1,'Soju是一只好奇，活力，智能，热情奔放的藏獒。'),(8,'Minnie','橘猫','雌性','2018-11-21','cat5_1.jpg,cat5_2.jpg,cat5_3.jpg,cat5_4.jpg',1,'MInnie是一名害羞，胆小，巨能吃的橘猫。'),(9,'Kena','狸猫','雌性','2018-11-21','cat6_1.jpg,cat6_2.jpg,cat6_3.jpg,cat6_4.jpg',2,'Kena是一名害羞，温暖，柔和，友善的狸猫。'),(10,'Pigge','牧羊犬','雌性','2018-03-19','dog4_1.jpg,dog4_2.jpg,dog4_3.jpg',1,'Pigge是一只喜欢玩耍的牧羊犬，但他在主人需要的时候，总是尽职尽责。'),(11,'Tommy','秋田犬','雄性','2019-07-12','dog5_1.jpg,dog5_2.jpg,dog5_3.jpg',0,'Tommy是一只喜欢玩耍的牧羊犬，但他在主人需要的时候，总是尽职尽责。'),(12,'James','短尾猫','雄性','2019-05-12','cat7_1.jpg,cat7_2.jpg,cat7_3.jpg',0,'James是一只精力充沛德猫，比起其他猫更加热爱玩耍。'),(13,'Snow','雪橇犬','雄性','2019-06-12','dog6_1.jpg,dog6_2.jpg,dog6_3.jpg',0,'Snow外表是一个很安静的犬，但是动起来比什么狗都爱玩耍。'),(14,'Isio','牧羊犬','雌性','2019-06-29','dog7_1.jpg,dog7_2.jpg,dog7_3.jpg',0,''),(16,'水母','秋田犬','雄性','2019-08-31','dog8_1.jpg,dog8_2.jpg,dog8_3.jpg',0,'ewew');
+INSERT INTO `pet` VALUES (1,'kitty','波斯猫','雄性','2018-09-10','cat1_1.jpg,cat1_2.jpg,cat1_3.jpg',1,'kitty是一名害羞，温暖，柔和，友善的波斯猫。'),(2,'Vito','波斯猫','雄性','2018-09-21','cat2_1.jpg,cat2_2.jpg,cat2_3.jpg',0,'Vito是一只精力充沛的猫，比起其他猫更加热爱玩耍。'),(3,'kena','短尾猫','雌性','2018-01-21','cat3_1.jpg,cat3_2.jpg,cat3_3.jpg,cat3_4.jpg',1,'Kena是一只可爱活泼的小公主，对食物有份执着，她向往自由，喜欢无拘无束的生活。'),(4,'Vamp','波斯猫','雌性','2018-11-21','cat4_1.jpg,cat4_2.jpg,cat4_3.jpg,cat4_4.jpg',1,'Vamp是一只雄性蓝色的波斯猫。他安静，不喜欢玩耍。'),(5,'辛巴','牧羊犬','雄性','2018-11-21','dog1_1.jpg,dog1_2.jpg,dog1_3.jpg,dog1_4.jpg',0,'辛巴活泼又好奇，特别喜欢和别的狗狗玩耍，更十分喜欢户外活动。一个没有儿童的家庭更适合他，你愿意成为辛巴的好朋友，让他继续快乐的成长吗？'),(6,'glery','藏獒','雄性','2019-01-21','dog2_1.jpg,dog2_2.jpg,dog2_3.jpg,dog2_4.jpg',1,'kito是一只好奇，活力，智能，热情奔放的藏獒。'),(7,'Soju','藏獒','雄性','2019-01-21','dog3_1.jpg,dog3_2.jpg,dog3_3.jpg',1,'Soju是一只好奇，活力，智能，热情奔放的藏獒。'),(8,'Minnie','橘猫','雌性','2018-11-21','cat5_1.jpg,cat5_2.jpg,cat5_3.jpg,cat5_4.jpg',1,'MInnie是一名害羞，胆小，巨能吃的橘猫。'),(9,'Kena','狸猫','雌性','2018-11-21','cat6_1.jpg,cat6_2.jpg,cat6_3.jpg,cat6_4.jpg',2,'Kena是一名害羞，温暖，柔和，友善的狸猫。'),(10,'Pigge','牧羊犬','雌性','2018-03-19','dog4_1.jpg,dog4_2.jpg,dog4_3.jpg',1,'Pigge是一只喜欢玩耍的牧羊犬，但他在主人需要的时候，总是尽职尽责。'),(11,'Tommy','秋田犬','雄性','2019-07-12','dog5_1.jpg,dog5_2.jpg,dog5_3.jpg',0,'Tommy是一只喜欢玩耍的牧羊犬，但他在主人需要的时候，总是尽职尽责。'),(12,'James','短尾猫','雄性','2019-05-12','cat7_1.jpg,cat7_2.jpg,cat7_3.jpg',0,'James是一只精力充沛的猫，比起其他猫更加热爱玩耍。'),(13,'Snow','雪橇犬','雄性','2019-06-12','dog6_1.jpg,dog6_2.jpg,dog6_3.jpg',0,'Snow外表是一个很安静的犬，但是动起来比什么狗都爱玩耍。'),(14,'Isio','牧羊犬','雌性','2019-06-29','dog7_1.jpg,dog7_2.jpg,dog7_3.jpg',0,''),(16,'水母','秋田犬','雄性','2019-08-31','dog8_1.jpg,dog8_2.jpg,dog8_3.jpg',0,'ewew');
 /*!40000 ALTER TABLE `pet` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -212,15 +212,15 @@ DROP TABLE IF EXISTS `t_adopt`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `t_adopt` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL COMMENT '用户表id的外键',
-  `pet_id` int(11) NOT NULL COMMENT '宠物表id的外键',
+  `userId` int(11) NOT NULL COMMENT '用户表id的外键',
+  `petId` int(11) NOT NULL COMMENT '宠物表id的外键',
   `adoptTime` date NOT NULL,
   `state` int(11) DEFAULT '1' COMMENT '是否同意被领养 0 是不同意 1 还在审核 2 是同意',
   PRIMARY KEY (`id`),
-  KEY `fk3` (`user_id`),
-  KEY `fk4` (`pet_id`),
-  CONSTRAINT `fk3` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk4` FOREIGN KEY (`pet_id`) REFERENCES `pet` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `fk3` (`userId`),
+  KEY `fk4` (`petId`),
+  CONSTRAINT `fk3` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk4` FOREIGN KEY (`petId`) REFERENCES `pet` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

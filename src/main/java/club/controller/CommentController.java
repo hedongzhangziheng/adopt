@@ -24,22 +24,10 @@ public class CommentController {
     @Resource
     private CommentService commentService;
 
-    @Resource
-    private AnswerService answerService;
-
-    @Resource
-    private UserService userService;
-
     @RequestMapping("/petComments")
     @ResponseBody
     public Message petComments(Integer petId){
         List<Comment> comments = commentService.petComments(petId);
-        for (Comment comment : comments){
-            List<Answer> answers = answerService.answersAboutOneComment(comment.getId());
-            comment.setAnswer(answers);
-            User user = userService.findById(comment.getUserId());
-            comment.setUser(user);
-        }
         return Message.success().add("comment", comments);
     }
 

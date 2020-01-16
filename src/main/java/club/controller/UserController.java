@@ -101,6 +101,7 @@ public class UserController {
     @RequestMapping("/update")
     @ResponseBody
     public Message update(User user){
+        System.out.println(user);
         Integer update = userService.update(user);
         if(update > 0){
             return Message.success();

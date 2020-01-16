@@ -33,11 +33,23 @@ public class AnswerServiceImpl implements AnswerService {
         EntityWrapper wrapper = new EntityWrapper();
         if (commentId != null) wrapper.eq("commentId", commentId);
         List<Answer> list = answerMapper.selectList(wrapper);
-        for (Answer answer : list){
-            User user = userService.findById(answer.getUserId());
-            answer.setUser(user);
+        if (!list.isEmpty()) {
+            for (Answer answer : list) {
+                User user = userService.findById(answer.getUserId());
+                answer.setUser(user);
+                if (answer.getReplayId() != null) {
+                    Answer answer1 = findById(answer.getReplayId());
+                    User u = userService.findById(answer1.getUserId());
+                    answer1.setUser(u);
+                    answer.setAnswer(answer1);
+                }
+                Comment comment = commentMapper.selectById(commentId);
+                answer.setComment(comment);
+            }
+            return list;
+        }else {
+            return null;
         }
-        return list;
     }
 
     @Override

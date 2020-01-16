@@ -84,7 +84,7 @@
         </div>
         <div class="my_btn">
             <button class="btn btn-primary btn-lg" id="pet_adopt_modal_btn">想要领养</button>
-            <button class="btn btn-primary btn-lg" id="tianchuan_btn" style="float: right;position: relative;left: 150px;bottom: 45px">返回主页</button>
+            <button class="btn btn-primary btn-lg" id="tianchuan_btn" style="float: right;position: relative;left: 150px;bottom: 45px">返回中心</button>
         </div>
     </div>
 
@@ -184,7 +184,7 @@
             </div>
             <div class="modal-body">
                 <form id="save_answer_form">
-                    <input type="hidden" name="id" id="edit_id" value="${comment.id}">
+                    <input type="hidden" name="id" id="edit_id">
                     <textarea class="form-control" id="edit_content" placeholder="请发表评论！" name="content"></textarea>
                 </form>
             </div>
@@ -204,8 +204,8 @@
             </div>
             <div class="modal-body">
                 <form id="save_answers_form">
-                    <input type="hidden" name="id" id="answer_id" value="${answer.id}">
-                    <input type="hidden" name="comment_id" id="comment_id" value="${answer.comment.id}">
+                    <input type="hidden" name="id" id="answer_id"<%-- value="${answer.id}"--%>>
+                    <input type="hidden" name="comment_id" id="comment_id"<%-- value="${answer.comment.id}"--%>>
                     <textarea class="form-control" id="answer_content" placeholder="请发表评论！" name="content"></textarea>
                 </form>
             </div>
@@ -230,6 +230,7 @@
     });
 
     function to_page(){
+        $("#content").val("");
         //session里面的数据
         $.ajax({
             url:"${path}/comment/petComments?petId="+"${pet.id}",
@@ -390,7 +391,7 @@
 
 
     $("#tianchuan_btn").click(function () {
-        window.location.href="${path}/user/index";
+        window.location.href="${path}/user/service";
     });
 
     $(document).on("click",".reply-btn",function(){

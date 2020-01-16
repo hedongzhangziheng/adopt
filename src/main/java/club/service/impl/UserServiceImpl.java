@@ -35,4 +35,9 @@ public class UserServiceImpl implements UserService {
     public Integer update(User user) {
         return userMapper.updateById(user);
     }
+
+    @Override
+    public User findById(Integer id) {
+        return userMapper.selectById(id);
+    }
 }
