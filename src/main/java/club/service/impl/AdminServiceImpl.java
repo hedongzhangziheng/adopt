@@ -40,13 +40,17 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
+    public PageInfo<Admins> allAdmin(String adminsName, int pageNum, int pageSize) {
+        return null;
+    }
+
+    @Override
     public int add(Admins admins) {
         return adminMapper.insert(admins);
     }
 
     @Override
     public int update(Admins admins) {
-
         return adminMapper.updateById(admins);
     }
 

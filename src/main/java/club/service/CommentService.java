@@ -14,7 +14,6 @@ public interface CommentService {
     Integer create(Integer userId, Integer petId, String content);
     Comment findById(Integer id);
     PageInfo<Comment> all(String userName, Integer pageNum, Integer pageSize);
-    Comment findById(Integer id);
     int update(Comment adoptAnimal);
     int delete(Integer id);
 }

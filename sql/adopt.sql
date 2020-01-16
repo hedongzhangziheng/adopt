@@ -204,13 +204,13 @@ INSERT INTO `pet` VALUES (1,'kitty','波斯猫','雄性','2018-09-10','cat1_1.jp
 UNLOCK TABLES;
 
 --
--- Table structure for table `t_adopt`
+-- Table structure for table `adoptAnimal`
 --
 
-DROP TABLE IF EXISTS `t_adopt`;
+DROP TABLE IF EXISTS `adoptAnimal`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `t_adopt` (
+CREATE TABLE `adoptAnimal` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userId` int(11) NOT NULL COMMENT '用户表id的外键',
   `petId` int(11) NOT NULL COMMENT '宠物表id的外键',
@@ -225,13 +225,13 @@ CREATE TABLE `t_adopt` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `t_adopt`
+-- Dumping data for table `adoptAnimal`
 --
 
-LOCK TABLES `t_adopt` WRITE;
-/*!40000 ALTER TABLE `t_adopt` DISABLE KEYS */;
-INSERT INTO `t_adopt` VALUES (1,1,1,'2019-08-21',2),(2,5,2,'2019-08-20',0),(3,3,3,'2019-08-19',1),(4,4,4,'2019-08-18',0),(5,2,5,'2019-08-17',0),(6,6,6,'2019-08-16',1),(7,7,7,'2019-08-15',1),(8,2,8,'2019-08-14',0),(9,9,9,'2019-08-13',2),(10,9,1,'2019-08-09',0),(13,1,5,'2019-09-01',0),(14,30,5,'2019-09-09',0),(15,30,2,'2019-09-09',0),(16,30,2,'2019-09-09',0),(17,30,10,'2019-09-09',1);
-/*!40000 ALTER TABLE `t_adopt` ENABLE KEYS */;
+LOCK TABLES `adoptAnimal` WRITE;
+/*!40000 ALTER TABLE `adoptAnimal` DISABLE KEYS */;
+INSERT INTO `adoptAnimal` VALUES (1,1,1,'2019-08-21',2),(2,5,2,'2019-08-20',0),(3,3,3,'2019-08-19',1),(4,4,4,'2019-08-18',0),(5,2,5,'2019-08-17',0),(6,6,6,'2019-08-16',1),(7,7,7,'2019-08-15',1),(8,2,8,'2019-08-14',0),(9,9,9,'2019-08-13',2),(10,9,1,'2019-08-09',0),(13,1,5,'2019-09-01',0),(14,30,5,'2019-09-09',0),(15,30,2,'2019-09-09',0),(16,30,2,'2019-09-09',0),(17,30,10,'2019-09-09',1);
+/*!40000 ALTER TABLE `adoptAnimal` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -272,7 +272,7 @@ CREATE TABLE `user` (
   `telephone` varchar(20) DEFAULT NULL COMMENT '电话',
   `Email` varchar(30) DEFAULT NULL COMMENT 'Email',
   `address` varchar(50) DEFAULT NULL COMMENT '地址',
-  `pic` varchar(100) DEFAULT 't9.jpg',
+  `pic` varchar(100) DEFAULT 't0.jpg',
   `state` int(11) DEFAULT '0' COMMENT '有无领养宠物的经历 0 是没有 1 是由',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;

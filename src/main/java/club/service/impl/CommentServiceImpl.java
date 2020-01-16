@@ -38,9 +38,13 @@ public class CommentServiceImpl implements CommentService {
     @Resource
     private PetMapper petMapper;
     @Resource
+    private AdminMapper adminMapper;
+    @Resource
     private UserService userService;
     @Resource
-    private AdminMapper adminMapper;
+    private PetService petService;
+    @Resource
+    private AnswerService answerService;
     @Override
     public PageInfo<Comment> allComment(String userName, Integer pn, Integer pageSize) {
         List<User> users = userService.showName(userName);

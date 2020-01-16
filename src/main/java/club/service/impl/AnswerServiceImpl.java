@@ -43,8 +43,6 @@ public class AnswerServiceImpl implements AnswerService {
                     answer1.setUser(u);
                     answer.setAnswer(answer1);
                 }
-                Comment comment = commentMapper.selectById(commentId);
-                answer.setComment(comment);
             }
             return list;
         }else {

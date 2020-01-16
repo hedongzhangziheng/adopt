@@ -72,8 +72,7 @@ public class UserServiceImpl implements UserService {
     public Integer update(User user) {
         return userMapper.updateById(user);
     }
-    @Resource
-    private UserMapper um;
+
     @Override
     public PageInfo<User> allUser(String userName ,Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum, pageSize);
@@ -82,28 +81,18 @@ public class UserServiceImpl implements UserService {
             wrapper.like("userName",userName);
         }
 
-        List<User> list = um.selectList(wrapper);
+        List<User> list = userMapper.selectList(wrapper);
         PageInfo<User> pageInfo = new PageInfo<>(list);
         return pageInfo;
     }
 
     @Override
     public int add(User user) {
-        return um.insert(user);
-    }
-
-    @Override
-    public int update(User user) {
-        return um.updateById(user);
-    }
-
-    @Override
-    public User findById(Integer id) {
-        return um.selectById(id);
+        return userMapper.insert(user);
     }
 
     @Override
     public int del(Integer id) {
-        return um.deleteById(id);
+        return userMapper.deleteById(id);
     }
 }
