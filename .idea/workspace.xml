@@ -7,43 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9feefffc-e173-4a0f-9daf-8fb6ea7d8494" name="Default Changelist" comment="finish">
-      <change afterPath="$PROJECT_DIR$/效果图/不同意领养列表.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/效果图/修改管理员信息.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/效果图/删除.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/效果图/动物详细信息1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/效果图/动物详细信息2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/效果图/同意领养列表.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/效果图/回复.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/效果图/团队博客.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/效果图/团队展示.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/效果图/团队活动单个项目的具体信息.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/效果图/团队活动管理.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/效果图/宠物知识下方图片展示.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/效果图/宠物知识板块.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/效果图/宠物知识点击显示.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/效果图/宠物管理.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/效果图/当没有权限时.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/效果图/志愿者申请管理.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/效果图/新增管理员.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/效果图/注册时为填入必填信息.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/效果图/用户注册.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/效果图/用户登录.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/效果图/用户登录成功.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/效果图/用户管理.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/效果图/申请信息管理.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/效果图/登录成功.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/效果图/管理员登录.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/效果图/管理员登录入口.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/效果图/管理员管理.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/效果图/评论.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/效果图/评论管理.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/效果图/领养中心.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/效果图/领养管理.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/adopt.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/adopt.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/apply.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/apply.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/personal-info.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/personal-info.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/效果图/个人信息.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/效果图/具体流浪动物的信息.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/效果图/后台登录界面.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/效果图/团队.gif" beforeDir="false" />
@@ -65,7 +28,6 @@
       <change beforePath="$PROJECT_DIR$/效果图/评论的效果图.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/效果图/领养.gif" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/效果图/领养申请信息.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/效果图/首页.png" beforeDir="false" afterPath="$PROJECT_DIR$/效果图/首页.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -280,7 +242,7 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
             </expand>
             <select />
@@ -321,7 +283,7 @@
       <workItem from="1580371717118" duration="4302000" />
       <workItem from="1580457639869" duration="12083000" />
       <workItem from="1580557567991" duration="2766000" />
-      <workItem from="1580621908093" duration="13588000" />
+      <workItem from="1580621908093" duration="14285000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1578544099596</created>
@@ -414,7 +376,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580654916669</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="finish">
+      <created>1580658687262</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1580658687262</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -425,7 +394,8 @@
     <MESSAGE value="second commit" />
     <MESSAGE value="third commit" />
     <MESSAGE value="fourth commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="fourth commit" />
+    <MESSAGE value="finish" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish" />
   </component>
   <component name="WindowStateProjectService">
     <state x="252" y="17" key="#Web_Browsers" timestamp="1578890823503">
@@ -448,10 +418,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="434" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1578562592095" />
-    <state x="222" y="0" key="CommitChangelistDialog2" timestamp="1580658102126">
+    <state x="222" y="0" key="CommitChangelistDialog2" timestamp="1580658682063">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="222" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1580658102126" />
+    <state x="222" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1580658682063" />
     <state width="307" height="442" key="Diff.GoToChangePopup" timestamp="1580655010683">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -556,10 +526,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="186" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1578748480889" />
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1580655176795">
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1580658745775">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1580655176795" />
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1580658745775" />
     <state x="467" y="194" width="431" height="336" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1578381031048">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -576,10 +546,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="303" y="95" width="759" height="538" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1579171987837" />
-    <state x="327" y="166" key="git4idea.merge.GitPullDialog" timestamp="1579176490520">
+    <state x="327" y="166" key="git4idea.merge.GitPullDialog" timestamp="1580659036979">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="327" y="166" key="git4idea.merge.GitPullDialog/0.0.1366.728@0.0.1366.728" timestamp="1579176490520" />
+    <state x="327" y="166" key="git4idea.merge.GitPullDialog/0.0.1366.728@0.0.1366.728" timestamp="1580659036979" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1580472287643">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
