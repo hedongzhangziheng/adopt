@@ -11,18 +11,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>宠物知识</title>
     <!-- Meta tag Keywords -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />
     <meta name="keywords" content=""/>
 
-
     <!-- css files -->
     <link rel="stylesheet" href="${path}/static/bootstrap/css/bootstrap.css" type="text/css" media="all">
     <!-- Owl-Carousel-CSS -->
     <link rel="stylesheet" href="${path}/static/css/user/style.css" type="text/css" media="all" />
-    <link href='${path}/static/css/user/usersimplelightbox.min.css' rel='stylesheet' type='text/css'>
+    <link href='${path}/static/css/user/simplelightbox.min.css' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <jsp:include page="navigation.jsp"></jsp:include>

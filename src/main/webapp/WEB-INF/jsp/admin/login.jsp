@@ -46,7 +46,7 @@
                         </div>
                         <div class="form-group v_container">
                             <div class="field">
-                                <input type="text" class="input input-big" name="code" placeholder="验证码" />
+                                <input type="text" class="input input-big" id="code_input" name="code" placeholder="验证码" />
                                 <div id="v_container" style="width: 100px;height: 45px;" class="passcode"></div>
                             </div>
                         </div>
@@ -65,13 +65,14 @@
 
     var verifyCode = new GVerify("v_container");
 
-    document.getElementById("my_button").onclick = function(){
+    document.getElementById("button").onclick = function(){
         /*获取inputi面的值*/
         var res = verifyCode.validate(document.getElementById("code_input").value);
         if(res){
-            alert("验证正确");
+            return;
         }else{
             alert("验证码错误");
+            return false;
         }
     }
 </script>

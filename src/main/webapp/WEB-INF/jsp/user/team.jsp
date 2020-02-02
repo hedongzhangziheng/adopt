@@ -53,11 +53,11 @@
     <div class="container">
         <div class="col-md-9 col-sm-9 contact-right">
             <form id="save_apply_form" >
-                <input type="text" id="new_name" name="name" placeholder="你的名字" >
-                <input type="text" id="new_email" name="email" placeholder="你的邮件号" >
-                <input type="text" id="new_age" name="age" placeholder="你的年龄">
-                <input type="text" id="new_telephone" name="telephone" placeholder="你的电话">
-                <textarea name="message" id="new_message" placeholder=你想当志愿者的理由"></textarea>
+                <input type="text" id="name" name="name" placeholder="你的名字" >
+                <input type="text" id="email" name="email" placeholder="你的邮件号" >
+                <input type="text" id="age" name="age" placeholder="你的年龄">
+                <input type="text" id="telephone" name="telephone" placeholder="你的电话">
+                <textarea name="message" id="message" placeholder=你想当志愿者的理由"></textarea>
             </form>
             <button type="button" id="save_apply_btn">提交</button>
         </div>

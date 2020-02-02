@@ -33,8 +33,8 @@
     <link rel="stylesheet" href="${path}/static/css/user/personal-info.css" type="text/css" media="screen"/>
 
     <!-- open sans font -->
-    <link href='http://fonts.useso.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
-          rel='stylesheet' type='text/css'/>
+    <%--<link href='http://fonts.useso.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+          rel='stylesheet' type='text/css'/>--%>
 
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>

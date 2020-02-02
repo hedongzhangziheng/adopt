@@ -134,7 +134,7 @@ public class AdminController {
     @RequestMapping("/logout")
     public String logout(HttpSession session){
         session.invalidate();
-        return "admin/login";
+        return "redirect:/admin/login";
     }
 
     @RequestMapping("/developing")
