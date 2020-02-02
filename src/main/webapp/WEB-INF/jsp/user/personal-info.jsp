@@ -51,7 +51,7 @@
             <!-- avatar column -->
             <div class="span3 avatar-box">
                 <div class="personal-image">
-                    <img src="/images/${user.pic}" alt="" class="avatar img-circle" id="user_pic_modal_btn"/>
+                    <img src="/static/images/user/${user.pic}" alt="" class="avatar img-circle" id="user_pic_modal_btn"/>
                     <form id="update_file" style="display: none" enctype="multipart/form-data">
                         <input type="file" name="file" id="myFile"/>
                     </form>

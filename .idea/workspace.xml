@@ -6,40 +6,66 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9feefffc-e173-4a0f-9daf-8fb6ea7d8494" name="Default Changelist" comment="">
+    <list default="true" id="9feefffc-e173-4a0f-9daf-8fb6ea7d8494" name="Default Changelist" comment="finish">
+      <change afterPath="$PROJECT_DIR$/效果图/不同意领养列表.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/效果图/修改管理员信息.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/效果图/删除.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/效果图/动物详细信息1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/效果图/动物详细信息2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/效果图/同意领养列表.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/效果图/回复.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/效果图/团队博客.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/效果图/团队展示.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/效果图/团队活动单个项目的具体信息.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/效果图/团队活动管理.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/效果图/宠物知识下方图片展示.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/效果图/宠物知识板块.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/效果图/宠物知识点击显示.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/效果图/宠物管理.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/效果图/当没有权限时.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/效果图/志愿者申请管理.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/效果图/新增管理员.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/效果图/注册时为填入必填信息.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/效果图/用户注册.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/效果图/用户登录.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/效果图/用户登录成功.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/效果图/用户管理.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/效果图/申请信息管理.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/效果图/登录成功.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/效果图/管理员登录.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/效果图/管理员登录入口.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/效果图/管理员管理.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/效果图/评论.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/效果图/评论管理.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/效果图/领养中心.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/效果图/领养管理.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sql/adopt.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/adopt.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/adopt2.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/club/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/club/controller/AnswerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/controller/AnswerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/club/controller/BlogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/controller/BlogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/club/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/controller/CommentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/club/controller/PetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/controller/PetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/club/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/club/dao/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/dao/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/club/pojo/Admins.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/pojo/Admins.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/club/pojo/Answer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/pojo/Answer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/club/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/pojo/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/club/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/club/service/impl/AdminServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/service/impl/AdminServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/club/service/impl/AnswerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/service/impl/AnswerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/club/service/impl/CommentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/service/impl/CommentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/club/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/AdoptAnimalMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/AdoptAnimalMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/admin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/adopt.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/adopt.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/agree.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/agree.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/apply.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/apply.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/blog.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/blog.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/comment.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/comment.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/disAgree.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/disAgree.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/pet.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/pet.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/user.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/user.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/show.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/show.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/team.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/team.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/css/user/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/css/user/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/personal-info.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/personal-info.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/效果图/个人信息.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/效果图/具体流浪动物的信息.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/效果图/后台登录界面.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/效果图/团队.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/效果图/团队成员信息展示.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/效果图/团队活动.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/效果图/团队活动信息.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/效果图/志愿者申请信息.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/效果图/流浪动物信息.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/效果图/流浪动物展示.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/效果图/用户.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/效果图/用户信息.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/效果图/申请不被同意的信息.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/效果图/申请成为志愿者.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/效果图/申请被同意的信息.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/效果图/管理员.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/效果图/管理员信息.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/效果图/评论信息.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/效果图/评论和回复.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/效果图/评论的效果图.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/效果图/领养.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/效果图/领养申请信息.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/效果图/首页.png" beforeDir="false" afterPath="$PROJECT_DIR$/效果图/首页.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -295,7 +321,7 @@
       <workItem from="1580371717118" duration="4302000" />
       <workItem from="1580457639869" duration="12083000" />
       <workItem from="1580557567991" duration="2766000" />
-      <workItem from="1580621908093" duration="10659000" />
+      <workItem from="1580621908093" duration="13588000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1578544099596</created>
@@ -381,7 +407,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579176483465</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="fourth commit">
+      <created>1580654916669</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1580654916669</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -415,62 +448,70 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="434" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1578562592095" />
-    <state x="222" y="0" key="CommitChangelistDialog2" timestamp="1579176480003">
+    <state x="222" y="0" key="CommitChangelistDialog2" timestamp="1580658102126">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="222" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1579176480003" />
+    <state x="222" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1580658102126" />
+    <state width="307" height="442" key="Diff.GoToChangePopup" timestamp="1580655010683">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="307" height="442" key="Diff.GoToChangePopup/0.0.1366.728@0.0.1366.728" timestamp="1580655010683" />
+    <state x="129" y="55" key="DiffContextDialog" timestamp="1580655017962">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="129" y="55" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1580655017962" />
     <state x="463" y="108" key="FileChooserDialogImpl" timestamp="1578544877806">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="108" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1578544877806" />
-    <state width="905" height="184" key="GridCell.Tab.0.bottom" timestamp="1580654776685">
+    <state width="905" height="416" key="GridCell.Tab.0.bottom" timestamp="1580658238480">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="184" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1580654776685" />
-    <state width="905" height="184" key="GridCell.Tab.0.center" timestamp="1580654776685">
+    <state width="905" height="416" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1580658238480" />
+    <state width="905" height="416" key="GridCell.Tab.0.center" timestamp="1580658238480">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="184" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1580654776685" />
-    <state width="905" height="184" key="GridCell.Tab.0.left" timestamp="1580654776684">
+    <state width="905" height="416" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1580658238480" />
+    <state width="905" height="416" key="GridCell.Tab.0.left" timestamp="1580658238480">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="184" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1580654776684" />
-    <state width="905" height="184" key="GridCell.Tab.0.right" timestamp="1580654776685">
+    <state width="905" height="416" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1580658238480" />
+    <state width="905" height="416" key="GridCell.Tab.0.right" timestamp="1580658238480">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="184" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1580654776685" />
-    <state width="905" height="184" key="GridCell.Tab.1.bottom" timestamp="1580654776686">
+    <state width="905" height="416" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1580658238480" />
+    <state width="905" height="416" key="GridCell.Tab.1.bottom" timestamp="1580658238482">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="184" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1580654776686" />
-    <state width="905" height="184" key="GridCell.Tab.1.center" timestamp="1580654776686">
+    <state width="905" height="416" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1580658238482" />
+    <state width="905" height="416" key="GridCell.Tab.1.center" timestamp="1580658238481">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="184" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1580654776686" />
-    <state width="905" height="184" key="GridCell.Tab.1.left" timestamp="1580654776685">
+    <state width="905" height="416" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1580658238481" />
+    <state width="905" height="416" key="GridCell.Tab.1.left" timestamp="1580658238481">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="184" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1580654776685" />
-    <state width="905" height="184" key="GridCell.Tab.1.right" timestamp="1580654776686">
+    <state width="905" height="416" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1580658238481" />
+    <state width="905" height="416" key="GridCell.Tab.1.right" timestamp="1580658238482">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="184" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1580654776686" />
-    <state width="905" height="184" key="GridCell.Tab.2.bottom" timestamp="1580654776687">
+    <state width="905" height="416" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1580658238482" />
+    <state width="905" height="416" key="GridCell.Tab.2.bottom" timestamp="1580658238483">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="184" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1580654776687" />
-    <state width="905" height="184" key="GridCell.Tab.2.center" timestamp="1580654776686">
+    <state width="905" height="416" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1580658238483" />
+    <state width="905" height="416" key="GridCell.Tab.2.center" timestamp="1580658238482">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="184" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1580654776686" />
-    <state width="905" height="184" key="GridCell.Tab.2.left" timestamp="1580654776686">
+    <state width="905" height="416" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1580658238482" />
+    <state width="905" height="416" key="GridCell.Tab.2.left" timestamp="1580658238482">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="184" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1580654776686" />
-    <state width="905" height="184" key="GridCell.Tab.2.right" timestamp="1580654776686">
+    <state width="905" height="416" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1580658238482" />
+    <state width="905" height="416" key="GridCell.Tab.2.right" timestamp="1580658238482">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="184" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1580654776686" />
+    <state width="905" height="416" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1580658238482" />
     <state width="905" height="364" key="GridCell.Tab.3.bottom" timestamp="1579192302623">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -515,14 +556,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="186" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1578748480889" />
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1578892002810">
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1580655176795">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1578892002810" />
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1580655176795" />
     <state x="467" y="194" width="431" height="336" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1578381031048">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="467" y="194" width="431" height="336" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1366.728@0.0.1366.728" timestamp="1578381031048" />
+    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1580655216581">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1580655216581" />
     <state x="477" y="282" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578970339234">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

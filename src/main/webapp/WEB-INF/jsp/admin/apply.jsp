@@ -139,6 +139,7 @@
                     <div class="form-group">
                         <label for="findByState">申请是否被处理</label>
                         <select class="form-control" id="findByState" name="state">
+                            <option value="">所有</option>
                             <option value="2">申请没有被处理</option>
                             <option value="3">申请已经被处理</option>
                         </select>
@@ -172,7 +173,6 @@
                         </thead>
                         <tbody>
 
-
                         </tbody>
                     </table>
                     <div class="row">
@@ -192,7 +192,7 @@
     </div>
     <!-- 用户查询  end-->
 </div>
-<!-- 修改申请态框 -->
+<!-- 修改申请静态框 -->
 <div class="modal fade" id="editApply" tabindex="-1" role="dialog" aria-labelledby="myModalLabe">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -444,7 +444,8 @@
         $(ele).find("*").removeClass("has-error has-success");
         $(ele).find(".help-block").text("");
     }
-    //点击新增按钮弹出模态框。
+    //根本没有新增按钮
+    /*//点击新增按钮弹出模态框。
     $("#admin_add_modal_btn").click(function(){
         //清除表单数据（表单完整重置（表单的数据，表单的样式））
         reset_form("#newAdmin form");
@@ -452,7 +453,7 @@
         $("#newAdmin").modal({
             backdrop:"static"
         });
-    });
+    });*/
 
     //点击编辑按钮弹出模态框。
     $(document).on("click",".edit_btn",function(){
