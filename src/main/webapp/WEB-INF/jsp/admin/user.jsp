@@ -42,15 +42,18 @@
             <!-- 消息通知 end -->
             <!-- 用户信息和系统设置 start -->
             <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="crmclass/list.action#">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="/admin/developing">
                     <i class="fa fa-user fa-fw"></i>
                     <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user ">
-                    <li><a href="#"><i class="fa fa-user fa-fw"></i>
-                        用户：</a>
+                    <li>
+                        <input type="hidden" id = "currentAdminId" value="${admin.id}">
                     </li>
-                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> 系统设置</a></li>
+                    <li><a href="/admin/developing"><i class="fa fa-user fa-fw"></i>
+                        管理员：${admin.adminName}</a>
+                    </li>
+                    <li><a href="/admin/developing"><i class="fa fa-gear fa-fw"></i> 系统设置</a></li>
                     <li class="divider"></li>
                     <li>
                         <a href="${path}/admin/logout">
@@ -152,9 +155,10 @@
                     <table class="table table-bordered table-striped" id="user_table">
                         <thead>
                         <tr>
-                            <th>
+                            <%--复选框，因为没有做相关功能，就弃用了--%>
+                            <%--<th>
                                 <input type="checkbox" id="check_all"/>
-                            </th>
+                            </th>--%>
                             <th>编号</th>
                             <th>用户名</th>
                             <th>性别</th>
@@ -348,6 +352,26 @@
         </div>
     </div>
 </div>
+<%--登录失效，跳转至登录--%>
+<div class="modal fade" id="notlogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabe">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title">登录失效</h4>
+            </div>
+            <div class="modal-body">
+                <p>请先
+                    <a href="/admin/login">登录</a>！</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- 引入js文件 -->
 <!-- jQuery -->
 <script src="${path}/static/js/jquery-3.4.1.min.js"></script>
@@ -363,7 +387,9 @@
 <!-- 编写js代码 -->
 <script type="text/javascript">
 
+    //总的数据 当前的页面  页面容量  当前页码  当前总页数
     var totalRecord,currentPage,currentSize,currentPageSize,currentPages;
+    var currentAdminId = $("#currentAdminId").val();
 
     $(document).ready(function(){
         var key=$("#selectRefundReason").val();
@@ -400,7 +426,7 @@
         //index：下标 user：单个对象
         var users=result.extend.pageInfo.list;
         $.each(users,function(index,user){
-            var checkBoxTd = $("<td><input type='checkbox' class='check_item'/></td>");
+            /*var checkBoxTd = $("<td><input type='checkbox' class='check_item'/></td>");*/
             var userIdTd = $("<td></td>").append(user.id);
             var userNameTd = $("<td></td>").append(user.userName);
             var sexTd = $("<td></td>").append(user.sex);
@@ -425,7 +451,7 @@
             var btnTd = $("<td></td>").append(editBtn).append(" ").append(delBtn);
             //var delBtn =
             //append方法执行完成以后还是返回原来的元素
-            $("<tr></tr>").append(checkBoxTd)
+            $("<tr></tr>")/*.append(checkBoxTd)*/
                 .append(userIdTd)
                 .append(userNameTd)
                 .append(sexTd)
@@ -522,33 +548,46 @@
         //清除表单数据（表单完整重置（表单的数据，表单的样式））
         reset_form("#newUsers form");
         //弹出模态框
-        $("#newUsers").modal({
-            backdrop:"static"
-        });
+        if (currentAdminId == 0){
+            $("#notlogin").modal({
+                backdrop:"static"
+            })
+        }else{
+            $("#newUsers").modal({
+                backdrop:"static"
+            });
+        }
     });
 
     //点击保存，保存员工。
     $("#user_save_btn").click(function(){
-        //2、发送ajax请求保存员工
-        $.ajax({
-            url:"${path}/user/create",
-            type:"POST",
-            data:$("#newUsers form").serialize(),
-            success:function (result) {
-                alert("用户创建成功");
-                $("#user_saveDown-btn").click();
-                if(currentSize==currentPageSize) {
-                    to_page(currentPages + 1);
-                }else{
-                    to_page(currentPages);
+        var name = $("#new_userName").val();
+        var password = $("#new_password").val();
+        if (name == ""){
+            alert("用户名不能为空！");
+        }else if (password == ""){
+            alert("密码不能为空！");
+        }else {
+            //2、发送ajax请求保存员工
+            $.ajax({
+                url:"${path}/user/create",
+                type:"POST",
+                data:$("#newUsers form").serialize(),
+                success:function (result) {
+                    alert("用户创建成功");
+                    $("#user_saveDown-btn").click();
+                    if(currentSize==currentPageSize) {
+                        to_page(currentPages + 1);
+                    }else{
+                        to_page(currentPages);
+                    }
+                },
+                error:function (result) {
+                    console.log(result);
+                    alert("用户创建失败");
                 }
-            },
-            error:function (result) {
-                console.log(result);
-                alert("管用户创建失败");
-
-            }
-        });
+            });
+        }
     });
 
     //点击编辑按钮弹出模态框。
@@ -556,32 +595,45 @@
         //1、发送ajax,根据id获取用户信息
         //清除表单数据（表单完整重置（表单的数据，表单的样式））
         reset_form("#editUsers form");
-        var id = $(this).attr("edit-id");
-        $.ajax({
-            url:"${path}/user/findById?id="+id,
-            type:"GET",
-            success:function(result){
-                //填充用户信息
-                console.log(result.extend.user);
-                $("#edit_id").val(result.extend.user.id);
-                $("#edit_userName").val(result.extend.user.userName);
-                $("#edit_password").val(result.extend.user.password);
-                $("#edit_sex").val(result.extend.user.sex);
-                $("#edit_telephone").val(result.extend.user.telephone);
-                $("#edit_Email").val(result.extend.user.email);
-                $("#edit_address").val(result.extend.user.address);
-                $("#edit_state").val(result.extend.user.state);
-            }});
-        //2、弹出模态框
-        $("#editUsers").modal({
-            backdrop:"static"
-        });
+        if (currentAdminId == 0){
+            $("#notlogin").modal({
+                backdrop:"static"
+            })
+        }else{
+            var id = $(this).attr("edit-id");
+            $.ajax({
+                url:"${path}/user/findById?id="+id,
+                type:"GET",
+                success:function(result){
+                    //填充用户信息
+                    console.log(result.extend.user);
+                    $("#edit_id").val(result.extend.user.id);
+                    $("#edit_userName").val(result.extend.user.userName);
+                    $("#edit_password").val(result.extend.user.password);
+                    $("#edit_sex").val(result.extend.user.sex);
+                    $("#edit_telephone").val(result.extend.user.telephone);
+                    $("#edit_Email").val(result.extend.user.Email);
+                    $("#edit_address").val(result.extend.user.address);
+                    $("#edit_state").val(result.extend.user.state);
+                }});
+            //2、弹出模态框
+            $("#editUsers").modal({
+                backdrop:"static"
+            });
+        }
     });
 
 
     //点击更新按钮弹出模态框。
     $("#user_update_btn").click(function(){
-        $.ajax({
+        var name = $("#edit_userName").val();
+        var password = $("#edit_password").val();
+        if (name == ""){
+            alert("用户名不能为空！");
+        }else if (password == ""){
+            alert("密码不能为空！");
+        }else{
+            $.ajax({
             url:"${path}/user/update",
             type:"POST",
             data:$("#edit_user_form").serialize(),
@@ -595,32 +647,39 @@
                 to_page(currentPage);
             }
         });
+        }
     });
 
     //单个删除
     $(document).on("click",".delete_btn",function(){
-        //1、弹出是否确认删除对话框
-        var userName = $(this).parents("tr").find("td:eq(2)").text();
-        var userId = $(this).attr("del-id");
+        if (currentAdminId == 0){
+            $("#notlogin").modal({
+                backdrop:"static"
+            })
+        }else{
+            //1、弹出是否确认删除对话框
+            var userName = $(this).parents("tr").find("td:eq(2)").text();
+            var userId = $(this).attr("del-id");
 
-        if(confirm("确认删除【"+userName+"】吗？")){
-            //确认，发送ajax请求删除即可
-            $.ajax({
-                url:"${path}/user/delete?id="+userId,
-                type:"GET",
-                success:function (result) {
-                        alert("用户删除成功！");
-                    if(currentSize==1){
-                        to_page(currentPage-1);
-                    } else {
+            if(confirm("确认删除【"+userName+"】吗？")){
+                //确认，发送ajax请求删除即可
+                $.ajax({
+                    url:"${path}/user/delete?id="+userId,
+                    type:"GET",
+                    success:function (result) {
+                            alert("用户删除成功！");
+                        if(currentSize==1){
+                            to_page(currentPage-1);
+                        } else {
+                            to_page(currentPage);
+                        }
+                    },
+                    error:function (result) {
+                        alert("删除失败");
                         to_page(currentPage);
                     }
-                },
-                error:function (result) {
-                    alert("删除失败");
-                    to_page(currentPage);
-                }
-            });
+                });
+            }
         }
     });
 

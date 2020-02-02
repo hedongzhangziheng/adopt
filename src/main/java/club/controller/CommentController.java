@@ -31,6 +31,14 @@ public class CommentController {
     @Resource
     private UserService userService;
 
+    @RequestMapping("/comments")
+    @ResponseBody
+    public Message comments(@RequestParam(required = false) String userName, Integer pn){
+        Integer pageSize = 5;
+        PageInfo<Comment> pageInfo = commentService.allComment(userName, pn, pageSize);
+        return Message.success().add("pageInfo", pageInfo);
+    }
+
     @RequestMapping("/petComments")
     @ResponseBody
     public Message petComments(Integer petId){
@@ -59,8 +67,9 @@ public class CommentController {
 
     @RequestMapping("/findById")
     @ResponseBody
-    public Message findById(Integer id){
+    public Message findById(HttpSession session, Integer id){
         Comment comment = commentService.findById(id);
+        session.setAttribute("comment", comment);
         return Message.success().add("comment", comment);
     }
 

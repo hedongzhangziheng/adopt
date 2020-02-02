@@ -2,9 +2,4 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="club.dao.UserMapper">
     <sql id="allFields">id, userName, password, sex, age, telephone, Email, address, pic, state</sql>
-
-    <insert id="addUser" parameterType="User">
-        insert  into user(userName,password,sex,age,telephone,Email,address,state)
-        values(#{userName},#{password},#{sex},#{age},#{telephone},#{Email},#{address},#{state})
-    </insert>
 </mapper>

@@ -64,15 +64,18 @@
             <!-- 消息通知 end -->
             <!-- 用户信息和系统设置 start -->
             <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="crmclass/list.action#">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="/admin/developing">
                     <i class="fa fa-user fa-fw"></i>
                     <i class="fa fa-caret-down"></i>
                 </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li><a href="crmclass/list.action#"><i class="fa fa-user fa-fw"></i>
-                        用户：</a>
+                <ul class="dropdown-menu dropdown-user ">
+                    <li>
+                        <input type="hidden" id = "currentAdminId" value="${admin.id}">
                     </li>
-                    <li><a href="crmclass/list.action#"><i class="fa fa-gear fa-fw"></i> 系统设置</a></li>
+                    <li><a href="/admin/developing"><i class="fa fa-user fa-fw"></i>
+                        管理员：${admin.adminName}</a>
+                    </li>
+                    <li><a href="/admin/developing"><i class="fa fa-gear fa-fw"></i> 系统设置</a></li>
                     <li class="divider"></li>
                     <li>
                         <a href="${path}/admin/logout">
@@ -96,7 +99,7 @@
                      aria-labelledby="collapseListGroupHeading3">
                     <ul class="list-group">
                         <li class="list-group-item my_font">
-                            <a href="${path}/admin/users">
+                            <a href="${path}/admin/user">
                                 <i class="fa fa-flash fa-fw"></i> 用户信息
                             </a>
                         </li>
@@ -176,9 +179,10 @@
                     <table class="table table-bordered table-striped" id="pet_table">
                         <thead>
                         <tr>
-                            <th>
+                            <%--复选框，因为没有做相关功能，就弃用了--%>
+                            <%--<th>
                                 <input type="checkbox" id="check_all"/>
-                            </th>
+                            </th>--%>
                             <th>宠物编号</th>
                             <th>宠物名</th>
                             <th>种类</th>
@@ -376,6 +380,26 @@
         </div>
     </div>
 </div>
+<%--登录失效，跳转至登录--%>
+<div class="modal fade" id="notlogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabe">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title">登录失效</h4>
+            </div>
+            <div class="modal-body">
+                <p>请先
+                    <a href="/admin/login">登录</a>！</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- 引入js文件 -->
 <!-- jQuery -->
 <script src="${path}/static/js/jquery-3.4.1.min.js"></script>
@@ -392,8 +416,9 @@
 <script type="text/javascript">
 
 
-    //总的数据 当前的页面
-    var totalRecord, currentPage, currentSize, currentPageSize, currentPages;
+    //总的数据 当前的页面  页面容量  当前页码  当前总页数
+    var totalRecord,currentPage,currentSize,currentPageSize,currentPages;
+    var currentAdminId = $("#currentAdminId").val();
 
     $(function () {
         to_page(1);
@@ -411,7 +436,7 @@
     }
 
     function resolving(result) {
-        //1、解析并显示员工数据
+        //1、解析并显示宠物数据
         build_pets_table(result);
         //2、解析并显示分页信息
         build_page_info(result);
@@ -419,14 +444,14 @@
         build_page_nav(result);
     }
 
-    //解析并显示员工数据
+    //解析并显示宠物数据
     function build_pets_table(result) {
         //清空table表格
         $("#pet_table tbody").empty();
         //index：下标 user：单个对象
         var pets = result.extend.pageInfo.list;
         $.each(pets, function (index, pet) {
-            var checkBoxTd = $("<td><input type='checkbox' class='check_item'/></td>");
+            /*var checkBoxTd = $("<td><input type='checkbox' class='check_item'/></td>");*/
             var petIdTd = $("<td></td>").append(pet.id);
             var petNameTd = $("<td></td>").append(pet.petName);
             var petTypeTd = $("<td></td>").append(pet.petType);
@@ -453,7 +478,7 @@
             var btnTd = $("<td></td>").append(editBtn).append("").append(delBtn);
             //var delBtn =
             //append方法执行完成以后还是返回原来的元素
-            $("<tr></tr>").append(checkBoxTd)
+            $("<tr></tr>")/*.append(checkBoxTd)*/
                 .append(petIdTd)
                 .append(petNameTd)
                 .append(petTypeTd)
@@ -551,9 +576,15 @@
         //清除表单数据（表单完整重置（表单的数据，表单的样式））
         reset_form("#newPet form");
         //弹出模态框
-        $("#newPet").modal({
-            backdrop: "static"
-        });
+        if (currentAdminId == 0){
+            $("#notlogin").modal({
+                backdrop:"static"
+            })
+        }else{
+            $("#newPet").modal({
+                backdrop: "static"
+            });
+        }
     });
     //点击保存，保存宠物。
     $("#pet_save_btn").click(function () {
@@ -601,79 +632,103 @@
         //1、发送ajax,根据id获取用户信息
         //清除表单数据（表单完整重置（表单的数据，表单的样式））
         reset_form("#editPet form");
-        var id = $(this).attr("edit-id");
-        $.ajax({
-            url: "${path}/pet/findById?id=" + id,
-            type: "GET",
-            success: function (result) {
-                //填充用户信息
-                $("#edit_id").val(result.extend.pet.id);
-                $("#edit_petName").val(result.extend.pet.petName);
-                $("#edit_petType").val(result.extend.pet.petType);
-                $("#edit_sex").val(result.extend.pet.sex);
-                $("#edit_birthday").val(result.extend.pet.birthday);
-                $("#edit_state").val(result.extend.pet.state);
-                $("#edit_remark").val(result.extend.pet.remark);
-            },
-            error: function (result) {
-                alert("通过id查询用户失败")
-            }
-        });
-        //2、弹出模态框
-        $("#editPet").modal({
-            backdrop: "static"
-        });
-
+        if (currentAdminId == 0){
+            $("#notlogin").modal({
+                backdrop:"static"
+            })
+        }else {
+            var id = $(this).attr("edit-id");
+            $.ajax({
+                url: "${path}/pet/findById?id=" + id,
+                type: "GET",
+                success: function (result) {
+                    //填充用户信息
+                    $("#edit_id").val(result.extend.pet.id);
+                    $("#edit_petName").val(result.extend.pet.petName);
+                    $("#edit_petType").val(result.extend.pet.petType);
+                    $("#edit_sex").val(result.extend.pet.sex);
+                    $("#edit_birthday").val(result.extend.pet.birthday);
+                    $("#edit_state").val(result.extend.pet.state);
+                    $("#edit_remark").val(result.extend.pet.remark);
+                },
+                error: function (result) {
+                    alert("通过id查询用户失败")
+                }
+            });
+            //2、弹出模态框
+            $("#editPet").modal({
+                backdrop: "static"
+            });
+        }
     });
 
     //点击更新按钮弹出模态框。
     $("#pet_update_btn").click(function () {
-        var pet = document.getElementById("edit_pet_from");
-        var petTd = new FormData(pet);
-        $.ajax({
-            url: "${path}/pet/update",
-            type: "POST",
-            processData: false,  // 告诉jQuery不要去处理发送的数据
-            contentType: false, // 告诉jQuery不要去设置Content-Type请求头
-            data: petTd,
-            success: function (result) {
-                to_page(currentPage);
-                $("#pet_updateDown_btn").click();
-                alert("宠物信息更新成功！");
-            },
-            error: function (result) {
-                alert("宠物信息更新失败！");
-                $("#pet_saveDown_btn").click();
-                to_page(currentPage);
-            }
-        });
-
+        var name = $("#edit_petName").val();
+        var type = $("#edit_petType").val();
+        var birthday = $("#edit_birthday").val();
+        var pic = $("#edit_pic").val();
+        if (name == "") {
+            alert("宠物姓名不能为空！")
+        } else if (type == "") {
+            alert("宠物类型不能为空！")
+        } else if (birthday == "") {
+            alert("宠物生日不能为空！")
+        } else if (pic == "") {
+            alert("请上传至少一张宠物照片！")
+        } else{
+            var pet = document.getElementById("edit_pet_from");
+            var petTd = new FormData(pet);
+            $.ajax({
+                url: "${path}/pet/update",
+                type: "POST",
+                processData: false,  // 告诉jQuery不要去处理发送的数据
+                contentType: false, // 告诉jQuery不要去设置Content-Type请求头
+                data: petTd,
+                success: function (result) {
+                    to_page(currentPage);
+                    $("#pet_updateDown_btn").click();
+                    alert("宠物信息更新成功！");
+                },
+                error: function (result) {
+                    alert("宠物信息更新失败！");
+                    $("#pet_saveDown_btn").click();
+                    to_page(currentPage);
+                }
+            });
+        }
     });
 
     //单个删除
     $(document).on("click", ".delete_btn", function () {
-        //1、弹出是否确认删除对话框
-        var petName = $(this).parents("tr").find("td:eq(2)").text();
-        var petId = $(this).attr("del-id");
-        if (confirm("确认删除【" + petName + "】吗？")) {
-            //确认，发送ajax请求删除即可
-            $.ajax({
-                url: "${path}/pet/delete?id=" + petId,
-                type: "GET",
-                success: function (result) {
-                    if (result.code == 100) {
-                        alert("宠物删除成功！");
-                        if (currentSize == 1) {
-                            to_page(currentPage - 1);
+        if (currentAdminId == 0){
+            $("#notlogin").modal({
+                backdrop:"static"
+            })
+        }else{
+            //1、弹出是否确认删除对话框
+            var petName = $(this).parents("tr").find("td:eq(2)").text();
+            var petId = $(this).attr("del-id");
+            if (confirm("确认删除【" + petName + "】吗？")) {
+                //确认，发送ajax请求删除即可
+                $.ajax({
+                    url: "${path}/pet/delete?id=" + petId,
+                    type: "GET",
+                    success: function (result) {
+                        if (result.code == 100) {
+                            alert("宠物删除成功！");
+                            if (currentSize == 1) {
+                                to_page(currentPage - 1);
+                            } else {
+                                to_page(currentPage);
+                            }
                         } else {
+                            alert("宠物删除失败！");
                             to_page(currentPage);
                         }
-                    } else {
-                        alert("宠物删除失败！");
-                        to_page(currentPage);
                     }
-                }
-            });
+                });
+            }
         }
     });
 

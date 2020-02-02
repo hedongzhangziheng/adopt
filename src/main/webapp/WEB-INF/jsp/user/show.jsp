@@ -272,15 +272,15 @@
                 replayListTd = $("<div></div>").addClass("reply-list");
                 $.each(answers, function (index, answer) {
                     if (answer.replayId != null) {
-                        var replayAnswerTd = to_answer(comment.id);
-                        console.log(to_answer(comment.id));
-                        replayListTd.append(replayAnswerTd);
+                        var replay = $("<div></div>").append($("<a></a>").append(answer.user.userName)).append("回复：").append($("<a></a>").append(answer.answer.user.userName).append("  ")).append($("<span></span>").append(answer.content));
+                        var contentTd = $("<p></p>").append($("<span></span>").append(answer.answerTime)).append($("<span></span>").addClass("reply-list-btn").append("回复").attr("saves-id", answer.id));
+                        var replayTd = $("<div></div>").addClass("reply").append(replay).append(contentTd);
+                        replayListTd.append(replayTd);
                     } else {
-                        var replaysTd = $("<div></div>").addClass("reply");
                         var replay = $("<div></div>").append($("<a></a>").append(answer.user.userName)).append("回复：").append($("<a></a>").append(comment.user.userName).append("  ")).append($("<span></span>").append(answer.content));
                         var contentTd = $("<p></p>").append($("<span></span>").append(answer.answerTime)).append($("<span></span>").addClass("reply-list-btn").append("回复").attr("saves-id", answer.id));
-                        replaysTd.append(replay).append(contentTd);
-                        replayListTd.append(replaysTd);
+                        var replayTd = $("<div></div>").addClass("reply").append(replay).append(contentTd);
+                        replayListTd.append(replayTd);
                     }
                 });
             }
@@ -291,44 +291,6 @@
                 .appendTo(".comment-list")
         });
     };
-
-    function to_answer(id) {
-        //session里面的数据
-        var answer = null;
-        $.ajax({
-            url: "${path}/answer/findByCommentId?commentId=" + id,
-            type: "GET",
-            async: false,
-            success: function (result) {
-                if (result.extend.answer.length > 0) {
-                    answer = answerSummit(result);
-                } else {
-                    return;
-                }
-            },
-            error: function (result) {
-                alert("评论导出失败");
-            }
-        });
-        return answer;
-    }
-
-    function answerSummit(result) {
-        //清空数据
-        //对结果进行遍历
-        console.log(result.extend.answer);
-        var answers = result.extend.answer;
-        var replys = $("<div></div>").addClass("replys")
-        $.each(answers, function (index, answer) {
-            var replay = $("<div></div>").append($("<a></a>").append(answer.user.userName)).append("回复：").append($("<a></a>").append(answer.answer.user.userName).append("  ")).append($("<span></span>").append(answer.content));
-            var contentTd = $("<p></p>").append($("<span></span>").append(answer.answerTime)).append($("<span></span>").addClass("reply-list-btn").append("回复").attr("saves-id", answer.id));
-            replayTd = $("<div></div>").addClass("reply").append(replay).append(contentTd);
-            replys.append(replayTd);
-        });
-        return replys;
-
-    }
-
 
     $("#comment").click(function () {
         var comment = $("#content").val();
@@ -358,7 +320,7 @@
         $(ele).find(".help-block").text("");
     }
 
-    //点击新增按钮弹出模态框。
+    //点击申请按钮弹出模态框。
     $("#pet_adopt_modal_btn").click(function () {
         //清除表单数据（表单完整重置（表单的数据，表单的样式））
         reset_form("#new_adopt_form");

@@ -40,15 +40,18 @@
             <!-- 消息通知 end -->
             <!-- 用户信息和系统设置 start -->
             <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="crmclass/list.action#">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="/admin/developing">
                     <i class="fa fa-user fa-fw"></i>
                     <i class="fa fa-caret-down"></i>
                 </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li><a href="crmclass/list.action#"><i class="fa fa-user fa-fw"></i>
-                        用户：</a>
+                <ul class="dropdown-menu dropdown-user ">
+                    <li>
+                        <input type="hidden" id = "currentAdminId" value="${admin.id}">
                     </li>
-                    <li><a href="crmclass/list.action#"><i class="fa fa-gear fa-fw"></i> 系统设置</a></li>
+                    <li><a href="/admin/developing"><i class="fa fa-user fa-fw"></i>
+                        管理员：${admin.adminName}</a>
+                    </li>
+                    <li><a href="/admin/developing"><i class="fa fa-gear fa-fw"></i> 系统设置</a></li>
                     <li class="divider"></li>
                     <li>
                         <a href="${path}/admin/logout">
@@ -70,7 +73,7 @@
                 <div id="collapseListGroup3" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="collapseListGroupHeading3">
                     <ul class="list-group">
                         <li class="list-group-item my_font">
-                            <a href="${path}/admin/users">
+                            <a href="${path}/admin/user">
                                 <i class="fa fa-flash fa-fw"></i> 用户信息
                             </a>
                         </li>
@@ -152,9 +155,10 @@
                     <table class="table table-bordered table-striped" id="apply_table">
                         <thead>
                         <tr>
-                            <th>
+                            <%--复选框，因为没有做相关功能，就弃用了--%>
+                            <%--<th>
                                 <input type="checkbox" id="check_all"/>
-                            </th>
+                            </th>--%>
                             <th>编号</th>
                             <th>用户名称</th>
                             <th>Email</th>
@@ -263,6 +267,26 @@
         </div>
     </div>
 </div>
+<%--登录失效，跳转至登录--%>
+<div class="modal fade" id="notlogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabe">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title">登录失效</h4>
+            </div>
+            <div class="modal-body">
+                <p>请先
+                    <a href="/admin/login">登录</a>！</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- 引入js文件 -->
 <!-- jQuery -->
 <!-- jQuery -->
@@ -273,9 +297,9 @@
 <!-- 编写js代码 -->
 <script type="text/javascript">
 
-    //总的数据 当前的页面
-
+    //总的数据 当前的页面  页面容量  当前页码
     var totalRecord,currentPage,currentSize,currentPageSize;
+    var currentAdminId = $("#currentAdminId").val();
 
     $(function(){
         to_page(1);
@@ -305,7 +329,7 @@
         //index：下标 user：单个对象
         var applys=result.extend.pageInfo.list;
         $.each(applys,function(index,apply){
-            var checkBoxTd = $("<td><input type='checkbox' class='check_item'/></td>");
+            /*var checkBoxTd = $("<td><input type='checkbox' class='check_item'/></td>");*/
             var applyIdTd = $("<td></td>").append(apply.id);
             var nameTd = $("<td></td>").append(apply.name);
             var emailTd = $("<td></td>").append(apply.email);
@@ -330,7 +354,7 @@
             var btnTd = $("<td></td>").append(editBtn).append(" ").append(delBtn);
             //var delBtn =
             //append方法执行完成以后还是返回原来的元素
-            $("<tr></tr>").append(checkBoxTd)
+            $("<tr></tr>")/*.append(checkBoxTd)*/
                 .append(applyIdTd)
                 .append(nameTd)
                 .append(emailTd)
@@ -432,76 +456,94 @@
 
     //点击编辑按钮弹出模态框。
     $(document).on("click",".edit_btn",function(){
-        //1、发送ajax,根据id获取用户信息
-        //清除表单数据（表单完整重置（表单的数据，表单的样式））
-        reset_form("#editApply form");
-        var id = $(this).attr("edit-id");
-        $.ajax({
-            url:"${path}/apply/findById?id="+id,
-            type:"GET",
-            success:function(result){
-                //填充用户信息
-                console.log(result);
-                $("#edit_id").val(result.extend.apply.id);
-                $("#edit_name").val(result.extend.apply.name);
-                $("#edit_email").val(result.extend.apply.email);
-                $("#edit_age").val(result.extend.apply.age)
-                $("#edit_telephone").val(result.extend.apply.telephone);
-                $("#edit_message").val(result.extend.apply.message);
-                $("#edit_time").val(result.extend.apply.applyTime);
-                $("#edit_state").val(result.extend.apply.state);
+        if (currentAdminId == 0){
+            $("#notlogin").modal({
+                backdrop:"static"
+            })
+        }else{
+            //1、发送ajax,根据id获取用户信息
+            //清除表单数据（表单完整重置（表单的数据，表单的样式））
+            reset_form("#editApply form");
+            var id = $(this).attr("edit-id");
+            $.ajax({
+                url:"${path}/apply/findById?id="+id,
+                type:"GET",
+                success:function(result){
+                    //填充用户信息
+                    console.log(result);
+                    $("#edit_id").val(result.extend.apply.id);
+                    $("#edit_name").val(result.extend.apply.name);
+                    $("#edit_email").val(result.extend.apply.email);
+                    $("#edit_age").val(result.extend.apply.age)
+                    $("#edit_telephone").val(result.extend.apply.telephone);
+                    $("#edit_message").val(result.extend.apply.message);
+                    $("#edit_time").val(result.extend.apply.applyTime);
+                    $("#edit_state").val(result.extend.apply.state);
 
-            }});
-        //2、弹出模态框
-        $("#editApply").modal({
-            backdrop:"static"
-        });
-
+                }});
+            //2、弹出模态框
+            $("#editApply").modal({
+                backdrop:"static"
+            });
+        }
     });
 
     //点击更新按钮弹出模态框。
     $("#apply_update_btn").click(function(){
-        $.ajax({
-            url:"${path}/apply/update",
-            type:"POST",
-            data:$("#edit_apply_form").serialize(),
-            success:function (result) {
-                alert("申请信息更新成功！");
-                $("#apply_updateDown_btn").click();
-                to_page(currentPage);
-            },
-            error:function(result){
-                alert("管理员信息更新失败！");
-                to_page(currentPage);
-            }
-        });
-
+        var name = $("#edit_name").val();
+        var telephone = $("#edit_telephone").val();
+        if (name == ""){
+            alert("姓名不能为空！");
+        }else if (telephone == ""){
+            alert("电话不能为空！");
+        }else {
+            $.ajax({
+                url:"${path}/apply/update",
+                type:"POST",
+                data:$("#edit_apply_form").serialize(),
+                success:function (result) {
+                    alert("申请信息更新成功！");
+                    $("#apply_updateDown_btn").click();
+                    to_page(currentPage);
+                },
+                error:function(result){
+                    alert("管理员信息更新失败！");
+                    to_page(currentPage);
+                }
+            });
+        }
     });
 
     //单个删除
     $(document).on("click",".delete_btn",function(){
-        //1、弹出是否确认删除对话框
-        var name = $(this).parents("tr").find("td:eq(2)").text();
-        var id = $(this).attr("del-id");
-        if(confirm("确认删除【"+name+"】吗？")){
-            //确认，发送ajax请求删除即可
-            $.ajax({
-                url:"${path}/apply/delete?id="+id,
-                type:"GET",
-                success:function (result) {
-                    if(result.code==100){
-                        alert("申请删除成功！");
-                        if(currentSize==1){
-                            to_page(currentPage-1);
-                        } else {
+        if (currentAdminId == 0){
+            $("#notlogin").modal({
+                backdrop:"static"
+            })
+        }else{
+            //1、弹出是否确认删除对话框
+            var name = $(this).parents("tr").find("td:eq(2)").text();
+            var id = $(this).attr("del-id");
+            if(confirm("确认删除【"+name+"】吗？")){
+                //确认，发送ajax请求删除即可
+                $.ajax({
+                    url:"${path}/apply/delete?id="+id,
+                    type:"GET",
+                    success:function (result) {
+                        if(result.code==100){
+                            alert("申请删除成功！");
+                            if(currentSize==1){
+                                to_page(currentPage-1);
+                            } else {
+                                to_page(currentPage);
+                            }
+                        }else{
+                            alert("管理员删除失败！");
                             to_page(currentPage);
                         }
-                    }else{
-                        alert("管理员删除失败！");
-                        to_page(currentPage);
                     }
-                }
-            });
+                });
+            }
         }
     });
     $("#find_modal_btn").click(function () {

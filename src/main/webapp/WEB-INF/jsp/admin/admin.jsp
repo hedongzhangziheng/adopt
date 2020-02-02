@@ -43,15 +43,18 @@
             <!-- 消息通知 end -->
             <!-- 用户信息和系统设置 start -->
             <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="crmclass/list.action#">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="/admin/developing">
                     <i class="fa fa-user fa-fw"></i>
                     <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user ">
-                    <li><a href="crmclass/list.action#"><i class="fa fa-user fa-fw"></i>
-                        用户：</a>
+                    <li>
+                        <input type="hidden" id = "currentAdminId" value="${admin.id}">
                     </li>
-                    <li><a href="crmclass/list.action#"><i class="fa fa-gear fa-fw"></i> 系统设置</a></li>
+                    <li><a href="/admin/developing"><i class="fa fa-user fa-fw"></i>
+                        管理员：${admin.adminName}</a>
+                    </li>
+                    <li><a href="/admin/developing"><i class="fa fa-gear fa-fw"></i> 系统设置</a></li>
                     <li class="divider"></li>
                     <li>
                         <a href="${path}/admin/logout">
@@ -152,9 +155,10 @@
                     <table class="table table-bordered table-striped" id="admin_table">
                         <thead>
                         <tr>
-                            <th>
+                            <%--复选框，因为没有做相关功能，就弃用了--%>
+                            <%--<th>
                                 <input type="checkbox" id="check_all"/>
-                            </th>
+                            </th>--%>
                             <th>编号</th>
                             <th>管理员账号</th>
                             <th>真实姓名</th>
@@ -203,21 +207,21 @@
                 <form class="form-horizontal" id="new_admin_form">
                     <div class="form-group">
                         <label for="new_adminName" class="col-sm-2 control-label">
-                            管理员名字
+                            账号
                         </label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="new_adminName" placeholder="管理员账号" name="adminName">
+                            <input type="text" class="form-control" id="new_adminName" placeholder="登录账号" name="adminName">
                         </div>
                         <label for="new_password" class="col-sm-2 control-label">
-                            管理员密码
+                            密码
                         </label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="new_password" placeholder="用户密码" name="adminPwd">
+                            <input type="text" class="form-control" id="new_password" placeholder="密码" name="adminPwd">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="new_Name" class="col-sm-2 control-label">
-                            管理员名字
+                            真实名字
                         </label>
                         <div class="col-sm-4">
                             <input type="text" class="form-control" id="new_Name" placeholder="真实名字" name="realName">
@@ -271,7 +275,7 @@
         </div>
     </div>
 </div>
-<!-- 修改班级模态框 -->
+<!-- 修改模态框 -->
 <div class="modal fade" id="editAdmin" tabindex="-1" role="dialog" aria-labelledby="myModalLabe">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -279,31 +283,31 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
-                <h4 class="modal-title" id="myModalLabe">修改用户信息</h4>
+                <h4 class="modal-title" id="myModalLabe">修改管理员信息</h4>
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" id="edit_admin_form" method="post" enctype="multipart/form-data">
                     <input type="hidden" id="edit_id" name="id">
                     <div class="form-group">
                         <label for="edit_adminName" class="col-sm-2 control-label">
-                            管理员名字
+                            账号
                         </label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="edit_adminName" placeholder="管理员账号" value="${admin.adminName}" name="adminName">
+                            <input type="text" class="form-control" id="edit_adminName" placeholder="登录账号" value="${admin.adminName}" name="adminName">
                         </div>
                         <label for="edit_password" class="col-sm-2 control-label">
-                            管理员密码
+                            密码
                         </label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="edit_password" placeholder="用户密码" value="${admin.adminPwd}" name="adminPwd">
+                            <input type="text" class="form-control" id="edit_password" placeholder="密码" value="${admin.adminPwd}" name="adminPwd">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="edit_Name" class="col-sm-2 control-label">
-                            管理员名字
+                            真实姓名
                         </label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="edit_Name" placeholder="真实名字" value="${admin.realName}" name="realName">
+                            <input type="text" class="form-control" id="edit_Name" placeholder="真实姓名" value="${admin.realName}" name="realName">
                         </div>
                         <label for="edit_sex" class="col-sm-2 control-label">
                             性别
@@ -364,6 +368,44 @@
         </div>
     </div>
 </div>
+<%--登录失效，跳转至登录--%>
+<div class="modal fade" id="notlogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabe">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title">登录失效</h4>
+            </div>
+            <div class="modal-body">
+                <p>请先
+                <a href="/admin/login">登录</a>！</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="access" tabindex="-1" role="dialog" aria-labelledby="myModalLabe">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title">无权访问</h4>
+            </div>
+            <div class="modal-body">
+                <p>您无权使用该功能，详细信息请联系超级管理员！</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- 引入js文件 -->
 <!-- jQuery -->
 <script src="${path}/static/js/jquery-3.4.1.min.js"></script>
@@ -379,9 +421,9 @@
 <!-- 编写js代码 -->
 <script type="text/javascript">
 
-    //总的数据 当前的页面
-
+    //总的数据 当前的页面  页面容量  当前页码  当前总页数
     var totalRecord,currentPage,currentSize,currentPageSize,currentPages;
+    var currentAdminId = $("#currentAdminId").val();
 
     var isFlush=0;
 
@@ -414,9 +456,9 @@
         //index：下标 user：单个对象
         var admins=result.extend.pageInfo.list;
         $.each(admins,function(index,admin){
-            var checkBoxTd = $("<td><input type='checkbox' class='check_item'/></td>");
+            /*var checkBoxTd = $("<td><input type='checkbox' class='check_item'/></td>");*/
             var adminIdTd = $("<td></td>").append(admin.id);
-            var adminNameTd = $("<td></td>").append(admin.adminsName);
+            var adminNameTd = $("<td></td>").append(admin.adminName);
             var realNameTd = $("<td></td>").append(admin.realName);
             var telephoneTd=$("<td></td>").append(admin.telephone);
             var emailTd=$("<td></td>").append(admin.email);
@@ -434,7 +476,7 @@
             var btnTd = $("<td></td>").append(editBtn).append(" ").append(delBtn);
             //var delBtn =
             //append方法执行完成以后还是返回原来的元素
-            $("<tr></tr>").append(checkBoxTd)
+            $("<tr></tr>")/*.append(checkBoxTd)*/
                 .append(adminIdTd)
                 .append(adminNameTd)
                 .append(realNameTd)
@@ -455,7 +497,7 @@
             result.extend.pageInfo.total+"条记录");
         totalRecord = result.extend.pageInfo.total;//最后的数据
         currentPage = result.extend.pageInfo.pageNum;//当前页
-        var currentPages=result.extend.pageInfo.pages;
+        currentPages=result.extend.pageInfo.pages;
         currentSize=result.extend.pageInfo.size;//当前页面的尺寸
         currentPageSize=result.extend.pageInfo.pageSize;//每页的尺寸
     }
@@ -529,10 +571,20 @@
     $("#admin_add_modal_btn").click(function(){
         //清除表单数据（表单完整重置（表单的数据，表单的样式））
         reset_form("#newAdmin form");
-        //弹出模态框
-        $("#newAdmin").modal({
-            backdrop:"static"
-        });
+        if (currentAdminId == 0){
+            $("#notlogin").modal({
+                backdrop:"static"
+            })
+        }else if (currentAdminId == 1){
+            //弹出模态框
+            $("#newAdmin").modal({
+                backdrop:"static"
+            });
+        }else {
+            $("#access").modal({
+                backdrop:"static"
+            });
+        }
     });
     //点击保存，保存员工。
     $("#admin_save_btn").click(function(){
@@ -562,28 +614,37 @@
         //清除表单数据（表单完整重置（表单的数据，表单的样式））
         reset_form("#editAdmin form");
         var id = $(this).attr("edit-id");
-        $.ajax({
-            url:"${path}/admin/findById?id="+id,
-            type:"GET",
-            success:function(result){
-                //填充用户信息
-                console.log(result);
-                $("#edit_id").val(result.extend.admin.id);
-                $("#edit_adminName").val(result.extend.admin.adminName);
-                $("#edit_password").val(result.extend.admin.adminPwd);
-                $("#edit_Name").val(result.extend.admin.realName)
-                $("#edit_sex").val(result.extend.admin.sex);
-                $("#edit_telephone").val(result.extend.admin.telephone);
-                $("#edit_Email").val(result.extend.admin.email);
-                $("#edit_pic").attr("src","/images/"+result.extend.admin.pic);
-                $("#edit_birthday").val(result.extend.admin.birthday);
-                $("#edit_remark").val(result.extend.admin.remark);
-            }});
-        //2、弹出模态框
-        $("#editAdmin").modal({
-            backdrop:"static"
-        });
-
+        if (currentAdminId == 0){
+            $("#notlogin").modal({
+                backdrop:"static"
+            })
+        }else if (currentAdminId == 1 || id == currentAdminId){
+            $.ajax({
+                url:"${path}/admin/findById?id="+id,
+                type:"GET",
+                success:function(result){
+                    //填充用户信息
+                    console.log(result);
+                    $("#edit_id").val(result.extend.admin.id);
+                    $("#edit_adminName").val(result.extend.admin.adminName);
+                    $("#edit_password").val(result.extend.admin.adminPwd);
+                    $("#edit_Name").val(result.extend.admin.realName)
+                    $("#edit_sex").val(result.extend.admin.sex);
+                    $("#edit_telephone").val(result.extend.admin.telephone);
+                    $("#edit_Email").val(result.extend.admin.email);
+                    $("#edit_pic").attr("src","/images/"+result.extend.admin.pic);
+                    $("#edit_birthday").val(result.extend.admin.birthday);
+                    $("#edit_remark").val(result.extend.admin.remark);
+                }});
+            //2、弹出模态框
+            $("#editAdmin").modal({
+                backdrop:"static"
+            });
+        }else {
+            $("#access").modal({
+                backdrop:"static"
+            })
+        }
     });
 
     //点击更新按钮弹出模态框。
@@ -611,29 +672,42 @@
 
     //单个删除
     $(document).on("click",".delete_btn",function(){
-        //1、弹出是否确认删除对话框
-        var adminName = $(this).parents("tr").find("td:eq(2)").text();
         var adminId = $(this).attr("del-id");
-
-        if(confirm("确认删除【"+adminName+"】吗？")){
-            //确认，发送ajax请求删除即可
-            $.ajax({
-                url:"${path}/static/admin/delete.action?id="+adminId,
-                type:"GET",
-                success:function (result) {
-                    if(result.code==100){
-                        alert("管理员删除成功！");
-                        if(currentSize==1){
-                            to_page(currentPage-1);
-                        } else {
+        if (adminId == 1){
+            $("#access").modal({
+                backdrop:"static"
+            })
+        }else if (currentAdminId == 0){
+            $("#notlogin").modal({
+                backdrop:"static"
+            })
+        }else if (currentAdminId == 1){
+            //1、弹出是否确认删除对话框
+            var adminName = $(this).parents("tr").find("td:eq(2)").text();
+            if(confirm("确认删除【"+adminName+"】吗？")){
+                //确认，发送ajax请求删除即可
+                $.ajax({
+                    url:"${path}/static/admin/delete.action?id="+adminId,
+                    type:"GET",
+                    success:function (result) {
+                        if(result.code==100){
+                            alert("管理员删除成功！");
+                            if(currentSize==1){
+                                to_page(currentPage-1);
+                            } else {
+                                to_page(currentPage);
+                            }
+                        }else{
+                            alert("管理员删除失败！");
                             to_page(currentPage);
                         }
-                    }else{
-                        alert("管理员删除失败！");
-                        to_page(currentPage);
                     }
-                }
-            });
+                });
+            }
+        }else {
+            $("#access").modal({
+                backdrop:"static"
+            })
         }
     });
     $("#admin_find_modal_btn").click(function () {
@@ -644,7 +718,7 @@
 
     function to_findByName(pn,adminName) {
         $.ajax({
-            url:"${path}/admin/findByName",
+            url:"${path}/admin/admins",
             type:"POST",
             dataType:"json",
             data:{"pn":pn,"adminName":adminName},
@@ -655,7 +729,7 @@
                 build_page_findByName(result,adminName);
             },
             error:function (result) {
-                alert("拆个年间哎你是")
+                alert("模糊查询报错了！")
             }
         });
     }

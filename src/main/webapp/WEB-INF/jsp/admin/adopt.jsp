@@ -40,18 +40,21 @@
             <!-- 消息通知 end -->
             <!-- 用户信息和系统设置 start -->
             <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="crmclass/list.action#">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="/admin/developing">
                     <i class="fa fa-user fa-fw"></i>
                     <i class="fa fa-caret-down"></i>
                 </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li><a href="crmclass/list.action#"><i class="fa fa-user fa-fw"></i>
-                        用户：</a>
+                <ul class="dropdown-menu dropdown-user ">
+                    <li>
+                        <input type="hidden" id = "currentAdminId" value="${admin.id}">
                     </li>
-                    <li><a href="crmclass/list.action#"><i class="fa fa-gear fa-fw"></i> 系统设置</a></li>
+                    <li><a href="/admin/developing"><i class="fa fa-user fa-fw"></i>
+                        管理员：${admin.adminName}</a>
+                    </li>
+                    <li><a href="/admin/developing"><i class="fa fa-gear fa-fw"></i> 系统设置</a></li>
                     <li class="divider"></li>
                     <li>
-                        <a href="${path}/static/admin/logout">
+                        <a href="${path}/admin/logout">
                             <i class="fa fa-sign-out fa-fw"></i>退出登录
                         </a>
                     </li>
@@ -70,7 +73,7 @@
                 <div id="collapseListGroup3" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="collapseListGroupHeading3">
                     <ul class="list-group">
                         <li class="list-group-item my_font">
-                            <a href="${path}/admin/users">
+                            <a href="${path}/admin/user">
                                 <i class="fa fa-flash fa-fw"></i> 用户信息
                             </a>
                         </li>
@@ -149,9 +152,10 @@
                     <table class="table table-bordered table-striped" id="adopt_table">
                         <thead>
                         <tr>
-                            <th>
+                            <%--复选框，因为没有做相关功能，就弃用了--%>
+                           <%-- <th>
                                 <input type="checkbox" id="check_all"/>
-                            </th>
+                            </th>--%>
                             <th>编号</th>
                             <th>用户名称</th>
                             <th>宠物名字</th>
@@ -182,7 +186,26 @@
     </div>
     <!-- 用户查询  end-->
 </div>
-
+<%--登录失效，跳转至登录--%>
+<div class="modal fade" id="notlogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabe">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title">登录失效</h4>
+            </div>
+            <div class="modal-body">
+                <p>请先
+                    <a href="/admin/login">登录</a>！</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- 引入js文件 -->
 <!-- jQuery -->
 <!-- jQuery -->
@@ -193,9 +216,9 @@
 <!-- 编写js代码 -->
 <script type="text/javascript">
 
-    //总的数据 当前的页面
-
+    //总的数据 当前的页面  页面容量  当前页码
     var totalRecord,currentPage,currentSize,currentPageSize;
+    var currentAdminId = $("#currentAdminId").val();
 
     $(function(){
         to_page(1);
@@ -225,7 +248,7 @@
         //index：下标 user：单个对象
         var adopts=result.extend.pageInfo.list;
         $.each(adopts,function(index,adopt){
-            var checkBoxTd = $("<td><input type='checkbox' class='check_item'/></td>");
+            /*var checkBoxTd = $("<td><input type='checkbox' class='check_item'/></td>");*/
             var adoptIdTd = $("<td></td>").append(adopt.id);
             var userNameTd = $("<td></td>").append(adopt.user.userName);
             var petNameTd = $("<td></td>").append(adopt.pet.petName);
@@ -243,7 +266,7 @@
             var btnTd = $("<td></td>").append(editBtn).append(" ").append(delBtn);
             //var delBtn =
             //append方法执行完成以后还是返回原来的元素
-            $("<tr></tr>").append(checkBoxTd)
+            $("<tr></tr>")/*.append(checkBoxTd)*/
                 .append(adoptIdTd)
                 .append(userNameTd)
                 .append(petNameTd)
@@ -324,41 +347,51 @@
     }
 
     $(document).on("click",".agree_btn",function(){
-        var id=$(this).attr("agree-id");
-        if(confirm("确认同意吗？")){
-            $.ajax({
-                url:"${path}/adopt/agree?id="+id,
-                type:"GET",
-                success:function (result) {
-                    alert("审核成功");
-                    to_page(currentPage);
-                },
-                error:function (result) {
-                    alert("审核失败");
-                    to_page(currentPage);
-                }
+        if (currentAdminId == 0){
+            $("#notlogin").modal({
+                backdrop:"static"
             })
+        }else{
+            var id=$(this).attr("agree-id");
+            if(confirm("确认同意吗？")){
+                $.ajax({
+                    url:"${path}/adopt/agree?id="+id,
+                    type:"GET",
+                    success:function (result) {
+                        alert("审核成功");
+                        to_page(currentPage);
+                    },
+                    error:function (result) {
+                        alert("审核失败");
+                        to_page(currentPage);
+                    }
+                })
+            }
         }
-
     });
     $(document).on("click",".disagree_btn",function(){
-        var id=$(this).attr("disagree-id");
-        console.log(id);
-        if(confirm("确认不同意吗？")){
-            $.ajax({
-                url:"${path}/adopt/disAgree?id="+id,
-                type:"GET",
-                success:function (result) {
-                    alert("审核成功");
-                    to_page(currentPage);
-                },
-                error:function (result) {
-                    alert("审核失败");
-                    to_page(currentPage);
-                }
+        if (currentAdminId == 0){
+            $("#notlogin").modal({
+                backdrop:"static"
             })
+        }else{
+            var id=$(this).attr("disagree-id");
+            console.log(id);
+            if(confirm("确认不同意吗？")){
+                $.ajax({
+                    url:"${path}/adopt/disAgree?id="+id,
+                    type:"GET",
+                    success:function (result) {
+                        alert("审核成功");
+                        to_page(currentPage);
+                    },
+                    error:function (result) {
+                        alert("审核失败");
+                        to_page(currentPage);
+                    }
+                })
+            }
         }
-
     })
 
 

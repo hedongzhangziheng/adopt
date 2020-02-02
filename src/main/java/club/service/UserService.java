@@ -14,11 +14,10 @@ public interface UserService {
     //登录
     User loginuser(String userName,String password);
     //注册
-    int addUser(User user);
+    int add(User user);
     //修改
     Integer update(User user);
     User findById(Integer id);
     PageInfo<User> allUser(String userName, Integer pageNum, Integer pageSize);
-    int add(User user);
     int del(Integer id);
 }

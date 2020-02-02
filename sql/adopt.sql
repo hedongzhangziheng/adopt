@@ -24,8 +24,8 @@ DROP TABLE IF EXISTS `admins`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `admins` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `adminsName` varchar(20) NOT NULL COMMENT '管理员的名字',
-  `adminsPwd` varchar(20) NOT NULL COMMENT '密码',
+  `adminName` varchar(20) NOT NULL COMMENT '管理员的名字',
+  `adminPwd` varchar(20) NOT NULL COMMENT '密码',
   `realName` varchar(20) NOT NULL COMMENT '真实的名字',
   `telephone` varchar(20) NOT NULL COMMENT '电话',
   `Email` varchar(20) NOT NULL,

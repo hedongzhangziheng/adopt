@@ -9,14 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.web.multipart.MultipartFile;
-
-import javax.annotation.Resource;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import javax.annotation.Resource;
 
 @Controller
 @RequestMapping("/user")
@@ -26,19 +20,18 @@ public class UserController {
 
     @RequestMapping("/create")
     @ResponseBody
-    public Message addUser(HttpSession session,User user){
-        int i = userService.addUser(user);
-        if (i > 0){
+    public Message add(User user){
+        int add = userService.add(user);
+        if(add>0){
             return Message.success();
+        }else{
+            return Message.fail();
         }
-        return  Message.fail();
     }
 
     @RequestMapping("/login")
     @ResponseBody
     public Message loginuser(HttpSession session, String userName, String password){
-      /*  System.out.println(userName);
-        System.out.println(password);*/
         User user = userService.loginuser(userName, password);
         if (user != null){
             session.setAttribute("user",user);
@@ -57,21 +50,9 @@ public class UserController {
     @RequestMapping("/users")
     @ResponseBody
     public Message users(@RequestParam(required = false) String userName, @RequestParam("pn")Integer pageNum){
-        Integer pageSize = 5;
+        Integer pageSize = 4;
         PageInfo<User> users = userService.allUser(userName,pageNum,pageSize);
-        System.out.println(users.getList());
         return Message.success().add("pageInfo",users);
-    }
-
-    @RequestMapping("/create")
-    @ResponseBody
-    public Message add(User user){
-        int add = userService.add(user);
-        if(add>0){
-            return Message.success();
-        }else{
-            return Message.fail();
-        }
     }
 
     @RequestMapping("findById")
@@ -135,7 +116,6 @@ public class UserController {
     @RequestMapping("/update")
     @ResponseBody
     public Message update(User user){
-        System.out.println(user);
         Integer update = userService.update(user);
         if(update > 0){
             return Message.success();

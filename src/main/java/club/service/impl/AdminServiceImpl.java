@@ -31,16 +31,16 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public Admins login(String adminName, String adminPwd) {
         Admins a = new Admins();
-        a.setAdminsName(adminName);
+        a.setAdminName(adminName);
         Admins admin = adminMapper.selectOne(a);
-        if (admin != null && admin.getAdminsPwd().equals(adminPwd)){
+        if (admin != null && admin.getAdminPwd().equals(adminPwd)){
             return admin;
         }
         return null;
     }
 
     @Override
-    public PageInfo<Admins> allAdmin(String adminsName, int pageNum, int pageSize) {
+    public PageInfo<Admins> allAdmin(String adminName, int pageNum, int pageSize) {
         return null;
     }
 

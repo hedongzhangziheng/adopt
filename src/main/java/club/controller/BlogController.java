@@ -56,14 +56,6 @@ public class BlogController {
         }
     }
 
-    @RequestMapping("/blogs")
-    @ResponseBody
-    public Message blogs(Integer pn){
-        Integer pageSize = 3;
-        PageInfo<Blog> pageInfo = blogService.blogs(pn, pageSize);
-        return Message.success().add("pageInfo", pageInfo);
-    }
-
     @RequestMapping("/findById")
     @ResponseBody
     public Message findById(Integer id){

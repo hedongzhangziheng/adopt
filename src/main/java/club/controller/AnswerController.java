@@ -3,7 +3,6 @@ package club.controller;
 import club.pojo.Answer;
 import club.pojo.User;
 import club.service.AnswerService;
-import club.service.UserService;
 import club.util.Message;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,16 +18,6 @@ public class AnswerController {
 
     @Resource
     private AnswerService answerService;
-
-    @Resource
-    private UserService userService;
-
-    @RequestMapping("/findByCommentId")
-    @ResponseBody
-    public Message findByCommentId(Integer commentId){
-        List<Answer> answers = answerService.answersAboutOneComment(commentId);
-        return Message.success().add("answer", answers);
-    }
 
     @RequestMapping("/create")
     @ResponseBody

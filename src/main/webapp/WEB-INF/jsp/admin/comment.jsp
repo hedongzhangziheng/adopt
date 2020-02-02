@@ -59,15 +59,18 @@
             <!-- 消息通知 end -->
             <!-- 用户信息和系统设置 start -->
             <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="crmclass/list.action#">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="/admin/developing">
                     <i class="fa fa-user fa-fw"></i>
                     <i class="fa fa-caret-down"></i>
                 </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li><a href="crmclass/list.action#"><i class="fa fa-user fa-fw"></i>
-                        用户：</a>
+                <ul class="dropdown-menu dropdown-user ">
+                    <li>
+                        <input type="hidden" id = "currentAdminId" value="${admin.id}">
                     </li>
-                    <li><a href="crmclass/list.action#"><i class="fa fa-gear fa-fw"></i> 系统设置</a></li>
+                    <li><a href="/admin/developing"><i class="fa fa-user fa-fw"></i>
+                        管理员：${admin.adminName}</a>
+                    </li>
+                    <li><a href="/admin/developing"><i class="fa fa-gear fa-fw"></i> 系统设置</a></li>
                     <li class="divider"></li>
                     <li>
                         <a href="${path}/admin/logout">
@@ -89,7 +92,7 @@
                 <div id="collapseListGroup3" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="collapseListGroupHeading3">
                     <ul class="list-group">
                         <li class="list-group-item my_font">
-                            <a href="${path}/admin/users">
+                            <a href="${path}/admin/user">
                                 <i class="fa fa-flash fa-fw"></i> 用户信息
                             </a>
                         </li>
@@ -167,9 +170,10 @@
                     <table class="table table-bordered table-striped" id="comment_table">
                         <thead>
                         <tr>
-                            <th>
+                            <%--复选框，因为没有做相关功能，就弃用了--%>
+                            <%--<th>
                                 <input type="checkbox" id="check_all"/>
-                            </th>
+                            </th>--%>
                             <th>评论编号</th>
                             <th>评论人</th>
                             <th>评论动物</th>
@@ -239,6 +243,26 @@
         </div>
     </div>
 </div>
+<%--登录失效，跳转至登录--%>
+<div class="modal fade" id="notlogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabe">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title">登录失效</h4>
+            </div>
+            <div class="modal-body">
+                <p>请先
+                    <a href="/admin/login">登录</a>！</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- 引入js文件 -->
 <!-- jQuery -->
 <script src="${path}/static/js/jquery-3.4.1.min.js"></script>
@@ -254,7 +278,9 @@
 <!-- 编写js代码 -->
 <script type="text/javascript">
 
+    //总的数据 当前的页面  页面容量  当前页码
     var totalRecord,currentPage,currentSize,currentPageSize;
+    var currentAdminId = $("#currentAdminId").val();
 
     $(function(){
         to_page(1);
@@ -284,14 +310,14 @@
         //index：下标 user：单个对象
         var comments=result.extend.pageInfo.list;
         $.each(comments,function(index,comment){
-            var checkBoxTd = $("<td><input type='checkbox' class='check_item'/></td>");
+            /*var checkBoxTd = $("<td><input type='checkbox' class='check_item'/></td>");*/
             var commentIdTd = $("<td></td>").append(comment.id);
             console.log(comment);
             var nameTd;
             if(comment.user.userName!=null){
                 nameTd=$("<td></td>").append(comment.user.userName);
             }else{
-                nameTd=$("<td></td>").append(comment.admins.adminName);
+                nameTd=$("<td></td>").append(comment.admin.adminName);
             }
             var petNameTd = $("<td></td>").append(comment.pet.petName);
             var contentTd=$("<td></td>").append(comment.content);
@@ -308,7 +334,7 @@
             var btnTd = $("<td></td>").append(editBtn).append(" ").append(delBtn);
             //var delBtn =
             //append方法执行完成以后还是返回原来的元素
-            $("<tr></tr>").append(checkBoxTd)
+            $("<tr></tr>")/*.append(checkBoxTd)*/
                 .append(commentIdTd)
                 .append(nameTd)
                 .append(petNameTd)
@@ -399,70 +425,88 @@
 
     //点击编辑按钮弹出模态框。
     $(document).on("click",".edit_btn",function(){
-        //1、发送ajax,根据id获取用户信息
-        //清除表单数据（表单完整重置（表单的数据，表单的样式））
         reset_form("#editComment form");
-        var id = $(this).attr("edit-id");
-        $.ajax({
-            url:"${path}/comment/findById?id="+id,
-            type:"GET",
-            success:function(result){
-                //填充用户信息
-                $("#edit_id").val(result.extend.comment.id);
-                $("#edit_commentTime").val(result.extend.comment.commentTime);
-                $("#edit_content").val(result.extend.comment.content);
-            }});
-        //2、弹出模态框
-        $("#editComment").modal({
-            backdrop:"static"
-        });
-
+        if (currentAdminId == 0){
+            $("#notlogin").modal({
+                backdrop:"static"
+            })
+        }else{
+            //1、发送ajax,根据id获取用户信息
+            //清除表单数据（表单完整重置（表单的数据，表单的样式））
+            var id = $(this).attr("edit-id");
+            $.ajax({
+                url:"${path}/comment/findById?id="+id,
+                type:"GET",
+                success:function(result){
+                    //填充用户信息
+                    $("#edit_id").val(result.extend.comment.id);
+                    $("#edit_commentTime").val(result.extend.comment.commentTime);
+                    $("#edit_content").val(result.extend.comment.content);
+                }});
+            //2、弹出模态框
+            $("#editComment").modal({
+                backdrop:"static"
+            });
+        }
     });
 
     //点击更新按钮弹出模态框。
     $("#comment_update_btn").click(function(){
-        console.log($("#edit_comment_form").serialize());
-        $.ajax({
-            url:"${path}/comment/update",
-            type:"POST",
-            data:$("#edit_comment_form").serialize(),
-            success:function (result) {
-                alert("评论更新成功！");
-                to_page(currentPage);
-            },
-            error:function(result){
-                alert("评论更新失败！");
-                to_page(currentPage);
-            }
-        });
-
+        var time = $("#edit_commentTime").val();
+        var content = $("#edit_content").val();
+        if (time == ""){
+            alert("时间不能为空！");
+        }else if (content == ""){
+            alert("内容不能为空！");
+        }else {
+            console.log($("#edit_comment_form").serialize());
+            $.ajax({
+                url:"${path}/comment/update",
+                type:"POST",
+                data:$("#edit_comment_form").serialize(),
+                success:function (result) {
+                    alert("评论更新成功！");
+                    to_page(currentPage);
+                },
+                error:function(result){
+                    alert("评论更新失败！");
+                    to_page(currentPage);
+                }
+            });
+        }
     });
 
     //单个删除
     $(document).on("click",".delete_btn",function(){
-        //1、弹出是否确认删除对话框
-        var content = $(this).parents("tr").find("td:eq(2)").text();
-        var commentId = $(this).attr("del-id");
+        if (currentAdminId == 0){
+            $("#notlogin").modal({
+                backdrop:"static"
+            })
+        }else {
+            //1、弹出是否确认删除对话框
+            var content = $(this).parents("tr").find("td:eq(2)").text();
+            var commentId = $(this).attr("del-id");
 
-        if(confirm("确认删除【"+content+"】吗？")){
-            //确认，发送ajax请求删除即可
-            $.ajax({
-                url:"${path}/comment/delete?id="+commentId,
-                type:"GET",
-                success:function (result) {
-                    if(result.code==100){
-                        alert("评论删除成功！");
-                        if(currentSize==1){
-                            to_page(currentPage-1);
-                        } else {
+            if(confirm("确认删除【"+content+"】吗？")){
+                //确认，发送ajax请求删除即可
+                $.ajax({
+                    url:"${path}/comment/delete?id="+commentId,
+                    type:"GET",
+                    success:function (result) {
+                        if(result.code==100){
+                            alert("评论删除成功！");
+                            if(currentSize==1){
+                                to_page(currentPage-1);
+                            } else {
+                                to_page(currentPage);
+                            }
+                        }else{
+                            alert("评论删除失败！");
                             to_page(currentPage);
                         }
-                    }else{
-                        alert("评论删除失败！");
-                        to_page(currentPage);
                     }
-                }
-            });
+                });
+            }
         }
     });
 
@@ -470,7 +514,7 @@
         $("#comment_table tbody").empty();
         var userName=$("#findByName").val();
         $.ajax({
-            url:"${path}/comment/comments?userName="+userName,
+            url:"${path}/comment/comments?userName="+userName+"&pn="+1,
             type:"Get",
             async:"true",
             success:function (result) {

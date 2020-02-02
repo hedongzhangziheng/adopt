@@ -17,19 +17,6 @@ import javax.servlet.http.HttpSession;
 public class AdminController {
     @Resource
     private AdminService adminService;
-    @Resource
-    private UserService userService;
-
-    @RequestMapping("/admins")
-    @ResponseBody
-    public Message admin(@RequestParam(value = "adminName",required = false) String adminsName, @RequestParam("pn")Integer pageNum){
-        Integer pageSize = 3;
-        if(pageNum==null){
-            pageNum = 1;
-        }
-        PageInfo<Admins> admins = adminService.allAdmin(adminsName,pageNum,pageSize);
-        return Message.success().add("pageInfo",admins);
-    }
 
     @RequestMapping("/create")
     @ResponseBody
@@ -74,13 +61,20 @@ public class AdminController {
     @RequestMapping("/admins")
     @ResponseBody
     public Message admins(@RequestParam(required = false) String adminName,@RequestParam("pn") Integer pageNum){
-        Integer pageSize = 5;
+        Integer pageSize = 4;
         if(pageNum == null){
             pageNum = 1;
         }
         PageInfo<Admins> list = adminService.adminPage(adminName, pageNum, pageSize);
         return Message.success().add("pageInfo",list);
     }
+
+    @RequestMapping("/admin")
+    public String admin(){
+        return "admin/admin";
+    }
+
+    @RequestMapping("/adopt")
     public String adopt(){
         return "admin/adopt";
     }
@@ -125,6 +119,7 @@ public class AdminController {
     public String login(){
         return "admin/login";
     }
+
     @RequestMapping("/dologin")
     public String doLogin(HttpSession session, String adminName,String adminPwd){
         Admins login = adminService.login(adminName, adminPwd);
@@ -133,11 +128,18 @@ public class AdminController {
             return "redirect:/admin/login";
         }
             session.setAttribute("admin",login);
-        return "admin/admin";
+        return "redirect:/admin/admin";
     }
+
     @RequestMapping("/logout")
     public String logout(HttpSession session){
         session.invalidate();
         return "admin/login";
     }
+
+    @RequestMapping("/developing")
+    public String developing(){
+        return "admin/developing";
+    }
+
 }

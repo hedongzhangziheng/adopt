@@ -20,7 +20,7 @@ public class User {
     private String Email;
     private String address;
     private String pic;
-    private Integer state=0;
+    private Integer state;
     @TableField(exist = false)
     List<Comment> commentList;
     @TableField(exist = false)

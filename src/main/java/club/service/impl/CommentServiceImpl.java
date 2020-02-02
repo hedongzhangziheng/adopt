@@ -74,7 +74,9 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public List<Comment> petComments(Integer petId) {
         EntityWrapper wrapper = new EntityWrapper();
-        if (petId != null) wrapper.eq("petId", petId);
+        if (petId != null) {
+            wrapper.eq("petId", petId);
+        }
         List<Comment> comments = commentMapper.selectList(wrapper);
         for (Comment comment : comments){
             User user = userService.findById(comment.getUserId());

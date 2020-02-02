@@ -2,6 +2,7 @@ package club.service.impl;
 
 import club.dao.AnswerMapper;
 import club.dao.CommentMapper;
+import club.dao.UserMapper;
 import club.pojo.Answer;
 import club.pojo.Comment;
 import club.pojo.User;
@@ -26,20 +27,22 @@ public class AnswerServiceImpl implements AnswerService {
     private CommentMapper commentMapper;
 
     @Resource
-    private UserService userService;
+    private UserMapper userMapper;
 
     @Override
     public List<Answer> answersAboutOneComment(Integer commentId) {
         EntityWrapper wrapper = new EntityWrapper();
-        if (commentId != null) wrapper.eq("commentId", commentId);
+        if (commentId != null) {
+            wrapper.eq("commentId", commentId);
+        }
         List<Answer> list = answerMapper.selectList(wrapper);
         if (!list.isEmpty()) {
             for (Answer answer : list) {
-                User user = userService.findById(answer.getUserId());
+                User user = userMapper.selectById(answer.getUserId());
                 answer.setUser(user);
                 if (answer.getReplayId() != null) {
-                    Answer answer1 = findById(answer.getReplayId());
-                    User u = userService.findById(answer1.getUserId());
+                    Answer answer1 = answerMapper.selectById(answer.getReplayId());
+                    User u = userMapper.selectById(answer1.getUserId());
                     answer1.setUser(u);
                     answer.setAnswer(answer1);
                 }

@@ -13,8 +13,8 @@ import java.util.Date;
 @Data
 public class Admins {
     private Integer id;
-    private String adminsName;
-    private String adminsPwd;
+    private String adminName;
+    private String adminPwd;
     private String realName;
     private String telephone;
     private String email;

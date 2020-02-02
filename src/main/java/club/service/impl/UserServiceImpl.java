@@ -52,16 +52,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int addUser(User user) {
-        return userMapper.addUser(user);
-    }
-
-    @Override
-    public User loginuser(String userName,String password) {
+    public User loginuser(String userName, String password) {
         User user = new User();
         user.setUserName(userName);
         User user1 = userMapper.selectOne(user);
-        System.out.println(user1);
         if (user1 != null && user1.getPassword().equals(password)) {
             return user1;
         }
