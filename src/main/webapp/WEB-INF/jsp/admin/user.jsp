@@ -658,7 +658,7 @@
             })
         }else{
             //1、弹出是否确认删除对话框
-            var userName = $(this).parents("tr").find("td:eq(2)").text();
+            var userName = $(this).parents("tr").find("td:eq(1)").text();
             var userId = $(this).attr("del-id");
 
             if(confirm("确认删除【"+userName+"】吗？")){

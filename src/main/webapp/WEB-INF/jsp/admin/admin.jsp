@@ -687,7 +687,7 @@
             if(confirm("确认删除【"+adminName+"】吗？")){
                 //确认，发送ajax请求删除即可
                 $.ajax({
-                    url:"${path}/static/admin/delete.action?id="+adminId,
+                    url:"${path}/admin/delete?id="+adminId,
                     type:"GET",
                     success:function (result) {
                         if(result.code==100){

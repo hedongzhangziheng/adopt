@@ -484,7 +484,7 @@
             })
         }else {
             //1、弹出是否确认删除对话框
-            var content = $(this).parents("tr").find("td:eq(2)").text();
+            var content = $(this).parents("tr").find("td:eq(1)").text();
             var commentId = $(this).attr("del-id");
 
             if(confirm("确认删除【"+content+"】吗？")){
