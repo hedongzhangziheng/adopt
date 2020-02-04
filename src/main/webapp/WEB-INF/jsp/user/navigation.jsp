@@ -304,11 +304,16 @@
             type: "POST",
             data: $("#user_login_form").serialize(),
             success: function (result) {
-                alert("登录成功");
+                var code = result.code;
+                if (code == 100){
+                    alert("登录成功！");
+                }else {
+                    alert("用户名或密码错误！");
+                }
                 window.location.reload();
             },
             error: function (result) {
-                alert("登录失败");
+                alert("登录失败！");
             }
         });
     });
