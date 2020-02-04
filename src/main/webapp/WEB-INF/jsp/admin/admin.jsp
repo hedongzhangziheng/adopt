@@ -671,7 +671,7 @@
                     $("#edit_sex").val(result.extend.admin.sex);
                     $("#edit_telephone").val(result.extend.admin.telephone);
                     $("#edit_Email").val(result.extend.admin.email);
-                    $("#edit_pic").attr("src","/images/"+result.extend.admin.pic);
+                    $("#edit_pic").attr("src","/static/images/admin/"+result.extend.admin.pic);
                     $("#edit_birthday").val(result.extend.admin.birthday);
                     $("#edit_remark").val(result.extend.admin.remark);
                 }});

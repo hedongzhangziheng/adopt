@@ -58,7 +58,7 @@ public class PetController {
     @RequestMapping("/update")
     @ResponseBody
     public Message update(Pet pet, MultipartFile file){
-        if (file != null){
+        if (file != null && file.getSize() > 0){
             String pic = FileLoad.uploadPetPic(file);
             pet.setPic(pic);
         }
