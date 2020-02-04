@@ -46,6 +46,7 @@
     </bean>
 
     <!--拦截器-->
+    <!--没写拦截器，这部分内容忽略-->
     <!--<mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
@@ -69,13 +70,13 @@
     </mvc:interceptors>-->
 
     <!--异常处理-->
-    <!--<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
         <property name="exceptionMappings">
             <props>
                 <prop key="java.lang.Exception">user/error</prop>
             </props>
         </property>
-    </bean>-->
+    </bean>
 
     <!--文件上传设置-->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
