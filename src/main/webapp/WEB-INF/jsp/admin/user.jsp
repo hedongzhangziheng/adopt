@@ -269,7 +269,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal" id="user_saveDown-btn">关闭</button>
-                <button type="button" class="btn btn-primary" id="user_save_btn">创建用户</button>
+                <button type="button" class="btn btn-primary" id="user_save_btn">创建</button>
             </div>
         </div>
     </div>

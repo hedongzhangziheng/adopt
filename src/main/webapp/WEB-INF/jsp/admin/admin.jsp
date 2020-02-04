@@ -266,11 +266,20 @@
                             <textarea class="form-control" id="new_remark" placeholder="个人介绍" name="remark"></textarea>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label for="new_pic" class="col-sm-2 control-label">
+                            头像
+                        </label>
+                        <div class="col-sm-4">
+                            <img src="" id="new_pic" alt="" width="70px" height="100px">
+                            <input type="file" id="pic" class="form-control" value="上传文件" name="file">
+                        </div>
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal" id="admin_saveDown_btn">关闭</button>
-                <button type="button" class="btn btn-primary" id="admin_save_btn">创建用户</button>
+                <button type="button" class="btn btn-primary" id="admin_save_btn">创建</button>
             </div>
         </div>
     </div>
@@ -588,24 +597,54 @@
     });
     //点击保存，保存员工。
     $("#admin_save_btn").click(function(){
-        //2、发送ajax请求保存员工
-        $.ajax({
-            url:"${path}/admin/create",
-            type:"POST",
-            data:$("#newAdmin form").serialize(),
-            success:function (result) {
-                alert("管理员创建成功");
-                $("#admin_saveDown_btn").click();
-                if(currentSize=currentPageSize){
-                    to_page(currentPages+1);
-                } else {
-                    to_page(currentPages);
+        var name = $("#new_adminName").val();
+        var password = $("#new_password").val();
+        var realName = $("#new_Name").val();
+        var telephone = $("#new_telephone").val();
+        var email = $("#new_Email").val();
+        var birthday = $("#new_birthday").val();
+        var pic = $("#pic").val();
+        var remark = $("#new_remark").val();
+        if (name == ""){
+            alert("账号不能为空！");
+        }else if (password == ""){
+            alert("密码不能为空！");
+        }else if (realName == ""){
+            alert("真实姓名不能为空！");
+        }else if (telephone == ""){
+            alert("电话不能为空！");
+        }else if (email == ""){
+            alert("邮箱不能为空！");
+        }else if (birthday == ""){
+            alert("生日不能为空！");
+        }else if (pic == ""){
+            alert("请上传一张照片作为头像！");
+        }else if (remark == ""){
+            alert("个人介绍不能为空！");
+        }else {
+            var admin = document.getElementById("new_admin_form");
+            var admins = new FormData(admin);
+            //2、发送ajax请求保存
+            $.ajax({
+                url:"${path}/admin/create",
+                type:"POST",
+                processData: false,  // 告诉jQuery不要去处理发送的数据
+                contentType: false, // 告诉jQuery不要去设置Content-Type请求头
+                data:admins,
+                success:function (result) {
+                    alert("管理员创建成功");
+                    $("#admin_saveDown_btn").click();
+                    if(currentSize=currentPageSize){
+                        to_page(currentPages+1);
+                    } else {
+                        to_page(currentPages);
+                    }
+                },
+                error:function (result) {
+                    alert("管理员创建失败");
                 }
-            },
-            error:function (result) {
-                alert("管理员创建失败");
-            }
-        });
+            });
+        }
     });
 
     //点击编辑按钮弹出模态框。
@@ -649,25 +688,47 @@
 
     //点击更新按钮弹出模态框。
     $("#admin_update_btn").click(function(){
-        var admin=document.getElementById("edit_admin_form");
-        var adminInfo=new FormData(admin);
-        $.ajax({
-            url:"${path}/admin/update",
-            type:"POST",
-            processData: false,  // 告诉jQuery不要去处理发送的数据
-            contentType: false, // 告诉jQuery不要去设置Content-Type请求头
-            data:adminInfo,
-            success:function (result) {
-                alert("管理员信息更新成功！");
-                $("#admin_updateDown_btn").click();
-                to_page(currentPage);
-            },
-            error:function(result){
-                alert("管理员信息更新失败！");
-                to_page(currentPage);
-            }
-        });
-
+        var name = $("#edit_adminName").val();
+        var password = $("#edit_password").val();
+        var realName = $("#edit_Name").val();
+        var telephone = $("#edit_telephone").val();
+        var email = $("#edit_email").val();
+        var birthday = $("#edit_birthday").val();
+        var remark = $("#edit_remark").val();
+        if (name == ""){
+            alert("账号不能为空！");
+        }else if (password == ""){
+            alert("密码不能为空！");
+        }else if (realName == ""){
+            alert("真实姓名不能为空！");
+        }else if (telephone == ""){
+            alert("电话不能为空！");
+        }else if (email == ""){
+            alert("邮箱不能为空！");
+        }else if (birthday == ""){
+            alert("生日不能为空！");
+        }else if (remark == ""){
+            alert("个人介绍不能为空！");
+        }else {
+            var admin=document.getElementById("edit_admin_form");
+            var adminInfo=new FormData(admin);
+            $.ajax({
+                url:"${path}/admin/update",
+                type:"POST",
+                processData: false,  // 告诉jQuery不要去处理发送的数据
+                contentType: false, // 告诉jQuery不要去设置Content-Type请求头
+                data:adminInfo,
+                success:function (result) {
+                    alert("管理员信息更新成功！");
+                    $("#admin_updateDown_btn").click();
+                    to_page(currentPage);
+                },
+                error:function(result){
+                    alert("管理员信息更新失败！");
+                    to_page(currentPage);
+                }
+            });
+        }
     });
 
     //单个删除

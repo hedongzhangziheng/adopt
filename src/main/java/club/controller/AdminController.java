@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -20,7 +21,9 @@ public class AdminController {
 
     @RequestMapping("/create")
     @ResponseBody
-    public Message add(Admins admins){
+    public Message add(Admins admins, MultipartFile file){
+        String pic = FileLoad.uploadAdminPic(file);
+        admins.setPic(pic);
         int add = adminService.add(admins);
         if(add>0){
             return Message.success();
@@ -38,7 +41,11 @@ public class AdminController {
 
     @RequestMapping("/update")
     @ResponseBody
-    public Message update(Admins admins){
+    public Message update(Admins admins, MultipartFile file){
+        if (file != null){
+            String pic = FileLoad.uploadAdminPic(file);
+            admins.setPic(pic);
+        }
         int update = adminService.update(admins);
         if(update>0){
             return  Message.success();

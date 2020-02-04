@@ -126,8 +126,15 @@ public class UserController {
 
     @RequestMapping("/updatePic")
     @ResponseBody
-    public Message updatePic(MultipartFile file){
-        String fileName = FileLoad.load(file);
-        return Message.success();
+    public Message updatePic(HttpSession session, MultipartFile file){
+        String fileName = FileLoad.uploadUserPic(file);
+        User user = (User) session.getAttribute("user");
+        user.setPic(fileName);
+        Integer update = userService.update(user);
+        if (update > 0){
+            return Message.success();
+        }else {
+            return Message.fail();
+        }
     }
 }

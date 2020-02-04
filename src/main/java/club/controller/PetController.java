@@ -44,7 +44,7 @@ public class PetController {
     @RequestMapping("/create")
     @ResponseBody
     public Message add(Pet pet, MultipartFile file){
-        String pic = FileLoad.load(file);
+        String pic = FileLoad.uploadPetPic(file);
         pet.setPic(pic);
         int add = petService.add(pet);
         if(add>0){
@@ -57,7 +57,11 @@ public class PetController {
 
     @RequestMapping("/update")
     @ResponseBody
-    public Message update(Pet pet){
+    public Message update(Pet pet, MultipartFile file){
+        if (file != null){
+            String pic = FileLoad.uploadPetPic(file);
+            pet.setPic(pic);
+        }
         int update = petService.update(pet);
         if(update>0){
            return Message.success();

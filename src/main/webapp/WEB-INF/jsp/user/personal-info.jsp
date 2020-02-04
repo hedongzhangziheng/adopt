@@ -174,11 +174,11 @@
                 processData: false, // 使数据不做处理
                 contentType: false, // 不要设置Content-Type请求头
                 success: function (result) {
-                    alert("修改成功");
+                    alert("头像修改成功");
                     window.location.reload();
                 },
                 error: function (result) {
-                    alert("修改失败");
+                    alert("头像修改失败");
                 }
             });
         });
