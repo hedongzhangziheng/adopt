@@ -54,9 +54,6 @@ public class CommentServiceImpl implements CommentService {
         }
         PageHelper.startPage(pn,pageSize);
         EntityWrapper wrapper = new EntityWrapper();
-        if(userName != null && !userName.equals("")){
-            wrapper.like("userName",userName);
-        }
         if (users != null){
             wrapper.in("userId", userIds);
         }
