@@ -9,9 +9,5 @@
         <module name="adopt" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="TwentiethWeek2" target="12" />
-      <module name="Twenty-firstWeek1" target="12" />
-    </bytecodeTargetLevel>
   </component>
 </project>
