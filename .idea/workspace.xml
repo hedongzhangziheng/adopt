@@ -131,11 +131,6 @@
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
             </expand>
             <select />
           </treeState>
@@ -165,6 +160,7 @@
       <workItem from="1581068639316" duration="81000" />
       <workItem from="1581068797869" duration="1431000" />
       <workItem from="1581078537967" duration="1177000" />
+      <workItem from="1581240757234" duration="86000" />
     </task>
     <task id="LOCAL-00002" summary="little modify">
       <created>1581069030960</created>
@@ -180,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581079317332</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="little modify">
+      <created>1581240817998</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1581240817998</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,10 +198,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="137" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1581067714560" />
-    <state x="295" y="0" key="CommitChangelistDialog2" timestamp="1581079313488">
+    <state x="295" y="0" key="CommitChangelistDialog2" timestamp="1581240813449">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="295" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1581079313488" />
+    <state x="295" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1581240813449" />
     <state x="440" y="113" key="FileChooserDialogImpl" timestamp="1581079223275">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -255,9 +258,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1581079225140" />
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1581079322565">
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1581240826548">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1581079322565" />
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1581240826548" />
   </component>
 </project>
